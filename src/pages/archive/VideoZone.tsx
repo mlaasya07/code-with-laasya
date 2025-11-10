@@ -87,7 +87,7 @@ const VideoZone = () => {
       videos: [
         {
           id: 3,
-          title: "Building a Heartbreak Calculator",
+          title: "Building a Heartbreak Calculator [COMING SOON]",
           thumbnail: "https://images.unsplash.com/photo-1494548162494-384bba4ab999?w=800&h=450&fit=crop",
           duration: "5:20",
           tags: ["React", "Emotions"],
@@ -95,7 +95,7 @@ const VideoZone = () => {
       ],
     },
     {
-      title: "Random Chaos",
+      title: "Random Chaos [C0MING SOON]",
       description: "Funny experiments and coding shenanigans",
       videos: [
         {
