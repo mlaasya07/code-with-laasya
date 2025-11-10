@@ -1,0 +1,82 @@
+[
+  {
+    "id": "project-1",
+    "title": "Personal Portfolio Website",
+    "category": "Frontend",
+    "difficulty": "Beginner",
+    "description": "Create your own portfolio website with HTML, CSS, and JavaScript",
+    "technologies": ["HTML", "CSS", "JavaScript"],
+    "estimatedTime": "4-6 hours",
+    "xp": 50
+  },
+  {
+    "id": "project-2",
+    "title": "Todo List App",
+    "category": "Frontend",
+    "difficulty": "Beginner",
+    "description": "Build a todo list with add, delete, and complete functionality",
+    "technologies": ["React", "CSS", "localStorage"],
+    "estimatedTime": "3-4 hours",
+    "xp": 40
+  },
+  {
+    "id": "project-3",
+    "title": "Weather Dashboard",
+    "category": "Frontend",
+    "difficulty": "Intermediate",
+    "description": "Fetch weather data from an API and display it beautifully",
+    "technologies": ["React", "API", "CSS"],
+    "estimatedTime": "5-7 hours",
+    "xp": 60
+  },
+  {
+    "id": "project-4",
+    "title": "Calculator App",
+    "category": "Frontend",
+    "difficulty": "Beginner",
+    "description": "Build a functional calculator with all basic operations",
+    "technologies": ["JavaScript", "HTML", "CSS"],
+    "estimatedTime": "2-3 hours",
+    "xp": 35
+  },
+  {
+    "id": "project-5",
+    "title": "Blog with Comments",
+    "category": "Fullstack",
+    "difficulty": "Advanced",
+    "description": "Create a blog platform with user authentication and comments",
+    "technologies": ["React", "Node.js", "Database"],
+    "estimatedTime": "15-20 hours",
+    "xp": 100
+  },
+  {
+    "id": "project-6",
+    "title": "Python Web Scraper",
+    "category": "Backend",
+    "difficulty": "Intermediate",
+    "description": "Build a web scraper to extract data from websites",
+    "technologies": ["Python", "BeautifulSoup", "Requests"],
+    "estimatedTime": "4-5 hours",
+    "xp": 55
+  },
+  {
+    "id": "project-7",
+    "title": "Quiz App",
+    "category": "Frontend",
+    "difficulty": "Intermediate",
+    "description": "Create an interactive quiz with scoring and feedback",
+    "technologies": ["React", "TypeScript", "CSS"],
+    "estimatedTime": "6-8 hours",
+    "xp": 65
+  },
+  {
+    "id": "project-8",
+    "title": "Chat Application",
+    "category": "Fullstack",
+    "difficulty": "Advanced",
+    "description": "Real-time chat app with multiple rooms",
+    "technologies": ["React", "WebSocket", "Node.js"],
+    "estimatedTime": "12-15 hours",
+    "xp": 90
+  }
+]

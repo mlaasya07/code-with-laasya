@@ -1,0 +1,282 @@
+[
+  {
+    "id": "tip-1",
+    "title": "Console.log is Your Best Friend",
+    "category": "Debugging",
+    "preview": "When in doubt, log it out!",
+    "content": "Use console.log() strategically to track variable values, function execution, and data flow. Pro tip: Use console.table() for arrays and objects for better visualization. Also try console.group() to organize related logs, and console.time() to measure performance."
+  },
+  {
+    "id": "tip-2",
+    "title": "Read Error Messages Carefully",
+    "category": "Debugging",
+    "preview": "Errors tell you exactly what's wrong",
+    "content": "Don't panic when you see red! Error messages contain the file name, line number, and description of the problem. Start from the bottom of the stack trace and work your way up. The most recent error is usually at the top, but the root cause is often at the bottom."
+  },
+  {
+    "id": "tip-3",
+    "title": "Use Semantic HTML",
+    "category": "CSS",
+    "preview": "Write HTML that means something",
+    "content": "Use <header>, <nav>, <main>, <article>, <section>, <aside>, and <footer> instead of divs everywhere. It improves accessibility, helps screen readers understand your content, boosts SEO rankings, and makes your code more maintainable."
+  },
+  {
+    "id": "tip-4",
+    "title": "Master Flexbox Before Grid",
+    "category": "CSS",
+    "preview": "Flexbox is simpler and covers 80% of layouts",
+    "content": "Learn display: flex, justify-content, align-items, and flex-direction. Flexbox is perfect for one-dimensional layouts (rows or columns). Once you're comfortable, move on to CSS Grid for complex two-dimensional layouts. Use Flexbox Froggy game to practice!"
+  },
+  {
+    "id": "tip-5",
+    "title": "const > let > var",
+    "category": "JS",
+    "preview": "Always prefer const, use let when needed, avoid var",
+    "content": "Use const by default. It prevents accidental reassignment and makes your code more predictable. Use let only when you need to reassign (like counters in loops). Avoid var completely—it has function scope issues and hoisting quirks that cause bugs."
+  },
+  {
+    "id": "tip-6",
+    "title": "Array Methods are Powerful",
+    "category": "JS",
+    "preview": "map, filter, reduce, forEach - learn them all",
+    "content": "Master array methods: map() transforms each element, filter() selects elements based on conditions, reduce() accumulates values into a single result, forEach() iterates without returning. These are cleaner than for loops and make your code more functional and readable."
+  },
+  {
+    "id": "tip-7",
+    "title": "Components Should Do One Thing",
+    "category": "React",
+    "preview": "Single Responsibility Principle in React",
+    "content": "Each component should have one job and one reason to change. If a component is doing too much, break it into smaller, focused components. This makes testing easier, reusing simpler, and debugging faster. A good rule: if you can't name it clearly, it's probably doing too much."
+  },
+  {
+    "id": "tip-8",
+    "title": "Don't Forget the Key Prop",
+    "category": "React",
+    "preview": "Lists need unique keys",
+    "content": "When rendering lists, always add a unique key prop to each element. Use stable IDs from your data, not array indices (indices change when items reorder). Keys help React efficiently update the UI by tracking which items changed, added, or removed. Missing or bad keys cause weird bugs and performance issues."
+  },
+  {
+    "id": "tip-9",
+    "title": "useEffect Dependencies Matter",
+    "category": "React",
+    "preview": "Missing dependencies cause stale data and bugs",
+    "content": "Always include all variables used inside useEffect in the dependency array. Missing dependencies lead to bugs with stale data (using old values). Adding all dependencies ensures the effect re-runs when those values change. Use ESLint's react-hooks/exhaustive-deps rule to catch this automatically."
+  },
+  {
+    "id": "tip-10",
+    "title": "Git Commit Early, Commit Often",
+    "category": "Git",
+    "preview": "Small commits are easier to manage",
+    "content": "Make small, focused commits with clear messages. Each commit should represent one logical change. This makes code reviews easier, debugging faster (git bisect!), and reverting safer. Commit before trying something risky! Use conventional commit messages: feat, fix, docs, style, refactor, test, chore."
+  },
+  {
+    "id": "tip-11",
+    "title": "Name Variables Clearly",
+    "category": "General",
+    "preview": "Code is read 10x more than it's written",
+    "content": "Use descriptive names that reveal intent: getUserData() not get(), isLoading not flag, currentUser not u. Avoid abbreviations unless they're well-known (HTTP, URL). Don't be afraid of longer names—modern editors have autocomplete. Future you (and your teammates) will thank present you!"
+  },
+  {
+    "id": "tip-12",
+    "title": "Test Edge Cases",
+    "category": "General",
+    "preview": "What happens with empty, null, or weird inputs?",
+    "content": "Always test edge cases: empty strings, null, undefined, zero, negative numbers, very large numbers, special characters, empty arrays. Edge cases are where 80% of bugs hide! Think about what could go wrong, then test it. Use defensive programming: validate inputs, handle errors, fail gracefully."
+  },
+  {
+    "id": "tip-13",
+    "title": "Learn Keyboard Shortcuts",
+    "category": "Tools",
+    "preview": "Speed up your workflow 10x",
+    "content": "Master VS Code shortcuts: Ctrl+P (find file), Ctrl+Shift+F (search all files), Ctrl+D (select next occurrence for multi-cursor editing), Alt+Up/Down (move line), Ctrl+/ (comment), Ctrl+` (toggle terminal). Learn 1 new shortcut per day! Your mouse will thank you."
+  },
+  {
+    "id": "tip-14",
+    "title": "Read Official Documentation",
+    "category": "General",
+    "preview": "Docs are your superpower",
+    "content": "Before searching Stack Overflow or asking ChatGPT, check the official documentation. It's accurate, comprehensive, up-to-date, and teaches you the 'why' not just the 'how'. Bookmark docs for your main tools: MDN for JavaScript, React Docs, Python Docs. Teaches you to fish instead of giving you fish."
+  },
+  {
+    "id": "tip-15",
+    "title": "Rubber Duck Debugging",
+    "category": "Debugging",
+    "preview": "Explain your code out loud to an inanimate object",
+    "content": "Stuck on a bug? Explain your code line-by-line to a rubber duck (or plant, cat, coffee mug). The act of explaining forces you to slow down and examine your assumptions. You'll often find the bug before finishing the explanation. This actually works! It's a real debugging technique used by professionals."
+  },
+  {
+    "id": "tip-16",
+    "title": "Mobile First CSS",
+    "category": "CSS",
+    "preview": "Start small, scale up with media queries",
+    "content": "Write CSS for mobile screens first (320px+), then use @media queries to enhance for tablets (768px+) and desktops (1024px+). This is easier than trying to shrink desktop designs down. Most users browse on mobile anyway! Use min-width media queries for progressive enhancement."
+  },
+  {
+    "id": "tip-17",
+    "title": "Async/Await > Promises",
+    "category": "JS",
+    "preview": "Write cleaner asynchronous code",
+    "content": "Use async/await instead of .then() chains. It's more readable, easier to debug, and handles errors better with try/catch blocks. Compare: fetchUser().then().then().catch() vs try { const user = await fetchUser(); } catch (error) { }. The second is much clearer! Always remember to use try-catch."
+  },
+  {
+    "id": "tip-18",
+    "title": "Python List Comprehensions",
+    "category": "Python",
+    "preview": "Write concise, readable loops in one line",
+    "content": "Instead of multi-line for loops, use list comprehensions for simple transformations: squares = [x**2 for x in range(10)]. More Pythonic, often faster, and easier to read once you're familiar. Can also add conditions: evens = [x for x in range(10) if x % 2 == 0]. Don't overuse though—keep it readable!"
+  },
+  {
+    "id": "tip-19",
+    "title": "Version Control Everything",
+    "category": "Git",
+    "preview": "Git is your time machine and safety net",
+    "content": "Use Git for all projects, even small experiments and homework. Commit often with clear messages. Push to GitHub/GitLab for backup. Benefits: undo mistakes with git reset, try risky changes on branches, collaborate easily, show your work to employers. No excuses—it's free and essential!"
+  },
+  {
+    "id": "tip-20",
+    "title": "Take Breaks to Solve Problems",
+    "category": "General",
+    "preview": "Your brain needs rest to solve hard problems",
+    "content": "Stuck on a problem for 30+ minutes? Take a 5-10 minute break. Walk around, stretch, grab water, look away from screens. Your brain keeps working in the background! Solutions often come when you're not actively thinking. This isn't procrastination—it's part of the problem-solving process. The Pomodoro Technique (25 min work, 5 min break) is proven to boost productivity."
+  },
+  {
+    "id": "tip-21",
+    "title": "Spread Operator Magic",
+    "category": "JS",
+    "preview": "Clone arrays and objects easily",
+    "content": "Use the spread operator (...) to clone arrays and objects without mutation: const newArr = [...oldArr]; const newObj = {...oldObj, updated: true}. Super useful in React for immutable state updates. Also great for combining arrays: [...arr1, ...arr2] or merging objects: {...defaults, ...userConfig}."
+  },
+  {
+    "id": "tip-22",
+    "title": "Destructuring Assignment",
+    "category": "JS",
+    "preview": "Extract values cleanly from objects and arrays",
+    "content": "Instead of obj.name, obj.age, use destructuring: const {name, age} = obj. For arrays: const [first, second] = arr. Works in function parameters too! function Component({title, content}) { }. Makes code cleaner and more readable. Can also set defaults: const {name = 'Anonymous'} = obj."
+  },
+  {
+    "id": "tip-23",
+    "title": "Use CSS Variables",
+    "category": "CSS",
+    "preview": "DRY principle for colors and values",
+    "content": "Define reusable values with CSS custom properties: :root { --primary-color: #3b82f6; } then use them: color: var(--primary-color). Change one value to update everywhere! Great for themes (light/dark mode). Can also be updated with JavaScript. Modern browsers fully support them."
+  },
+  {
+    "id": "tip-24",
+    "title": "Optional Chaining (?.) ",
+    "category": "JS",
+    "preview": "Safely access nested properties",
+    "content": "Avoid 'Cannot read property of undefined' with optional chaining: user?.address?.street instead of user && user.address && user.address.street. If any part is null/undefined, it returns undefined instead of throwing an error. Also works with functions: user?.getName?.(). Cleaner and safer!"
+  },
+  {
+    "id": "tip-25",
+    "title": "Nullish Coalescing (??)",
+    "category": "JS",
+    "preview": "Better default values than ||",
+    "content": "Use ?? instead of || for default values: const count = userCount ?? 0. The difference? || treats 0, empty string, false as falsy. ?? only treats null and undefined as nullish. So: 0 ?? 10 = 0 but 0 || 10 = 10. Important when 0 or '' are valid values!"
+  },
+  {
+    "id": "tip-26",
+    "title": "Don't Repeat Yourself (DRY)",
+    "category": "General",
+    "preview": "If you write it twice, make it a function",
+    "content": "Avoid copy-pasting code. If you use the same logic twice, extract it into a function, component, or utility. Benefits: easier to maintain (fix bugs once), more testable, clearer intent. But don't over-optimize—premature abstraction is worse than some duplication. Use the rule of three: refactor after the third use."
+  },
+  {
+    "id": "tip-27",
+    "title": "VSCode Extensions for Productivity",
+    "category": "Tools",
+    "preview": "Essential extensions every dev needs",
+    "content": "Must-have VSCode extensions: ESLint (catch errors), Prettier (auto-format), GitLens (git superpowers), Live Server (instant preview), Auto Rename Tag (HTML), Path Intellisense (autocomplete imports), Error Lens (inline errors). Install only what you need—too many extensions slow down VSCode."
+  },
+  {
+    "id": "tip-28",
+    "title": "Learn Browser DevTools",
+    "category": "Debugging",
+    "preview": "Chrome/Firefox DevTools are incredibly powerful",
+    "content": "Master browser DevTools: Elements tab (inspect/edit HTML/CSS live), Console (run JavaScript), Network (see API calls, check status codes), Application (view localStorage/cookies), Performance (profile slow code). Learn to set breakpoints, step through code, and use the debugger. This is more powerful than console.log!"
+  },
+  {
+    "id": "tip-29",
+    "title": "SQL Basics Everyone Should Know",
+    "category": "Database",
+    "preview": "SELECT, WHERE, JOIN are your bread and butter",
+    "content": "Learn basic SQL: SELECT for querying, WHERE for filtering, JOIN for combining tables, ORDER BY for sorting, GROUP BY for aggregating. Even if you use ORMs, understanding SQL helps you write better queries, debug issues, and optimize performance. Try: SELECT * FROM users WHERE age > 18 ORDER BY created_at DESC."
+  },
+  {
+    "id": "tip-30",
+    "title": "API Design: RESTful Principles",
+    "category": "Backend",
+    "preview": "Build predictable, intuitive APIs",
+    "content": "Follow REST conventions: GET for reading, POST for creating, PUT/PATCH for updating, DELETE for removing. Use nouns for endpoints (/users not /getUsers). Use status codes correctly (200 OK, 201 Created, 400 Bad Request, 404 Not Found, 500 Server Error). Make your API predictable and easy to use!"
+  },
+  {
+    "id": "tip-31",
+    "title": "Master Git CLI Commands",
+    "category": "Tools",
+    "preview": "Command line Git is faster than GUI tools",
+    "content": "Learn essential Git commands: git status (check changes), git add . (stage all), git commit -m 'message', git push/pull, git branch, git checkout, git merge. Advanced: git stash (save work temporarily), git rebase (clean history), git cherry-pick (copy specific commits). CLI is faster once you learn it!"
+  },
+  {
+    "id": "tip-32",
+    "title": "Chrome DevTools Shortcuts",
+    "category": "Tools",
+    "preview": "Debug faster with keyboard shortcuts",
+    "content": "Essential DevTools shortcuts: F12 (open DevTools), Ctrl+Shift+C (inspect element), Ctrl+Shift+J (console), Ctrl+P (find file), Ctrl+Shift+P (command menu), F8 (pause/resume script), F10 (step over), F11 (step into). Master these to debug 5x faster!"
+  },
+  {
+    "id": "tip-33",
+    "title": "Terminal Basics for Developers",
+    "category": "Tools",
+    "preview": "Navigate your system like a pro",
+    "content": "Essential commands: cd (change directory), ls/dir (list files), mkdir (create folder), rm (remove file), cat (view file), grep (search text), pwd (current path), clear (clean terminal). Use tab for autocomplete! Learn piping with | and redirection with >. The terminal is your friend."
+  },
+  {
+    "id": "tip-34",
+    "title": "Package Managers: npm vs yarn vs pnpm",
+    "category": "Tools",
+    "preview": "Choose the right package manager for your project",
+    "content": "npm (default with Node.js, most common), yarn (faster, deterministic), pnpm (disk-efficient, strict). Basic commands similar: install, add/remove packages, run scripts. Learn package.json structure, understand dependencies vs devDependencies. Always commit package-lock.json or yarn.lock for consistency!"
+  },
+  {
+    "id": "tip-35",
+    "title": "Postman for API Testing",
+    "category": "Tools",
+    "preview": "Test APIs without writing frontend code",
+    "content": "Use Postman to test APIs before integrating them. Send GET/POST/PUT/DELETE requests, add headers, test authentication, save requests in collections, use environment variables for different configs (dev/prod). Great for debugging backend issues. Alternative: Thunder Client (VS Code extension) or curl commands."
+  },
+  {
+    "id": "tip-36",
+    "title": "Figma to Code Workflow",
+    "category": "Tools",
+    "preview": "Bridge the design-development gap",
+    "content": "Learn to inspect Figma designs: extract colors (hex codes), measure spacing (padding/margins), get font sizes and weights, export images/icons. Use Figma's Dev Mode for accurate CSS values. Copy SVG code directly. Extensions like Figma to Code can generate starter code, but always review and refactor!"
+  },
+  {
+    "id": "tip-37",
+    "title": "Regex Testing Tools",
+    "category": "Tools",
+    "preview": "Test regular expressions before using them",
+    "content": "Use online regex testers: regex101.com (explains matches, has debugger), regexr.com (visual interface), or VS Code built-in regex search. Test patterns before deployment! Common patterns: email validation, phone numbers, URL extraction. Remember: regex is powerful but can be hard to read—add comments to explain complex patterns!"
+  },
+  {
+    "id": "tip-38",
+    "title": "Code Snippets Save Time",
+    "category": "Tools",
+    "preview": "Stop typing boilerplate repeatedly",
+    "content": "Create custom snippets in VS Code (Preferences → User Snippets). Examples: React component template, console.log with variable name, try-catch blocks, fetch API boilerplate. Use tab triggers like 'rfc' for React Function Component. Built-in extensions like ES7+ React/Redux snippets are goldmines. Your future self will thank you!"
+  },
+  {
+    "id": "tip-39",
+    "title": "Linters Catch Bugs Before Runtime",
+    "category": "Tools",
+    "preview": "Let tools find mistakes for you",
+    "content": "Use ESLint for JavaScript/TypeScript, Pylint for Python. Linters check for syntax errors, unused variables, bad practices, style issues. Configure with .eslintrc file. Integrate with VS Code for real-time feedback. Fix issues as you code, not during deployment! Pair with Prettier for consistent formatting. Automate with pre-commit hooks."
+  },
+  {
+    "id": "tip-40",
+    "title": "Docker Basics for Developers",
+    "category": "Tools",
+    "preview": "Containerize apps for consistent environments",
+    "content": "Learn Docker basics: containers package code + dependencies for consistent environments across machines. Create Dockerfile (defines image), use docker build (create image), docker run (start container), docker-compose (multi-container apps). Great for running databases locally without installing them! Also: docker ps (list containers), docker logs (view output)."
+  }
+]

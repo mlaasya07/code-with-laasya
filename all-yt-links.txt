@@ -1,0 +1,141 @@
+CODING LANGUAGES
+
+🌐 HTML / CSS / JavaScript (HCJ)
+========================================
+HTML & CSS Full Course - Beginner to Pro (Super practical)
+https://www.youtube.com/watch?v=G3e-cpL7ofc
+
+HTML & CSS Full Course for free (Bro Code)
+https://www.youtube.com/watch?v=HGTJBPNC-Gw
+
+HTML, CSS & JavaScript Full Course - Build 15 Projects
+https://www.youtube.com/watch?v=kAiX0itnonM
+
+HTML and CSS For Absolute Beginners | 2024 Crash Course
+https://www.youtube.com/watch?v=MBlkKE0GYGg
+
+Frontend Web Development Bootcamp Course (HTML, CSS, JS)
+https://www.youtube.com/watch?v=zJSY8tbf_ys
+
+JavaScript Full Course - Beginner to Pro (2024)
+https://www.youtube.com/watch?v=EerdGm-ehJQ
+
+HTML, CSS, and JavaScript for Web Developers - Full Tutorial
+https://www.youtube.com/watch?v=k103bbhTdXY
+
+HTML CSS JAVASCRIPT Full Course | Tutorial For Beginners
+https://www.youtube.com/watch?v=ii8IHXF6NTw
+
+Build a Simple Website with HTML, CSS, JavaScript
+https://www.youtube.com/watch?v=krfUjg0S2uI
+
+Responsive Website Tutorial - HTML CSS JS Project
+https://www.youtube.com/watch?v=3-2Pj5hxwrw
+
+
+⚛️ React
+========================================
+Learn React JS - Full Beginner's Tutorial & Practice Projects
+https://www.youtube.com/watch?v=x4rFhThSX04
+
+Build 25 React Projects – Full Tutorial
+https://www.youtube.com/watch?v=5ZdHfJVAY-s
+
+ReactJS Beginner Course 2025 | Become a React Pro in 1.5 Hours
+https://www.youtube.com/watch?v=3OqiKTyH4r0
+
+How to Set Up a React App with Vite | Fast Setup
+https://www.youtube.com/watch?v=qe3mrBmeno8
+
+Full Modern React Tutorial (Playlist)
+https://www.youtube.com/playlist?list=PL4cUxeGkcC9gZD-Tvwfod2gaISzfRiP9d
+
+React Tutorials (2019 & beyond)
+https://www.youtube.com/playlist?list=PLWKjhJtqVAbkArDMazoARtNz1aMwNWmvC
+
+
+🐍 Python
+========================================
+Python Full Course for Beginners | Complete All-in-One Tutorial
+https://www.youtube.com/watch?v=H2EJuAcrZYU
+
+Python for Beginners – Full Course [Programming Tutorial]
+https://www.youtube.com/watch?v=eWRfhZUzrAc
+
+Python Full Course for free 🐍 (2024)
+https://www.youtube.com/watch?v=ix9cRaBkVe0
+
+Python for Beginners - Learn Coding with Python in 1 Hour
+https://www.youtube.com/watch?v=kqtD5dpn9C8
+
+Corey Schafer Python Tutorials Playlist
+https://www.youtube.com/playlist?list=PL-osiE80TeTt2d9bfVyTiXJA-UTHn6WwU
+
+Programming with Mosh - Python Full Course
+https://www.youtube.com/watch?v=_uQrJ0TkZlc
+
+freeCodeCamp - Python for Everybody (Full University Course)
+https://www.youtube.com/watch?v=8DvywoWv6fI
+
+Python Projects for Beginners (Step-by-step)
+https://www.youtube.com/watch?v=apACNr7DC_s
+
+Intermediate Python Projects (OOP, APIs, GUI)
+https://www.youtube.com/watch?v=LHBE6Q9XlzI
+
+
+DEBUGGING
+========================================
+
+🧠 React Debugging
+----------------------------------------
+How To Debug React Apps Like A Senior Developer
+https://www.youtube.com/watch?v=l8knG0BPr-o
+
+Debug a React App with Visual Studio Code
+https://www.youtube.com/watch?v=FOXNlZFkbPk
+
+Next.js 14+ Debugging - Debug React Hooks with Best Library
+https://www.youtube.com/watch?v=Y5Ii8zXPPys
+
+
+🔧 Frontend Debugging
+----------------------------------------
+Frontend Debugging Tips That Every Engineer Must Follow
+https://www.youtube.com/watch?v=jgJrVoLhVL4
+
+Debugging Python Code in VS Code
+https://www.youtube.com/watch?v=7q0cI4OZlL8
+
+
+CONCEPTUAL
+========================================
+
+💡 Theory & Learning Paths
+----------------------------------------
+Which Programming Language Should You Learn First?
+https://www.youtube.com/watch?v=Uvx5nsK2n5w
+
+Choosing the Right Tech Stack for Your Project (Web, App, ML)
+https://www.youtube.com/watch?v=Hbq3W8y3Q0I
+
+Web vs App vs Data Science — Which Coding Path Fits You?
+https://www.youtube.com/watch?v=Ok0bBJPtgJI
+
+How to Think Like a Programmer (Problem Solving Approach)
+https://www.youtube.com/watch?v=azcrPFhaY9k
+
+Software Engineering Concepts Explained Simply
+https://www.youtube.com/watch?v=dK4Yb6-LxAk
+
+How to Pick the Right Project to Learn Faster
+https://www.youtube.com/watch?v=ko8q0yMzDOQ
+
+
+🏗️ Architecture & Best Practices
+----------------------------------------
+Code Architecture 101 - Building Large Projects the Right Way
+https://www.youtube.com/watch?v=0EgSo7hsxA0
+
+Folder Structures, Clean Code & Scalability Tips
+https://www.youtube.com/watch?v=UUga4-z7b6s

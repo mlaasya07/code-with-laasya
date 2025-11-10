@@ -1,0 +1,17 @@
+[
+  "In JavaScript, arrays are objects — typeof [] === 'object'.",
+  "CSS Grid and Flexbox solve different layout problems — Grid for 2D, Flexbox for 1D.",
+  "The 'this' keyword in JavaScript refers to the object that is executing the current function.",
+  "React's virtual DOM makes updates efficient by only re-rendering what changed.",
+  "Python uses indentation to define code blocks instead of curly braces.",
+  "Git branches let you work on features without affecting the main codebase.",
+  "SQL JOIN combines rows from two or more tables based on a related column.",
+  "RESTful APIs use HTTP methods: GET (read), POST (create), PUT (update), DELETE (remove).",
+  "A closure in JavaScript is a function that remembers its outer variables.",
+  "TypeScript adds static typing to JavaScript, catching errors before runtime.",
+  "The box model in CSS includes: content, padding, border, and margin.",
+  "async/await is syntactic sugar for Promises, making async code look synchronous.",
+  "npm (Node Package Manager) is the default package manager for Node.js.",
+  "CSS specificity determines which styles are applied: inline > ID > class > element.",
+  "The spread operator (...) in JavaScript expands iterables into individual elements."
+]

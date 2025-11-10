@@ -1,0 +1,179 @@
+[
+  {
+    "id": "quiz-html-1",
+    "title": "HTML Basics Quiz",
+    "category": "Frontend",
+    "difficulty": "easy",
+    "xp": 5,
+    "questions": [
+      {
+        "question": "Which HTML tag is used for the largest heading?",
+        "options": ["<h6>", "<h1>", "<heading>", "<head>"],
+        "correctAnswer": 1
+      },
+      {
+        "question": "What does HTML stand for?",
+        "options": [
+          "Hyper Text Markup Language",
+          "High Tech Modern Language",
+          "Home Tool Markup Language",
+          "Hyperlinks and Text Markup Language"
+        ],
+        "correctAnswer": 0
+      },
+      {
+        "question": "Which tag is used to create a hyperlink?",
+        "options": ["<link>", "<href>", "<a>", "<url>"],
+        "correctAnswer": 2
+      }
+    ]
+  },
+  {
+    "id": "quiz-css-1",
+    "title": "CSS Selectors Quiz",
+    "category": "Frontend",
+    "difficulty": "easy",
+    "xp": 5,
+    "questions": [
+      {
+        "question": "Which CSS property is used to change text color?",
+        "options": ["text-color", "font-color", "color", "text-style"],
+        "correctAnswer": 2
+      },
+      {
+        "question": "How do you select an element with id='header'?",
+        "options": [".header", "#header", "*header", "header"],
+        "correctAnswer": 1
+      },
+      {
+        "question": "Which property is used to change the background color?",
+        "options": ["bgcolor", "background-color", "color", "bg-color"],
+        "correctAnswer": 1
+      }
+    ]
+  },
+  {
+    "id": "quiz-js-1",
+    "title": "JavaScript Fundamentals",
+    "category": "Frontend",
+    "difficulty": "medium",
+    "xp": 8,
+    "questions": [
+      {
+        "question": "Which keyword is used to declare a constant variable?",
+        "options": ["var", "let", "const", "constant"],
+        "correctAnswer": 2
+      },
+      {
+        "question": "What will console.log(typeof null) output?",
+        "options": ["null", "undefined", "object", "number"],
+        "correctAnswer": 2
+      },
+      {
+        "question": "Which method converts a string to an integer?",
+        "options": ["parseInt()", "toInteger()", "int()", "Number.int()"],
+        "correctAnswer": 0
+      }
+    ]
+  },
+  {
+    "id": "debug-challenge-1",
+    "title": "Find the Bug: React State",
+    "category": "Debugging",
+    "difficulty": "medium",
+    "xp": 10,
+    "code": "function Counter() {\n  let count = 0;\n  return (\n    <button onClick={() => count++}>\n      Count: {count}\n    </button>\n  );\n}",
+    "questions": [
+      {
+        "question": "What's wrong with this React component?",
+        "options": [
+          "Missing import statement",
+          "Should use useState instead of regular variable",
+          "onClick syntax is incorrect",
+          "Button cannot contain text and variables"
+        ],
+        "correctAnswer": 1,
+        "explanation": "React won't re-render when a regular variable changes. Use useState hook: const [count, setCount] = useState(0);"
+      }
+    ]
+  },
+  {
+    "id": "debug-challenge-2",
+    "title": "Find the Bug: Array Mutation",
+    "category": "Debugging",
+    "difficulty": "medium",
+    "xp": 10,
+    "code": "const numbers = [1, 2, 3];\nconst doubled = numbers.map(n => n * 2);\nnumbers.push(4);\nconsole.log(doubled);",
+    "questions": [
+      {
+        "question": "What will be logged?",
+        "options": [
+          "[2, 4, 6, 8]",
+          "[2, 4, 6]",
+          "[1, 2, 3, 4]",
+          "undefined"
+        ],
+        "correctAnswer": 1,
+        "explanation": "The push() happens after map() is called, so it doesn't affect the doubled array."
+      }
+    ]
+  },
+  {
+    "id": "quiz-react-1",
+    "title": "React Hooks Quiz",
+    "category": "Frontend",
+    "difficulty": "medium",
+    "xp": 8,
+    "questions": [
+      {
+        "question": "Which hook is used for side effects?",
+        "options": ["useSideEffect", "useEffect", "useCallback", "useMemo"],
+        "correctAnswer": 1
+      },
+      {
+        "question": "What does the dependency array in useEffect do?",
+        "options": [
+          "Lists components to render",
+          "Controls when the effect runs",
+          "Defines state variables",
+          "Lists props to pass down"
+        ],
+        "correctAnswer": 1
+      },
+      {
+        "question": "Can you call hooks conditionally?",
+        "options": [
+          "Yes, anytime",
+          "Only in useEffect",
+          "No, hooks must be at top level",
+          "Yes, but only useState"
+        ],
+        "correctAnswer": 2
+      }
+    ]
+  },
+  {
+    "id": "quiz-python-1",
+    "title": "Python Basics Quiz",
+    "category": "Backend",
+    "difficulty": "easy",
+    "xp": 5,
+    "questions": [
+      {
+        "question": "How do you create a comment in Python?",
+        "options": ["// comment", "/* comment */", "# comment", "-- comment"],
+        "correctAnswer": 2
+      },
+      {
+        "question": "Which data type is mutable?",
+        "options": ["tuple", "string", "list", "int"],
+        "correctAnswer": 2
+      },
+      {
+        "question": "What is the output of: print(type([]))?",
+        "options": ["<class 'array'>", "<class 'list'>", "<class 'tuple'>", "[]"],
+        "correctAnswer": 1
+      }
+    ]
+  }
+]

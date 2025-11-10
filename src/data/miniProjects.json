@@ -1,0 +1,162 @@
+[
+  {
+    "id": "mini-1",
+    "title": "Build a Tip Calculator",
+    "difficulty": "Beginner",
+    "videoUrl": "https://www.youtube.com/watch?v=7Yme3iacPYg",
+    "concepts": ["DOM", "Functions", "Event Listeners"],
+    "estimatedTime": "1-2 hours"
+  },
+  {
+    "id": "mini-2",
+    "title": "Digital Clock",
+    "difficulty": "Beginner",
+    "videoUrl": "https://www.youtube.com/watch?v=qSC40pcluj4",
+    "concepts": ["JavaScript Date", "setInterval", "DOM Manipulation"],
+    "estimatedTime": "1 hour"
+  },
+  {
+    "id": "mini-3",
+    "title": "Random Quote Generator",
+    "difficulty": "Beginner",
+    "videoUrl": "https://www.youtube.com/watch?v=3aKOQn2NPFs",
+    "concepts": ["Arrays", "Random Numbers", "DOM"],
+    "estimatedTime": "1-2 hours"
+  },
+  {
+    "id": "mini-4",
+    "title": "Color Flipper",
+    "difficulty": "Beginner",
+    "videoUrl": "https://www.youtube.com/watch?v=c5SIG7Ie0dM",
+    "concepts": ["Event Handling", "Random Colors", "CSS Variables"],
+    "estimatedTime": "1 hour"
+  },
+  {
+    "id": "mini-5",
+    "title": "Counter App",
+    "difficulty": "Beginner",
+    "videoUrl": "https://www.youtube.com/watch?v=3PHXvlpOkf4",
+    "concepts": ["Variables", "Functions", "Event Listeners"],
+    "estimatedTime": "30 mins"
+  },
+  {
+    "id": "mini-6",
+    "title": "BMI Calculator",
+    "difficulty": "Beginner",
+    "videoUrl": "https://www.youtube.com/watch?v=7Yme3iacPYg",
+    "concepts": ["Form Handling", "Math Operations", "Conditionals"],
+    "estimatedTime": "1-2 hours"
+  },
+  {
+    "id": "mini-7",
+    "title": "Password Generator",
+    "difficulty": "Intermediate",
+    "videoUrl": "https://www.youtube.com/watch?v=iKo9pDKKHnc",
+    "concepts": ["String Manipulation", "Random Generation", "Clipboard API"],
+    "estimatedTime": "2-3 hours"
+  },
+  {
+    "id": "mini-8",
+    "title": "Modal Popup",
+    "difficulty": "Beginner",
+    "videoUrl": "https://www.youtube.com/watch?v=MBaw_6cPmAw",
+    "concepts": ["DOM Traversal", "CSS Transitions", "Event Delegation"],
+    "estimatedTime": "1-2 hours"
+  },
+  {
+    "id": "mini-9",
+    "title": "Stopwatch Timer",
+    "difficulty": "Intermediate",
+    "videoUrl": "https://www.youtube.com/watch?v=x7WJEmxNlEs",
+    "concepts": ["setInterval", "clearInterval", "State Management"],
+    "estimatedTime": "2-3 hours"
+  },
+  {
+    "id": "mini-10",
+    "title": "Rock Paper Scissors",
+    "difficulty": "Beginner",
+    "videoUrl": "https://www.youtube.com/watch?v=jaVNP3nIAv0",
+    "concepts": ["Game Logic", "Conditionals", "DOM Events"],
+    "estimatedTime": "2-3 hours"
+  },
+  {
+    "id": "mini-11",
+    "title": "Accordion Component",
+    "difficulty": "Intermediate",
+    "videoUrl": "https://www.youtube.com/watch?v=4qnWreynXLU",
+    "concepts": ["DOM Manipulation", "CSS Transitions", "Event Bubbling"],
+    "estimatedTime": "2-3 hours"
+  },
+  {
+    "id": "mini-12",
+    "title": "Temperature Converter",
+    "difficulty": "Beginner",
+    "videoUrl": "https://www.youtube.com/watch?v=nGSuW-RWcYU",
+    "concepts": ["Math Operations", "Input Handling", "Unit Conversion"],
+    "estimatedTime": "1-2 hours"
+  },
+  {
+    "id": "mini-13",
+    "title": "Image Slider Carousel",
+    "difficulty": "Intermediate",
+    "videoUrl": "https://www.youtube.com/watch?v=7ZO2RTMNSAY",
+    "concepts": ["Arrays", "setInterval", "CSS Animations"],
+    "estimatedTime": "3-4 hours"
+  },
+  {
+    "id": "mini-14",
+    "title": "Typing Speed Test",
+    "difficulty": "Intermediate",
+    "videoUrl": "https://www.youtube.com/watch?v=R-7eQIHRszQ",
+    "concepts": ["Timers", "String Comparison", "Accuracy Calculation"],
+    "estimatedTime": "3-4 hours"
+  },
+  {
+    "id": "mini-15",
+    "title": "Memory Card Game",
+    "difficulty": "Intermediate",
+    "videoUrl": "https://www.youtube.com/watch?v=ZniVgo8U7ek",
+    "concepts": ["Arrays", "Game State", "Event Handling"],
+    "estimatedTime": "4-5 hours"
+  },
+  {
+    "id": "mini-16",
+    "title": "URL Shortener",
+    "difficulty": "Advanced",
+    "videoUrl": "https://www.youtube.com/watch?v=_8PB2CtCqN4",
+    "concepts": ["APIs", "Local Storage", "Async/Await"],
+    "estimatedTime": "5-6 hours"
+  },
+  {
+    "id": "mini-17",
+    "title": "Expense Tracker",
+    "difficulty": "Intermediate",
+    "videoUrl": "https://www.youtube.com/watch?v=XEW_TdKOPP0",
+    "concepts": ["Local Storage", "Arrays", "CRUD Operations"],
+    "estimatedTime": "4-5 hours"
+  },
+  {
+    "id": "mini-18",
+    "title": "Drawing App",
+    "difficulty": "Advanced",
+    "videoUrl": "https://www.youtube.com/watch?v=6arkndScw7A",
+    "concepts": ["Canvas API", "Mouse Events", "Drawing Logic"],
+    "estimatedTime": "5-7 hours"
+  },
+  {
+    "id": "mini-19",
+    "title": "Snake Game",
+    "difficulty": "Advanced",
+    "videoUrl": "https://www.youtube.com/watch?v=QTcIXok9wNY",
+    "concepts": ["Canvas", "Game Loop", "Collision Detection"],
+    "estimatedTime": "6-8 hours"
+  },
+  {
+    "id": "mini-20",
+    "title": "Chat Application",
+    "difficulty": "Advanced",
+    "videoUrl": "https://www.youtube.com/watch?v=jD7FnbI76Hg",
+    "concepts": ["WebSocket", "Real-time Data", "Backend Integration"],
+    "estimatedTime": "8-10 hours"
+  }
+]

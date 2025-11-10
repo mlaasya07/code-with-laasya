@@ -1,0 +1,145 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Laasya's Cinematic Terminal Theme */
+    --background: 0 0% 0%; /* #000000 - Deep black */
+    --foreground: 51 74% 56%; /* #E4CC37 - Warm golden-yellow */
+
+    --card: 303 86% 7%; /* #210124 - Muted maroon-purple */
+    --card-foreground: 51 74% 56%; /* #E4CC37 - Golden text */
+
+    --popover: 303 86% 7%;
+    --popover-foreground: 51 74% 56%;
+
+    --primary: 4 86% 31%; /* #92140C - Bold crimson red */
+    --primary-foreground: 51 74% 56%; /* #E4CC37 - Golden text */
+
+    --secondary: 100 28% 15%; /* #243119 - Forest green */
+    --secondary-foreground: 51 74% 56%;
+
+    --muted: 303 86% 7%; /* Card color for muted elements */
+    --muted-foreground: 66 47% 43%; /* #96A13A - Muted olive green */
+
+    --accent: 4 86% 31%; /* Primary accent red */
+    --accent-foreground: 51 74% 56%;
+
+    --destructive: 4 86% 31%;
+    --destructive-foreground: 51 74% 56%;
+
+    --border: 303 86% 12%; /* Slightly lighter than card */
+    --input: 303 86% 7%;
+    --ring: 4 86% 31%; /* Primary accent for focus rings */
+
+    --radius: 0.25rem; /* Minimal rounded corners */
+    
+    /* Custom tokens */
+    --terminal-glow: 51 74% 56%;
+    --hover-accent: 66 47% 43%;
+    --shadow-soft: 0 0% 100% / 0.05;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  /* Dark mode intentionally same - single terminal theme */
+  .dark {
+    --background: 0 0% 0%;
+    --foreground: 51 74% 56%;
+    --card: 303 86% 7%;
+    --card-foreground: 51 74% 56%;
+    --popover: 303 86% 7%;
+    --popover-foreground: 51 74% 56%;
+    --primary: 4 86% 31%;
+    --primary-foreground: 51 74% 56%;
+    --secondary: 100 28% 15%;
+    --secondary-foreground: 51 74% 56%;
+    --muted: 303 86% 7%;
+    --muted-foreground: 66 47% 43%;
+    --accent: 4 86% 31%;
+    --accent-foreground: 51 74% 56%;
+    --destructive: 4 86% 31%;
+    --destructive-foreground: 51 74% 56%;
+    --border: 303 86% 12%;
+    --input: 303 86% 7%;
+    --ring: 4 86% 31%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-mono;
+  }
+  
+  /* Terminal glow effect on headings */
+  h1, h2, h3, h4, h5, h6 {
+    @apply text-foreground;
+    text-shadow: 0 0 8px hsl(var(--terminal-glow) / 0.3);
+  }
+  
+  /* Smooth transitions */
+  * {
+    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  }
+  
+  /* Make all text unselectable except buttons and inputs */
+  * {
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+  }
+  
+  button, input, textarea, [contenteditable="true"] {
+    user-select: auto;
+    -webkit-user-select: auto;
+    -moz-user-select: auto;
+    -ms-user-select: auto;
+  }
+
+  /* Hide scrollbar but keep functionality */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Touch-friendly tap targets */
+  .touch-manipulation {
+    touch-action: manipulation;
+  }
+
+  /* Remove hover effects on touch devices */
+  @media (hover: none) {
+    *:hover {
+      background-color: inherit !important;
+      color: inherit !important;
+    }
+  }
+}
