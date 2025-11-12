@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { PDFViewer } from "@/components/PDFViewer";
+import { title } from "process";
 
 const PDFs = () => {
   const [viewingPDF, setViewingPDF] = useState<{
@@ -16,7 +17,7 @@ const PDFs = () => {
     {
       title: "HTML & CSS Complete Reference (5th Edition)",
       type: "PDF",
-      pages: 1088,
+      pages: 857,
       lastOpened: "2 days ago",
       downloadUrl: "/pdfs/html-css-complete-reference.pdf",
       previewUrl: "/pdfs/html-css-complete-reference.pdf",
@@ -25,12 +26,59 @@ const PDFs = () => {
     {
       title: "HTML and CSS Basics",
       type: "PPT",
-      pages: 45,
+      pages: 65,
       lastOpened: "1 week ago",
       downloadUrl: "/pdfs/html-css-basics.pdf",
       previewUrl: "/pdfs/html-css-basics.pdf",
       category: "Frontend",
     },
+    {
+      title: "Fundamentals of Web Programming",
+      type: "PDF",
+      pages: 512,
+      lastOpened: "1 day ago",
+      downloadUrl: "/pdfs/funda-of-web-prog-lpu.pdf",
+      previewUrl: "/pdfs/funda-of-web-prog-lpu.pdf",
+      category: "Frontend",
+    },
+    {
+      title: "XML Essentials",
+      type: "PDF",
+      pages: 142,
+      lastOpened: "2 days ago",
+      downloadUrl: "/pdfs/xml.pdf",
+      previewUrl: "/pdfs/xml.pdf",
+      category: "Frontend",
+    },
+    {
+      title: "C++ and MatLab",
+      type: "PDF",
+      pages: 349,
+      lastOpened: "3 days ago",
+      downloadUrl: "/pdfs/c++ and matlab.pdf",
+      previewUrl: "/pdfs/c++ and matlab.pdf",
+      category: "Programming",
+    },
+    {
+      title: "Think C++ by Allen B. Downey",
+      type: "PDF",
+      pages: 191,
+      lastOpened: "2 days ago",
+      downloadUrl: "/pdfs/think c++ by allen b downey.pdf",
+      previewUrl: "/pdfs/think c++ by allen b downey.pdf",
+      category: "Programming",
+    },
+    {
+      title: "Lecture Notes on Data Structures and Algorithms in C",
+      type: "PDF",
+      pages: 197,
+      lastOpened: "5 days ago",
+      downloadUrl: "/pdfs/lecture-notes-on-c-&-ds.pdf",
+      previewUrl: "/pdfs/lecture-notes-on-c-&-ds.pdf",
+      category: "Programming",
+    },
+    
+
   ];
 
   return (
