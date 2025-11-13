@@ -19,17 +19,21 @@ const Navbar = () => {
       label: "PLAYGROUND",
       path: null,
       submenu: [
+        /* REMOVED ITEMS BECAUSE THEY ARE NO LONGER NEEDED AS THEY DONT MATCH THE AGENDA OF THE WEBAPP
         { label: "RYC - Run Your Code", path: "/playground/ryc" },
         { label: "RYQ - Run Your Query", path: "/playground/ryq" },
+        */
+        { label: "Build With Me [BWM]", path: "/playground/buildwithme" },
+        { label: "Tool Time", path: "/playground/tooltime" },
       ],
     },
     {
-      label: "Projects",
+      label: "PROJECTS",
       path: "/projects",
       submenu: null,
     },
     {
-      label: "RageBait",
+      label: "RAGEBAITs",
       path: null,
       submenu: [
         { label: "Error Log", path: "/ragebait/errors" },
@@ -195,15 +199,15 @@ const Navbar = () => {
             {/* RAGEBAIT - Full width below */}
             <div className="relative col-span-2">
               <button
-                onClick={() => setOpenMenu(openMenu === 'RageBait' ? null : 'RageBait')}
+                onClick={() => setOpenMenu(openMenu === 'RAGEBAITs' ? null : 'RAGEBAITs')}
                 className="w-full flex items-center justify-center gap-1 px-2 py-2 text-xs rounded bg-card border border-border touch-manipulation"
               >
-                RAGEBAIT
+                RAGEBAITs
                 <ChevronDown className="w-3 h-3" />
               </button>
-              {openMenu === 'RageBait' && (
+              {openMenu === 'RAGEBAITs' && (
                 <div className="absolute top-full left-0 right-0 mt-1 bg-card border border-border rounded shadow-lg z-50">
-                  {navItems.find(item => item.label === 'RageBait')?.submenu?.map((subItem) => (
+                  {navItems.find(item => item.label === 'RAGEBAITs')?.submenu?.map((subItem) => (
                      <Link
                       key={subItem.path}
                       to={subItem.path}

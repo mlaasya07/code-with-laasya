@@ -129,7 +129,7 @@ const ErrorLogs = () => {
 
   return (
     <div className="min-h-screen">
-      <section className="container mx-auto px-4 pt-32 pb-20">
+    <section className="container mx-auto px-3 pt-24 pb-12 sm:px-4 sm:pt-32 sm:pb-20">
         <div className="max-w-4xl mx-auto text-center space-y-4 mb-16">
           <div className="inline-flex items-center gap-2 text-primary">
             <AlertTriangle className="w-8 h-8" />
@@ -146,7 +146,7 @@ const ErrorLogs = () => {
               key={error.id}
               className="bg-card border border-border rounded p-6 md:p-8 space-y-6 hover:border-primary transition-colors"
             >
-              <div className="flex items-start justify-between gap-4">
+          <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3 sm:gap-4">
                 <div className="space-y-2 flex-1">
                   <h3 className="text-xl font-bold text-primary">
                     {error.name}
@@ -166,7 +166,7 @@ const ErrorLogs = () => {
                     <p className="text-sm font-semibold mb-1">The Fix:</p>
                     <p className="text-sm text-muted-foreground mb-2">{error.fix}</p>
                     {error.code && (
-                      <pre className="bg-muted p-3 rounded text-xs overflow-x-auto mt-2">
+                      <pre className="bg-muted p-2 sm:p-3 rounded text-xs overflow-x-auto mt-2 text-[11px] sm:text-xs">
                         <code>{error.code}</code>
                       </pre>
                     )}

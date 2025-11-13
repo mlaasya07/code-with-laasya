@@ -19,6 +19,8 @@ import DevLibrary from "./pages/archive/DevLibrary";
 import Tips from "./pages/ragebait/Tips";
 import dailyBytesData from "./data/dailyBytes.json";
 import NotFound from "./pages/NotFound";
+import BuildWithMe from "./pages/playground/BuildWithMe";
+import ToolTime from "./pages/playground/ToolTime";
 
 const queryClient = new QueryClient();
 
@@ -53,6 +55,8 @@ const AppContent = () => {
           <Route path="/archive/dev-library" element={<DevLibrary />} />
           <Route path="/playground/ryc" element={<RYC />} />
           <Route path="/playground/ryq" element={<RYQ />} />
+          <Route path="/playground/buildwithme" element={<BuildWithMe />} />
+          <Route path="/playground/tooltime" element={<ToolTime />} />
           <Route path="/projects" element={<Projects />} />
           <Route path="/ragebait/errors" element={<ErrorLogs />} />
           <Route path="/ragebait/tips" element={<Tips />} />
