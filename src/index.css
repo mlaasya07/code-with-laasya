@@ -143,3 +143,24 @@ All colors MUST be HSL.
     }
   }
 }
+
+
+
+select {
+  background-color: #210124 !important; /* card */
+  color: #E4CC37 !important; /* card-foreground */
+}
+
+select option {
+  background-color: #210124 !important; /* card */
+  color: #E4CC37 !important;
+}
+select option:hover {
+  background-color: #210124 !important; 
+  color: #E4CC37 !important;
+}
+
+main {
+  padding-top: 4rem; /* matches navbar height */
+}
+/* src/pages/Projects/myProjects.tsx */

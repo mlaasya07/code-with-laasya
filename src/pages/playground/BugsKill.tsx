@@ -1,9 +1,13 @@
-import { useState } from "react";
+import React, { useMemo, useState } from "react";
 import { Bug, CheckCircle2, XCircle, Trophy } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { toast } from "sonner";
+import raw from "@/data/BugsKill.json";
+const challenges = raw as unknown as Challenge[];
+
+
 
 interface Challenge {
   id: string;
@@ -18,200 +22,46 @@ interface Challenge {
   xp: number;
 }
 
-const BugsKill = () => {
+const PER_PAGE = 4;
+
+const BugsKill: React.FC = () => {
+  // --- state
   const [selectedAnswers, setSelectedAnswers] = useState<{ [key: string]: number }>({});
   const [revealedAnswers, setRevealedAnswers] = useState<{ [key: string]: boolean }>({});
   const [totalXP, setTotalXP] = useState(0);
 
-  const challenges: Challenge[] = [
-    {
-      id: "bug-1",
-      title: "Missing Return Statement",
-      language: "JavaScript",
-      difficulty: "Easy",
-      description: "This function should return the sum of two numbers, but it's not working. What's the bug?",
-      buggyCode: `function addNumbers(a, b) {
-  const sum = a + b;
-}
+  // UI state
+  const [languageFilter, setLanguageFilter] = useState<string>("All");
+  const [difficultyFilter, setDifficultyFilter] = useState<string>("All");
+  const [page, setPage] = useState<number>(1);
+  const [expanded, setExpanded] = useState<Record<string, { code: boolean; explanation: boolean }>>({});
 
-console.log(addNumbers(5, 3)); // undefined`,
-      options: [
-        "Missing semicolon after sum",
-        "Missing return statement",
-        "Wrong variable name",
-        "Function parameters are incorrect"
-      ],
-      correctAnswer: 1,
-      explanation: "The function calculates the sum but never returns it. Add 'return sum;' before the closing brace.",
-      xp: 10
-    },
-    {
-      id: "bug-2",
-      title: "Array Index Out of Bounds",
-      language: "Python",
-      difficulty: "Easy",
-      description: "This code tries to access array elements but crashes. What's wrong?",
-      buggyCode: `numbers = [1, 2, 3, 4, 5]
-for i in range(6):
-    print(numbers[i])
-    
-# IndexError: list index out of range`,
-      options: [
-        "Array is empty",
-        "Loop range exceeds array length",
-        "Wrong syntax for range",
-        "Print statement is incorrect"
-      ],
-      correctAnswer: 1,
-      explanation: "The array has 5 elements (indices 0-4), but the loop runs 6 times (0-5). Change range(6) to range(len(numbers)).",
-      xp: 10
-    },
-    {
-      id: "bug-3",
-      title: "State Update Not Reflecting",
-      language: "React",
-      difficulty: "Medium",
-      description: "Clicking the button doesn't update the counter. Why?",
-      buggyCode: `function Counter() {
-  let count = 0;
-  
-  const increment = () => {
-    count = count + 1;
-  };
-  
-  return (
-    <button onClick={increment}>
-      Count: {count}
-    </button>
-  );
-}`,
-      options: [
-        "Missing useState hook",
-        "Wrong onClick syntax",
-        "Button is disabled",
-        "Count should be const"
-      ],
-      correctAnswer: 0,
-      explanation: "Regular variables don't trigger re-renders in React. Use const [count, setCount] = useState(0) and setCount(count + 1) in the increment function.",
-      xp: 10
-    },
-    {
-      id: "bug-4",
-      title: "Infinite Loop Alert",
-      language: "JavaScript",
-      difficulty: "Medium",
-      description: "This loop never stops! What's the issue?",
-      buggyCode: `let i = 0;
-while (i < 10) {
-  console.log(i);
-  // Do something
-}
+  // --- data
 
-// Browser freezes!`,
-      options: [
-        "Wrong comparison operator",
-        "Missing increment statement (i++)",
-        "Console.log is blocking",
-        "While loop syntax error"
-      ],
-      correctAnswer: 1,
-      explanation: "The variable 'i' never increases, so the condition 'i < 10' is always true. Add 'i++' inside the loop to increment i.",
-      xp: 10
-    },
-    {
-      id: "bug-5",
-      title: "Null Pointer Exception",
-      language: "Java",
-      difficulty: "Medium",
-      description: "This code crashes with NullPointerException. What's the bug?",
-      buggyCode: `String name = null;
-System.out.println(name.length());
+  // --- derived lists for filters
+  const languages = useMemo(() => {
+    const set = new Set(challenges.map((c) => c.language));
+    return ["All", ...Array.from(set)];
+  }, [challenges]);
 
-// NullPointerException`,
-      options: [
-        "Length() method doesn't exist",
-        "Trying to call method on null object",
-        "String is not initialized properly",
-        "Wrong println syntax"
-      ],
-      correctAnswer: 1,
-      explanation: "You cannot call methods on a null reference. Check if name != null before calling name.length(), or initialize name with a value.",
-      xp: 10
-    },
-    {
-      id: "bug-6",
-      title: "Async Await Missing",
-      language: "JavaScript",
-      difficulty: "Hard",
-      description: "The data is always undefined. What's missing?",
-      buggyCode: `function fetchUserData() {
-  const response = fetch('/api/user');
-  const data = response.json();
-  return data;
-}
+  const difficulties = useMemo(() => ["All", "Easy", "Medium", "Hard"], []);
 
-const user = fetchUserData();
-console.log(user); // Promise {<pending>}`,
-      options: [
-        "Missing async/await keywords",
-        "Wrong API endpoint",
-        "JSON() method is wrong",
-        "Fetch is not defined"
-      ],
-      correctAnswer: 0,
-      explanation: "fetch() returns a Promise. Make the function async and use await: 'const response = await fetch(...)' and 'const data = await response.json()'.",
-      xp: 10
-    },
-    {
-      id: "bug-7",
-      title: "Comparison Type Coercion",
-      language: "JavaScript",
-      difficulty: "Hard",
-      description: "This condition should be false but it's true. Why?",
-      buggyCode: `const value = '0';
-if (value == false) {
-  console.log('This shouldn't print!');
-}
-
-// Output: This shouldn't print!`,
-      options: [
-        "String is always truthy",
-        "Type coercion with == operator",
-        "False is not a valid value",
-        "Missing NOT operator"
-      ],
-      correctAnswer: 1,
-      explanation: "The == operator performs type coercion. '0' is converted to 0, which equals false. Use === for strict equality or check if (value === 'false').",
-      xp: 10
-    },
-    {
-      id: "bug-8",
-      title: "Closure Variable Scope",
-      language: "JavaScript",
-      difficulty: "Hard",
-      description: "All buttons alert '3'. What's the bug?",
-      buggyCode: `for (var i = 0; i < 3; i++) {
-  document.getElementById('btn' + i)
-    .addEventListener('click', function() {
-      alert(i);
+  // --- filtering
+  const filtered = useMemo(() => {
+    return challenges.filter((c) => {
+      if (languageFilter !== "All" && c.language !== languageFilter) return false;
+      if (difficultyFilter !== "All" && c.difficulty !== (difficultyFilter as Challenge["difficulty"])) return false;
+      return true;
     });
-}
+  }, [challenges, languageFilter, difficultyFilter]);
 
-// All buttons alert: 3`,
-      options: [
-        "Wrong loop counter",
-        "var has function scope, use let for block scope",
-        "addEventListener syntax error",
-        "Alert function is broken"
-      ],
-      correctAnswer: 1,
-      explanation: "var has function scope, so all closures reference the same 'i' which is 3 after the loop. Use 'let i = 0' for block scope, creating a new binding for each iteration.",
-      xp: 10
-    }
-  ];
+  // --- pagination
+  const pageCount = Math.max(1, Math.ceil(filtered.length / PER_PAGE));
+  const pageItems = filtered.slice((page - 1) * PER_PAGE, page * PER_PAGE);
 
+  // --- handlers
   const handleAnswer = (challengeId: string, answerIndex: number) => {
-    setSelectedAnswers({ ...selectedAnswers, [challengeId]: answerIndex });
+    setSelectedAnswers((prev) => ({ ...prev, [challengeId]: answerIndex }));
   };
 
   const checkAnswer = (challenge: Challenge) => {
@@ -222,10 +72,10 @@ if (value == false) {
     }
 
     const isCorrect = selected === challenge.correctAnswer;
-    setRevealedAnswers({ ...revealedAnswers, [challenge.id]: true });
+    setRevealedAnswers((prev) => ({ ...prev, [challenge.id]: true }));
 
     if (isCorrect && !revealedAnswers[challenge.id]) {
-      setTotalXP(totalXP + challenge.xp);
+      setTotalXP((v) => v + challenge.xp);
       toast.success(`Correct! +${challenge.xp} XP`, {
         description: challenge.explanation
       });
@@ -234,6 +84,22 @@ if (value == false) {
         description: challenge.explanation
       });
     }
+  };
+
+  const toggleExpandCode = (id: string) => {
+    setExpanded((prev) => ({ ...prev, [id]: { ...(prev[id] || { code: false, explanation: false }), code: !((prev[id] || { code: false }).code) } }));
+  };
+
+  const toggleExpandExplanation = (id: string) => {
+    setExpanded((prev) => ({ ...prev, [id]: { ...(prev[id] || { code: false, explanation: false }), explanation: !((prev[id] || { explanation: false }).explanation) } }));
+  };
+
+  const gotoPage = (p: number) => {
+    const newPage = Math.min(Math.max(1, p), pageCount);
+    setPage(newPage);
+    // make the list visible at top of viewport (helpful when switching pages)
+    const el = document.querySelector("#challenge-list");
+    if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
   };
 
   const getDifficultyColor = (difficulty: string) => {
@@ -246,110 +112,212 @@ if (value == false) {
   };
 
   return (
-<div className="min-h-screen">
-  <section className="container mx-auto px-4 pt-28 pb-12">
-    <div className="max-w-4xl mx-auto text-center space-y-4 mb-16">
+    <div className="min-h-screen">
+      <section className="container mx-auto px-4 pt-28 pb-6">
+        <div className="max-w-4xl mx-auto text-center space-y-4 mb-8">
+          <div className="inline-flex items-center gap-3 text-destructive justify-center">
+            <Bug className="w-10 h-10" />
+          </div>
 
-      <div className="inline-flex items-center gap-3 text-destructive justify-center">
-        <Bug className="w-10 h-10" />
-      </div>
+          <h1 className="text-3xl md:text-5xl font-bold">BugsKill</h1>
 
-      <h1 className="text-4xl md:text-6xl font-bold">BugsKill</h1>
+          <p className="text-lg text-muted-foreground">
+            Find the bug, earn the XP.
+          </p>
 
-      <p className="text-xl text-muted-foreground">
-        Find the bug, earn the XP.
-      </p>
+          <div className="flex items-center justify-center gap-2 bg-primary/10 px-3 py-2 rounded-lg border border-primary/20 w-fit mx-auto mt-2">
+            <Trophy className="w-5 h-5 text-primary" />
+            <span className="font-semibold">{totalXP} XP</span>
+          </div>
 
-      <div className="flex items-center justify-center gap-2 bg-primary/10 px-4 py-2 rounded-lg border border-primary/20 w-fit mx-auto mt-4">
-        <Trophy className="w-5 h-5 text-primary" />
-        <span className="font-bold text-lg">{totalXP} XP</span>
-      </div>
+          <p className="text-muted-foreground max-w-xl mx-auto pt-2">
+            Debug challenges across different languages. Each bug you catch earns you XP!
+          </p>
+        </div>
 
-      <p className="text-muted-foreground max-w-xl mx-auto pt-4">
-        Debug challenges across different languages. Each bug you catch earns you 10 XP!
-      </p>
+        {/* Filters + controls */}
+        <div className="max-w-4xl mx-auto mb-6 flex flex-col md:flex-row gap-3 md:items-center md:justify-between px-2">
+          <div className="flex items-center gap-3">
+            <label className="text-sm text-muted-foreground">Language</label>
+            <select
+              value={languageFilter}
+              onChange={(e) => { setLanguageFilter(e.target.value); setPage(1); }}
+              className="rounded-md border px-2 py-1 text-sm bg-primary/20 text-primary"
+            >
+              {languages.map((l) => <option key={l} value={l}>{l}</option>)}
+            </select>
 
-    </div>
-  </section>
+            <label className="text-sm text-muted-foreground">Difficulty</label>
+            <select
+              value={difficultyFilter}
+              onChange={(e) => { setDifficultyFilter(e.target.value); setPage(1); }}
+              className="rounded-md border px-2 py-1 text-sm bg-primary/20 text-primary"
+            >
+              {difficulties.map((d) => <option key={d} value={d}>{d}</option>)}
+            </select>
+          </div>
 
-      <div className="grid gap-6">
-        {challenges.map((challenge) => {
-          const selected = selectedAnswers[challenge.id];
-          const revealed = revealedAnswers[challenge.id];
-          const isCorrect = selected === challenge.correctAnswer;
+          <div className="flex items-center gap-3">
+            <div className="text-sm text-muted-foreground">
+              Showing <strong>{filtered.length}</strong> challenge{filtered.length !== 1 ? "s" : ""}
+            </div>
 
-          return (
-            <Card key={challenge.id} className="overflow-hidden">
-              <CardHeader>
-                <div className="flex items-start justify-between gap-4">
-                  <div className="flex-1">
-                    <CardTitle className="mb-2">{challenge.title}</CardTitle>
-                    <CardDescription>{challenge.description}</CardDescription>
+            <div className="flex items-center gap-2">
+              <Button onClick={() => { setLanguageFilter("All"); setDifficultyFilter("All"); setPage(1); }} variant="outline" className="text-sm">Reset</Button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* challenge list */}
+      <div id="challenge-list" className="max-w-4xl mx-auto w-full px-2 pb-8">
+
+        <div className="grid gap-6 md:grid-cols-2">
+          {pageItems.map((challenge) => {
+            const selected = selectedAnswers[challenge.id];
+            const revealed = revealedAnswers[challenge.id];
+            const isCorrect = selected === challenge.correctAnswer;
+            const exp = expanded[challenge.id] || { code: false, explanation: false };
+
+            return (
+              <Card key={challenge.id} className="overflow-hidden">
+                <CardHeader>
+                  <div className="flex items-start justify-between gap-4">
+                    <div className="flex-1">
+                      <CardTitle className="mb-1 text-sm md:text-base">{challenge.title}</CardTitle>
+                      <CardDescription className="text-xs md:text-sm">{challenge.description}</CardDescription>
+                    </div>
+
+                    <div className="flex flex-col gap-2 items-end">
+                      <Badge className={getDifficultyColor(challenge.difficulty)}>
+                        {challenge.difficulty}
+                      </Badge>
+                      <Badge variant="outline">{challenge.language}</Badge>
+                      <Badge variant="secondary">{challenge.xp} XP</Badge>
+                    </div>
                   </div>
-                  <div className="flex flex-col gap-2 items-end">
-                    <Badge className={getDifficultyColor(challenge.difficulty)}>
-                      {challenge.difficulty}
-                    </Badge>
-                    <Badge variant="outline">{challenge.language}</Badge>
-                    <Badge variant="secondary">{challenge.xp} XP</Badge>
-                  </div>
-                </div>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <div className="bg-secondary/50 p-4 rounded-lg">
-                  <pre className="text-sm overflow-x-auto">
-                    <code>{challenge.buggyCode}</code>
-                  </pre>
-                </div>
+                </CardHeader>
 
-                <div className="space-y-2">
-                  <p className="font-semibold text-sm">What's the bug?</p>
-                  {challenge.options.map((option, index) => (
-                    <button
-                      key={index}
-                      onClick={() => handleAnswer(challenge.id, index)}
-                      disabled={revealed}
-                      className={`w-full text-left p-3 rounded-lg border transition-all ${
-                        selected === index
-                          ? revealed
-                            ? isCorrect
-                              ? "bg-green-500/10 border-green-500 text-green-500"
-                              : "bg-red-500/10 border-red-500 text-red-500"
-                            : "bg-primary/10 border-primary"
-                          : revealed && index === challenge.correctAnswer
-                          ? "bg-green-500/10 border-green-500 text-green-500"
-                          : "bg-card border-border hover:bg-muted"
-                      } ${revealed ? "cursor-not-allowed" : "cursor-pointer"}`}
+                <CardContent className="space-y-3">
+                  {/* collapsible code */}
+                  <div>
+                    <div className="flex items-center justify-between">
+                      <div className="text-xs text-muted-foreground">Code</div>
+                      <button
+                      onClick={() => toggleExpandCode(challenge.id)}
+                      className="text-xs px-2 py-1 rounded-md bg-primary text-primary-foreground hover:bg-primary/80 transition"
+                      aria-expanded={exp.code}
                     >
-                      <div className="flex items-center gap-2">
-                        {revealed && index === challenge.correctAnswer && (
-                          <CheckCircle2 className="w-5 h-5 text-green-500 shrink-0" />
-                        )}
-                        {revealed && selected === index && !isCorrect && (
-                          <XCircle className="w-5 h-5 text-red-500 shrink-0" />
-                        )}
-                        <span className="text-sm">{option}</span>
-                      </div>
+                      {exp.code ? "Hide" : "View"}
                     </button>
-                  ))}
-                </div>
+                    </div>
 
-                {!revealed && (
-                  <Button onClick={() => checkAnswer(challenge)} className="w-full">
-                    Check Answer
-                  </Button>
-                )}
-
-                {revealed && (
-                  <div className="bg-primary/5 p-4 rounded-lg border border-primary/20">
-                    <p className="text-sm font-semibold mb-2">Explanation:</p>
-                    <p className="text-sm">{challenge.explanation}</p>
+                    <div
+                      className="overflow-hidden transition-[max-height] duration-300 ease-in-out mt-2 rounded-md border border-border bg-secondary/40"
+                      style={{ maxHeight: exp.code ? 400 : 0 }}
+                    >
+                      <pre className="text-xs p-3 overflow-x-auto">
+                        <code>{challenge.buggyCode}</code>
+                      </pre>
+                    </div>
                   </div>
-                )}
-              </CardContent>
-            </Card>
-          );
-        })}
+
+                  {/* options */}
+                  <div className="space-y-2">
+                    <p className="font-semibold text-sm">What's the bug?</p>
+                    {challenge.options.map((option, index) => (
+                      <button
+                        key={index}
+                        onClick={() => handleAnswer(challenge.id, index)}
+                        disabled={revealed}
+                        className={`w-full text-left p-2 rounded-md border transition-all text-sm ${
+                          selected === index
+                            ? revealed
+                              ? isCorrect
+                                ? "bg-green-500/10 border-green-500 text-green-500"
+                                : "bg-red-500/10 border-red-500 text-red-500"
+                              : "bg-primary/10 border-primary"
+                            : revealed && index === challenge.correctAnswer
+                            ? "bg-green-500/10 border-green-500 text-green-500"
+                            : "bg-card border-border hover:bg-muted"
+                        } ${revealed ? "cursor-not-allowed" : "cursor-pointer"}`}
+                      >
+                        <div className="flex items-center gap-2">
+                          {revealed && index === challenge.correctAnswer && (
+                            <CheckCircle2 className="w-4 h-4 text-green-500 shrink-0" />
+                          )}
+                          {revealed && selected === index && !isCorrect && (
+                            <XCircle className="w-4 h-4 text-red-500 shrink-0" />
+                          )}
+                          <span className="text-sm">{option}</span>
+                        </div>
+                      </button>
+                    ))}
+                  </div>
+
+                  {/* action / explanation */}
+                  <div>
+                    {!revealed ? (
+                      
+                      <Button onClick={() => checkAnswer(challenge)} className="w-full text-sm">Check Answer</Button>
+                    ) : (
+                      <>
+                        <div className="flex items-center justify-between gap-3">
+                          <div className="text-sm font-semibold text-green-600">Answered</div>
+                          <button
+                          onClick={() => toggleExpandExplanation(challenge.id)}
+                          className="text-xs px-2 py-1 rounded-md bg-primary text-primary-foreground hover:bg-primary/80 transition"
+                          aria-expanded={exp.explanation}
+                        >
+                          {exp.explanation ? "Hide explanation" : "Show explanation"}
+                        </button>
+                        </div>
+
+                        <div
+                          className="overflow-hidden transition-[max-height] duration-300 ease-in-out mt-2 rounded-md bg-primary/5 border border-primary/20 p-0"
+                          style={{ maxHeight: exp.explanation ? 200 : 0 }}
+                        >
+                          <div className="p-3">
+                            <p className="text-sm">{challenge.explanation}</p>
+                          </div>
+                        </div>
+                      </>
+                    )}
+                  </div>
+                </CardContent>
+              </Card>
+            );
+          })}
+        </div>
+
+        {/* pagination */}
+        <div className="mt-8 flex flex-col items-center gap-4">
+          <div className="flex items-center gap-2">
+            <Button onClick={() => gotoPage(page - 1)} variant="outline" className="text-sm" disabled={page === 1}>Prev</Button>
+
+            {Array.from({ length: pageCount }).map((_, i) => {
+              const p = i + 1;
+              const isActive = p === page;
+              return (
+                <button
+                  key={p}
+                  onClick={() => gotoPage(p)}
+                  className={`px-3 py-1 rounded-md text-sm ${isActive ? "bg-primary text-primary-foreground" : "bg-card border border-border hover:bg-muted"}`}
+                >
+                  {p}
+                </button>
+              );
+            })}
+
+            <Button onClick={() => gotoPage(page + 1)} variant="outline" className="text-sm" disabled={page === pageCount}>Next</Button>
+          </div>
+
+          <div className="text-xs text-muted-foreground">Page {page} of {pageCount}</div>
+        </div>
+
+        {/* gap before footer */}
+        <div className="h-16" />
+
       </div>
     </div>
   );

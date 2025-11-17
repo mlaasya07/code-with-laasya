@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Film } from "lucide-react"; 
+import { Film } from "lucide-react";
+import tools from "@/data/tools.json";
+
+
 const CodeBlock: React.FC<{ code: string }> = ({ code }) => (
   <pre className="bg-muted p-4 rounded-md overflow-auto text-sm font-mono border border-border">
     {code}
@@ -9,28 +12,14 @@ const CodeBlock: React.FC<{ code: string }> = ({ code }) => (
 );
 
 export default function ToolTime() {
-  const tools = [
-    {
-      id: "git",
-      title: "Git Basics",
-      tip: "Use git status often to stay aware of changes.",
-      snippet: "git add . && git commit -m 'save progress'",
-      video: "https://www.youtube.com/embed/dQw4w9WgXcQ",
-    },
-    {
-      id: "vscode",
-      title: "VSCode Multi-Cursor",
-      tip: "Ctrl/Cmd + D selects next matching word.",
-      snippet: "// Try it in your editor!",
-      video: "https://www.youtube.com/embed/dQw4w9WgXcQ",
-    },
-  ];
 
   const [active, setActive] = useState(tools[0]);
 
   return (
     <div className="min-h-screen">
       <section className="container mx-auto px-4 pt-28 pb-16">
+        
+        {/* Header */}
         <div className="max-w-4xl mx-auto text-center space-y-4 mb-16">
           <div className="inline-flex items-center gap-2 text-primary">
             <Film className="w-8 h-8" />
@@ -41,37 +30,37 @@ export default function ToolTime() {
           </p>
         </div>
 
+        {/* Timing Label */}
         <div className="text-right mb-6">
           <div className="text-xs text-muted-foreground">~2 mins per tip</div>
         </div>
 
+        {/* Layout Grid */}
         <div className="grid md:grid-cols-3 gap-4">
+
           {/* Sidebar */}
-          <aside className="space-y-2">
-            {tools.map((t) => (
-              <Button
-                key={t.id}
-                variant={active.id === t.id ? "default" : "outline"}
-                className="w-full justify-start"
-                onClick={() => setActive(t)}
+        <aside className="space-y-2 max-h-[70vh] overflow-y-auto pr-1">
+          {tools.map((t) => (
+            <Button
+              key={t.id}
+              variant={active.id === t.id ? "default" : "outline"}
+              className="w-full justify-start"
+              onClick={() => setActive(t)}
               >
-                {t.title}
-              </Button>
-            ))}
-          </aside>
+              {t.title}
+            </Button>
+          ))}
+        </aside>
+
 
           {/* Main Content */}
-          <main className="md:col-span-2 space-y-4">
-            <Card>
+          <main className="md:col-span-2 space-y-4 sticky top-28">
+              <Card>
               <CardHeader>
                 <CardTitle>{active.title}</CardTitle>
               </CardHeader>
+
               <CardContent className="space-y-4">
-                <div
-                  className="aspect-video bg-black rounded overflow-hidden"
-                  style={{ maxHeight: "300px" }}
-                >
-                </div>
                 <p className="text-sm text-muted-foreground">💡 {active.tip}</p>
                 <CodeBlock code={active.snippet} />
               </CardContent>

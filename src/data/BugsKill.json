@@ -1,5 +1,4 @@
-{
-  "challenges": [
+[
     {
       "id": "bug-1",
       "title": "Missing Return Statement",
@@ -137,4 +136,4 @@
       "xp": 10
     }
   ]
-}
+

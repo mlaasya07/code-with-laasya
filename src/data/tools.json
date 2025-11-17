@@ -1,0 +1,128 @@
+[
+  {
+    "id": "git",
+    "title": "Git Basics",
+    "tip": "Use git status often to stay aware of changes.",
+    "snippet": "git add . && git commit -m 'save progress'",
+    "video": "https://www.youtube.com/embed/dQw4w9WgXcQ"
+  },
+  {
+    "id": "vscode",
+    "title": "VSCode Select Next Occurrence",
+    "tip": "Ctrl/Cmd + D selects next matching word.",
+    "snippet": "// Try it in your editor!",
+    "video": "https://www.youtube.com/embed/dQw4w9WgXcQ"
+  },
+  {
+    "id": "terminal",
+    "title": "Terminal Navigation",
+    "tip": "Use 'cd -' to go back to the previous directory.",
+    "snippet": "cd -",
+    "video": "https://www.youtube.com/embed/dQw4w9WgXcQ"
+  },
+  {
+    "id": "bash-shortcuts",
+    "title": "Bash Productivity",
+    "tip": "Use Ctrl + R to search through your command history instantly.",
+    "snippet": "# Press Ctrl + R and start typing a previous command",
+    "video": "https://www.youtube.com/embed/dQw4w9WgXcQ"
+  },
+  {
+    "id": "npm-global",
+    "title": "NPM Global Packages",
+    "tip": "Use 'npm list -g --depth=0' to see all globally installed tools.",
+    "snippet": "npm list -g --depth=0",
+    "video": "https://www.youtube.com/embed/dQw4w9WgXcQ"
+  },
+  {
+    "id": "vscode-format",
+    "title": "VSCode Auto-Format",
+    "tip": "Use Shift + Alt + F (or Shift + Option + F) to auto-format your code.",
+    "snippet": "// Try formatting messy code to clean it automatically",
+    "video": "https://www.youtube.com/embed/dQw4w9WgXcQ"
+  },
+  {
+    "id": "chrome-devtools",
+    "title": "Chrome DevTools Element Picker",
+    "tip": "Press Ctrl + Shift + C to instantly inspect any element on screen.",
+    "snippet": "// Use the selector in DevTools for faster debugging",
+    "video": "https://www.youtube.com/embed/dQw4w9WgXcQ"
+  },
+  {
+    "id": "git-last-commit",
+    "title": "Git View Last Commit",
+    "tip": "Use 'git show' to see details of your most recent commit.",
+    "snippet": "git show",
+    "video": "https://www.youtube.com/embed/dQw4w9WgXcQ"
+  },
+  {
+    "id": "json-pretty",
+    "title": "Pretty Print JSON",
+    "tip": "Use the built-in JSON formatter in Node or terminal for readability.",
+    "snippet": "echo '{\"a\":1}' | jq '.'",
+    "video": "https://www.youtube.com/embed/dQw4w9WgXcQ"
+  },
+  {
+    "id": "react-fast-refresh",
+    "title": "React Fast Refresh",
+    "tip": "Name your components with Capital letters to ensure React hot reload works reliably.",
+    "snippet": "// function myComponent() ❌\n// function MyComponent() ✔️",
+    "video": "https://www.youtube.com/embed/dQw4w9WgXcQ"
+  },
+  {
+    "id": "terminal-alias",
+    "title": "Terminal Aliases",
+    "tip": "Create short aliases for long commands to speed up workflows.",
+    "snippet": "alias gs='git status'",
+    "video": "https://www.youtube.com/embed/dQw4w9WgXcQ"
+  },
+  {
+    "id": "git-undo",
+    "title": "Undo Last Git Commit",
+    "tip": "Use --soft reset to uncommit without losing changes.",
+    "snippet": "git reset --soft HEAD~1",
+    "video": "https://www.youtube.com/embed/dQw4w9WgXcQ"
+  },
+  {
+    "id": "css-inspect",
+    "title": "CSS Debugging Trick",
+    "tip": "Add a temporary outline to elements to understand spacing.",
+    "snippet": "* { outline: 1px solid red; }",
+    "video": "https://www.youtube.com/embed/dQw4w9WgXcQ"
+  },
+  {
+    "id": "node-version",
+    "title": "Check Node Version",
+    "tip": "Quickly verify both Node and NPM versions when debugging.",
+    "snippet": "node -v && npm -v",
+    "video": "https://www.youtube.com/embed/dQw4w9WgXcQ"
+  },
+  {
+    "id": "curl-test",
+    "title": "Test APIs with cURL",
+    "tip": "Use curl to make fast API requests directly from terminal.",
+    "snippet": "curl -X GET https://api.github.com",
+    "video": "https://www.youtube.com/embed/dQw4w9WgXcQ"
+  },
+  {
+    "id": "css-scroll",
+    "title": "Smooth Scroll CSS",
+    "tip": "Enable smooth scrolling across your entire site with one line.",
+    "snippet": "html { scroll-behavior: smooth; }",
+    "video": "https://www.youtube.com/embed/dQw4w9WgXcQ"
+  },
+  {
+    "id": "git-stash",
+    "title": "Git Stash & Restore",
+    "tip": "Temporarily save uncommitted changes with stash.",
+    "snippet": "git stash\n# Later...\ngit stash pop",
+    "video": "https://www.youtube.com/embed/dQw4w9WgXcQ"
+  },
+  {
+    "id": "vscode-terminal-split",
+    "title": "Split Terminal in VSCode",
+    "tip": "Use Ctrl + \\` to split your terminal horizontally.",
+    "snippet": "// Great for running multiple processes side-by-side",
+    "video": "https://www.youtube.com/embed/dQw4w9WgXcQ"
+  }
+]

@@ -9,7 +9,7 @@ import { Lightbulb } from "lucide-react";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Home from "./pages/Home";
-import Projects from "./pages/Projects";
+import Projects from "./pages/Projects/myProjects";
 import VideoZone from "./pages/archive/VideoZone";
 import PDFs from "./pages/archive/PDFs";
 import RYC from "./pages/playground/RYC";
@@ -21,6 +21,9 @@ import dailyBytesData from "./data/dailyBytes.json";
 import NotFound from "./pages/NotFound";
 import BuildWithMe from "./pages/playground/BuildWithMe";
 import ToolTime from "./pages/playground/ToolTime";
+import ByteRush from "./pages/playground/ByteRush";
+import BugsKill from "./pages/playground/BugsKill";
+import MiniProjects from "./pages/Projects/MiniProjects";
 
 const queryClient = new QueryClient();
 
@@ -57,7 +60,10 @@ const AppContent = () => {
           <Route path="/playground/ryq" element={<RYQ />} />
           <Route path="/playground/buildwithme" element={<BuildWithMe />} />
           <Route path="/playground/tooltime" element={<ToolTime />} />
-          <Route path="/projects" element={<Projects />} />
+          <Route path="/playground/byterush" element={<ByteRush />} />
+          <Route path="/playground/bugskill" element={<BugsKill />} />
+          <Route path="/projects/myprojects" element={<Projects />} />
+          <Route path="/projects/miniprojects" element={<MiniProjects />} />
           <Route path="/ragebait/errors" element={<ErrorLogs />} />
           <Route path="/ragebait/tips" element={<Tips />} />
           <Route path="*" element={<NotFound />} />
