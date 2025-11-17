@@ -38,7 +38,7 @@ const AppContent = () => {
         </div>
       </div>,
       {
-        duration: 8000,
+        duration: 6000,
         position: "top-center",
       }
     );

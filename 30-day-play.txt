@@ -1,0 +1,219 @@
+⭐ 1. 30-Day Shorts Calendar (No Face, Fully Screen-Based)
+
+Format: 10–20 sec screen recordings + neutral AI voice + glitch transitions.
+
+Week 1 – CWL Identity
+
+CWL tour in 10 seconds
+
+SQL Playground demo
+
+Daily Byte tip #1
+
+“A bug I fixed today” (RageBait)
+
+Mini Project showcase montage
+
+VS Code trick #1
+
+React tip (useState mistake)
+
+Week 2 – Beginner Value
+
+“Flex vs Grid (in 8 sec)”
+
+“This SQL JOIN visual will save your life”
+
+“One React mistake beginners make”
+
+Timelapse coding (fast aesthetic)
+
+“My RYC playground looks like this”
+
+CSS tip: center div properly
+
+“Don’t do this in JavaScript”
+
+Week 3 – CWL Feature Highlights
+
+Mini Projects: 5 projects in 5 seconds
+
+RageBait: debugging story
+
+PDF viewer sneak peek
+
+CWL streak system explained
+
+“How I track XP without backend”
+
+Snippet Locker preview
+
+My favourite project layout
+
+Week 4 – Educational + Relatable
+
+POV: Query finally works
+
+VS Code trick #2
+
+“One tip to write cleaner CSS”
+
+“Why your React useEffect loops”
+
+“Debugging in 5 seconds”
+
+Short SQL challenge
+
+“Mini project idea you can build today”
+
+Coding aesthetic timelapse again
+
+CWL update log #1 (quick montage)
+
+⭐ 2. Full Scripts for Your First 3 Long YouTube Videos
+
+These are screen-only, AI-voice friendly, and safe.
+
+Video 1: “I Built My Own Coding Platform at 20 — Here’s the Journey (CWL Tour)”
+
+Length: 6–8 minutes
+Format: Screen recording + neutral AI voice
+
+SCRIPT
+
+[0:00 – 0:10] Intro – Glitch Fade
+Screen: CWL homepage scroll
+AI Voice:
+“Welcome to Code.With.Laasya — a learning platform I built from scratch to make coding simpler, cleaner and actually fun.”
+
+[0:10 – 0:40] What CWL Is
+Screen: Navigate Dashboard → Learning Flow
+“This is CWL. A platform where I collect everything I learn — mini projects, SQL labs, debugging logs, and quick lessons.”
+
+“No accounts, no noise, no ads. Just pure learning.”
+
+[0:40 – 1:40] Learning Flow
+Scroll lessons.json → show video embeds
+“Every lesson has a video, code snippets, and small tasks. You can mark progress and earn XP while learning.”
+
+[1:40 – 2:30] RYC & RYQ Playground
+Show typing + executing queries
+“There’s a full HTML/CSS/JS playground and a SQL playground with three sample databases. Perfect for practicing without setup.”
+
+[2:30 – 3:20] Mini Projects
+“Then come mini projects — 20 curated builds from easy to advanced. These helped me improve faster than any course.”
+
+[3:20 – 4:20] RageBait (Debugging Journal)
+Show real mistakes + fixes
+“This section is my favorite — a log of real bugs I solved. It’s messy, honest, and helps beginners learn from real mistakes.”
+
+[4:20 – 5:00] Why I Built CWL
+Show clean transitions
+“I built this to learn publicly, stay accountable, and help students who don’t know where to start.”
+
+[5:00 – 5:30] Outro
+Fade out
+“If you want to learn with me, build with me, or debug with me — subscribe. Let’s grow together.”
+
+Video 2: “Build a Mini Project With Me — Password Generator in 12 Minutes”
+
+Length: 10–12 minutes
+Format: Timelapse + slow parts for explaining
+
+SCRIPT (Condensed)
+
+Intro
+“Today we’re building a Password Generator using HTML, CSS, and JavaScript — beginner-friendly, fast, and fun.”
+
+Sections:
+
+Setup folder structure
+
+Build UI
+
+Add JS logic for random characters
+
+Strength meter
+
+Copy button
+
+Final cleanup
+
+Outro:
+“If you want more mini project builds, check out CWL.”
+
+Video 3: “Learn SQL With Me — Beginner to Intermediate (Using CWL’s SQL Playground)”
+
+Length: 8–10 min
+
+SCRIPT
+
+Intro
+“SQL looks scary — until you practice it. Today we’ll learn SQL using my playground.”
+
+Main Sections:
+
+SELECT, WHERE
+
+ORDER BY, LIMIT
+
+JOINS
+
+GROUP BY
+
+Aggregations
+
+Real queries on e-commerce data
+
+Outro:
+“Practice these inside RYQ on CWL. New SQL labs coming soon.”
+
+⭐ 3. Visual Editing Style Guide (CWL Aesthetic)
+
+This defines your signature look. Safe. Non-gendered. Clean.
+
+Color palette
+
+Crimson (#A63D40)
+
+Gold (#F7EF99)
+
+Black (#000000)
+
+Soft grey for code (#1E1E1E)
+
+Fonts
+
+Monospace for titles (Roboto Mono)
+
+Sans serif for captions (Inter / Poppins)
+
+Transitions
+
+Glitch flicker (0.1s)
+
+Code typing cursor
+
+Screen zoom-ins
+
+Terminal-style wipes
+
+Effects
+
+RGB aberration
+
+Subtle VHS grain
+
+Quick 2-frame distortions
+
+Audio
+
+Lofi beats
+
+Soft clicks
+
+Keyboard typing sounds
+
+Lower-third captions
+
+Small, white, monospace:

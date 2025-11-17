@@ -80,7 +80,7 @@ const Footer = () => {
 
           <div className="text-center">
             <p className="text-sm text-muted-foreground font-semibold">
-              Built with Chaos
+              Built with Chaos | © {new Date().getFullYear()}
             </p>
           </div>
         </div>

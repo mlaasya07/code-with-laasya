@@ -25,6 +25,8 @@ const Navbar = () => {
         */
         { label: "Build With Me [BWM]", path: "/playground/buildwithme" },
         { label: "Tool Time", path: "/playground/tooltime" },
+        { label: "ByteRush", path: "/playground/byterush" },
+        { label: "BugsKill", path: "/playground/bugskill" },
       ],
     },
     {

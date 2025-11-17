@@ -1,0 +1,124 @@
+[
+  {
+    "id": "js-basics-1",
+    "title": "JavaScript Basics",
+    "difficulty": "Easy",
+    "category": "frontend",
+    "questions": [
+      {
+        "question": "What is the output of: console.log(typeof null)?",
+        "options": ["null", "object", "undefined", "boolean"],
+        "correctAnswer": 1,
+        "explanation": "Due to a historical bug in JS, typeof null returns 'object'."
+      },
+      {
+        "question": "Which keyword declares a block-scoped variable?",
+        "options": ["var", "let", "static", "define"],
+        "correctAnswer": 1,
+        "explanation": "Variables declared with let are block-scoped."
+      },
+      {
+        "question": "Which of these is NOT a primitive type?",
+        "options": ["string", "object", "number", "bigint"],
+        "correctAnswer": 1,
+        "explanation": "Object is non-primitive."
+      }
+    ]
+  },
+
+  {
+    "id": "debug-1",
+    "title": "Bug Hunt: Identify the Error",
+    "difficulty": "Medium",
+    "category": "debugging",
+    "code": "function add(a, b) {\n  return\n    a + b;\n}\nconsole.log(add(2, 3));",
+    "questions": [
+      {
+        "question": "What is the output?",
+        "options": ["5", "undefined", "NaN", "Error"],
+        "correctAnswer": 1,
+        "explanation": "Automatic semicolon insertion ends the return statement early, so it returns undefined."
+      },
+      {
+        "question": "How do you fix the bug?",
+        "options": [
+          "Add parentheses around a + b",
+          "Move a + b to the same line as return",
+          "Remove return completely",
+          "Rewrite function using =>"
+        ],
+        "correctAnswer": 1,
+        "explanation": "JS inserts a semicolon after return because of the line break."
+      }
+    ]
+  },
+
+  {
+    "id": "react-1",
+    "title": "React Knowledge Check",
+    "difficulty": "Hard",
+    "category": "frontend",
+    "code": "const [count, setCount] = useState(0);\nfor (let i = 0; i < 3; i++) {\n  setCount(count + 1);\n}\nconsole.log(count);",
+    "questions": [
+      {
+        "question": "What will be printed in the console?",
+        "options": ["3", "1", "0", "It throws an error"],
+        "correctAnswer": 2,
+        "explanation": "State updates are async. Inside the loop, count remains 0 each iteration, so console logs the initial state."
+      },
+      {
+        "question": "How do you ensure the state increments correctly?",
+        "options": [
+          "Use setCount(prev => prev + 1)",
+          "Use useEffect",
+          "Use a while loop instead",
+          "Wrap the loop in React.memo"
+        ],
+        "correctAnswer": 0,
+        "explanation": "Functional updates use the latest state value."
+      }
+    ]
+  },
+
+  {
+    "id": "node-1",
+    "title": "Node.js Fundamentals",
+    "difficulty": "Medium",
+    "category": "backend",
+    "questions": [
+      {
+        "question": "Which module is used to create a server in Node?",
+        "options": ["fs", "http", "net", "cluster"],
+        "correctAnswer": 1,
+        "explanation": "The http module is used to create web servers."
+      },
+      {
+        "question": "What does require() return?",
+        "options": ["A function", "An object", "A promise", "Undefined"],
+        "correctAnswer": 1,
+        "explanation": "require() returns the exported object from a module."
+      }
+    ]
+  },
+
+  {
+    "id": "ts-1",
+    "title": "TypeScript Logic & Types",
+    "difficulty": "Hard",
+    "category": "frontend",
+    "questions": [
+      {
+        "question": "What does the 'never' type represent?",
+        "options": ["A value that never occurs", "Null-only values", "Undefined-only values", "A void-like return"],
+        "correctAnswer": 0,
+        "explanation": "never is used for functions that never return (e.g., throw errors, infinite loops)."
+      },
+      {
+        "question": "Which is a valid TypeScript union type?",
+        "options": ["string:number", "string | number", "string || number", "string & number"],
+        "correctAnswer": 1,
+        "explanation": "Union types use the | operator."
+      }
+    ]
+  }
+]

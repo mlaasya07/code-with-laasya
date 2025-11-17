@@ -42,7 +42,7 @@ export default function ToolTime() {
         </div>
 
         <div className="text-right mb-6">
-          <div className="text-xs text-muted-foreground">~5 mins per tip</div>
+          <div className="text-xs text-muted-foreground">~2 mins per tip</div>
         </div>
 
         <div className="grid md:grid-cols-3 gap-4">
@@ -71,20 +71,9 @@ export default function ToolTime() {
                   className="aspect-video bg-black rounded overflow-hidden"
                   style={{ maxHeight: "300px" }}
                 >
-                  <iframe
-                    src={active.video}
-                    className="w-full h-full"
-                    title={active.title}
-                    allowFullScreen
-                  />
                 </div>
                 <p className="text-sm text-muted-foreground">💡 {active.tip}</p>
                 <CodeBlock code={active.snippet} />
-                <Button
-                  onClick={() => navigator.clipboard.writeText(active.snippet)}
-                >
-                  Copy Snippet
-                </Button>
               </CardContent>
             </Card>
           </main>

@@ -1,0 +1,140 @@
+{
+  "challenges": [
+    {
+      "id": "bug-1",
+      "title": "Missing Return Statement",
+      "language": "JavaScript",
+      "difficulty": "Easy",
+      "description": "This function should return the sum of two numbers, but it's not working. What's the bug?",
+      "buggyCode": "function addNumbers(a, b) {\n  const sum = a + b;\n}\n\nconsole.log(addNumbers(5, 3)); // undefined",
+      "options": [
+        "Missing semicolon after sum",
+        "Missing return statement",
+        "Wrong variable name",
+        "Function parameters are incorrect"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The function calculates the sum but never returns it. Add 'return sum;' before the closing brace.",
+      "xp": 10
+    },
+    {
+      "id": "bug-2",
+      "title": "Array Index Out of Bounds",
+      "language": "Python",
+      "difficulty": "Easy",
+      "description": "This code tries to access array elements but crashes. What's wrong?",
+      "buggyCode": "numbers = [1, 2, 3, 4, 5]\nfor i in range(6):\n    print(numbers[i])\n    \n# IndexError: list index out of range",
+      "options": [
+        "Array is empty",
+        "Loop range exceeds array length",
+        "Wrong syntax for range",
+        "Print statement is incorrect"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The array has 5 elements (indices 0-4), but the loop runs 6 times (0-5). Change range(6) to range(len(numbers)).",
+      "xp": 10
+    },
+    {
+      "id": "bug-3",
+      "title": "State Update Not Reflecting",
+      "language": "React",
+      "difficulty": "Medium",
+      "description": "Clicking the button doesn't update the counter. Why?",
+      "buggyCode": "function Counter() {\n  let count = 0;\n  \n  const increment = () => {\n    count = count + 1;\n  };\n  \n  return (\n    <button onClick={increment}>\n      Count: {count}\n    </button>\n  );\n}",
+      "options": [
+        "Missing useState hook",
+        "Wrong onClick syntax",
+        "Button is disabled",
+        "Count should be const"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Regular variables don't trigger re-renders in React. Use const [count, setCount] = useState(0) and setCount(count + 1) in the increment function.",
+      "xp": 10
+    },
+    {
+      "id": "bug-4",
+      "title": "Infinite Loop Alert",
+      "language": "JavaScript",
+      "difficulty": "Medium",
+      "description": "This loop never stops! What's the issue?",
+      "buggyCode": "let i = 0;\nwhile (i < 10) {\n  console.log(i);\n  // Do something\n}\n\n// Browser freezes!",
+      "options": [
+        "Wrong comparison operator",
+        "Missing increment statement (i++)",
+        "Console.log is blocking",
+        "While loop syntax error"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The variable 'i' never increases, so the condition 'i < 10' is always true. Add 'i++' inside the loop to increment i.",
+      "xp": 10
+    },
+    {
+      "id": "bug-5",
+      "title": "Null Pointer Exception",
+      "language": "Java",
+      "difficulty": "Medium",
+      "description": "This code crashes with NullPointerException. What's the bug?",
+      "buggyCode": "String name = null;\nSystem.out.println(name.length());\n\n// NullPointerException",
+      "options": [
+        "Length() method doesn't exist",
+        "Trying to call method on null object",
+        "String is not initialized properly",
+        "Wrong println syntax"
+      ],
+      "correctAnswer": 1,
+      "explanation": "You cannot call methods on a null reference. Check if name != null before calling name.length(), or initialize name with a value.",
+      "xp": 10
+    },
+    {
+      "id": "bug-6",
+      "title": "Async Await Missing",
+      "language": "JavaScript",
+      "difficulty": "Hard",
+      "description": "The data is always undefined. What's missing?",
+      "buggyCode": "function fetchUserData() {\n  const response = fetch('/api/user');\n  const data = response.json();\n  return data;\n}\n\nconst user = fetchUserData();\nconsole.log(user); // Promise {<pending>}",
+      "options": [
+        "Missing async/await keywords",
+        "Wrong API endpoint",
+        "JSON() method is wrong",
+        "Fetch is not defined"
+      ],
+      "correctAnswer": 0,
+      "explanation": "fetch() returns a Promise. Make the function async and use await: 'const response = await fetch(...)' and 'const data = await response.json()'.",
+      "xp": 10
+    },
+    {
+      "id": "bug-7",
+      "title": "Comparison Type Coercion",
+      "language": "JavaScript",
+      "difficulty": "Hard",
+      "description": "This condition should be false but it's true. Why?",
+      "buggyCode": "const value = '0';\nif (value == false) {\n  console.log('This shouldn't print!');\n}\n\n// Output: This shouldn't print!",
+      "options": [
+        "String is always truthy",
+        "Type coercion with == operator",
+        "False is not a valid value",
+        "Missing NOT operator"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The == operator performs type coercion. '0' is converted to 0, which equals false. Use === for strict equality or check if (value === 'false').",
+      "xp": 10
+    },
+    {
+      "id": "bug-8",
+      "title": "Closure Variable Scope",
+      "language": "JavaScript",
+      "difficulty": "Hard",
+      "description": "All buttons alert '3'. What's the bug?",
+      "buggyCode": "for (var i = 0; i < 3; i++) {\n  document.getElementById('btn' + i)\n    .addEventListener('click', function() {\n      alert(i);\n    });\n}\n\n// All buttons alert: 3",
+      "options": [
+        "Wrong loop counter",
+        "var has function scope, use let for block scope",
+        "addEventListener syntax error",
+        "Alert function is broken"
+      ],
+      "correctAnswer": 1,
+      "explanation": "var has function scope, so all closures reference the same 'i' which is 3 after the loop. Use 'let i = 0' for block scope, creating a new binding for each iteration.",
+      "xp": 10
+    }
+  ]
+}
