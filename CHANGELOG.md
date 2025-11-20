@@ -1,6 +1,93 @@
 # Code.With.Laasya - Complete Changelog
 
-## [2025-01-10 18:45] - Major Cleanup and Data Refactoring
+## [1.2.0] - 2025-11-20
+
+### Added
+- Profile page with comprehensive progress tracking system
+  - XP and level progression with visual progress bar
+  - Statistics dashboard (quizzes, projects, streak, bookmarks)
+  - Achievement system with unlockable badges
+  - Integration with ProgressBar and XPToast components
+- Mobile accordion view for Error Logs section for better readability
+- Mobile-optimized ToolTime section with Select dropdown
+- Code overflow handling in Error Logs with proper text wrapping
+
+### Changed
+- Renamed "My Projects" to "Projects" in navigation (files unchanged)
+- Renamed Tips.tsx to T4.tsx for T^4 framework (Time, Task, Team, Technology)
+- Renamed tips.json to t4.json for consistency
+- Improved Error Logs code block display with max-width and word wrapping
+- Enhanced responsive design across all device sizes
+
+### Fixed
+- Code blocks in Error Logs going out of screen on mobile devices
+- Mobile navbar hover background color (changed to muted/50)
+- ToolTime mobile view usability
+
+### Removed
+- Duplicate T4.json file
+
+---
+
+## [2025-11-19] - Navbar Responsiveness, PDF Viewer & Component Enhancements
+
+### Added
+- **Enhanced PDF Viewer Component** (`src/components/PDFViewer.tsx`)
+  - Integrated `react-pdf` library for native PDF rendering
+  - Page navigation with Previous/Next controls
+  - Zoom in/out functionality (0.5x to 2.0x)
+  - Responsive page display with loading states
+  - Support for both PDF and PPT viewing modes
+- **ProgressBar Component** (`src/components/ProgressBar.tsx`)
+  - Reusable progress indicator with percentage display
+  - Customizable labels and styling
+- **XPToast Component** (`src/components/XPToast.tsx`)
+  - Centralized toast notifications for XP gains
+  - Level-up celebration toasts
+  - Achievement unlock notifications
+- **Expanded PDF Archive** - Added 5 new programming resources:
+  - Programming in C - LPU (285 pages)
+  - Introduction to Ada (156 pages)
+  - C and MatLab (349 pages)
+  - Think C by Allen B. Downey (191 pages)
+  - Lecture Notes on C & Data Structures (197 pages)
+
+### Modified
+- **Navbar Responsiveness** (`src/components/Navbar.tsx`)
+  - Fixed mobile/tablet hover background color (changed from `bg-card` to `bg-muted/50`)
+  - Enhanced screen size detection with adaptive font sizes
+  - Improved touch targets for mobile devices (minimum 44x44px)
+  - Responsive icon sizing: mobile (14-16px), tablet (16-20px), desktop (20-24px)
+  - Better spacing and padding across all screen sizes
+  - Profile icon hover state now uses proper semantic colors
+- **Footer** (`src/components/Footer.tsx`)
+  - Added comprehensive social media links (Portfolio, GitHub, LeetCode, CodinGame, LinkedIn, Instagram, Email)
+  - Random quote display (desktop/tablet only)
+  - Sticky footer positioning with backdrop blur
+  - Enhanced icon layout and hover states
+- **Error Logs** (`src/pages/ragebait/ErrorLogs.tsx`)
+  - Expanded error collection with 12 real-world debugging scenarios
+  - Added code examples with before/after comparisons
+  - Enhanced error context and lessons learned sections
+  - Added debugging commandments list
+- **ToolTime** (`src/data/tools.json`)
+  - 40 developer tool tips across categories
+  - Git, VSCode, Terminal, Chrome DevTools shortcuts
+  - NPM, Docker, Bash productivity hacks
+  - Enhanced with video tutorial links
+- **PDFs Page** (`src/pages/archive/PDFs.tsx`)
+  - Updated to use new enhanced PDFViewer component
+  - Fixed PDF file paths to match actual uploaded files
+  - Improved categorization (Frontend vs Programming)
+
+### Fixed
+- Mobile navbar hover background no longer turns white (uses muted/50 with proper transparency)
+- PDF file naming conventions aligned with actual uploaded files
+- Improved color consistency across all hover states
+
+---
+
+## [2025-11-10 18:45] - Major Cleanup and Data Refactoring
 
 ### Removed
 - Alternate reading theme (CWL key combo toggle) completely removed from UI
@@ -147,7 +234,7 @@ src/pages/archive/
 ## 2025-11-06 - Mobile/Tablet Optimization & LocalStorage Viewer
 
 ### Modified:
-- `src/pages/ragebait/Tips.tsx` - Added bookmarked tips filter, mobile-optimized layout, touch-friendly interactions
+- `src/pages/ragebait/T^4` - Added bookmarked tips filter, mobile-optimized layout, touch-friendly interactions
 - `src/components/Navbar.tsx` - Mobile/tablet responsive with single-tap navigation, removed hover effects on touch devices
 - `src/index.css` - Added scrollbar hiding, touch manipulation classes, removed hover effects on touch devices
 - `src/App.tsx` - Added LocalStorageViewer route
@@ -188,7 +275,7 @@ src/pages/archive/
 src/pages/
 ├── LocalStorageViewer.tsx (NEW)
 ├── ragebait/
-│   ├── Tips.tsx (UPDATED)
+│   ├── T^4 (UPDATED)
 │   └── ErrorLogs.tsx
 ...
 ```
@@ -474,7 +561,7 @@ src/assets/projects/
 - Moved `/pages/VideoZone.tsx` → `/pages/archive/VideoZone.tsx`
 - Moved `/pages/Practice.tsx` → `/pages/playground/RYC.tsx`
 - Moved `/pages/ErrorLogs.tsx` → `/pages/ragebait/ErrorLogs.tsx`
-- Moved `/pages/EnhancedTips.tsx` → `/pages/ragebait/Tips.tsx`
+- Moved `/pages/EnhancedT^4` → `/pages/ragebait/T^4`
 
 ### Design Updates
 - Maintained existing color palette (crimson red, golden yellow, black background)
@@ -533,7 +620,7 @@ src/assets/projects/
    - Export/Import progress (JSON backup)
    - localStorage warning banner
 
-6. **Enhanced Tips** (`src/pages/EnhancedTips.tsx`)
+6. **Enhanced Tips** (`src/pages/EnhancedT^4`)
    - 20 coding tips with categories
    - Bookmark system (saved to localStorage)
    - Random tip generator

@@ -19,7 +19,7 @@ import {
   TrendingUp
 } from 'lucide-react';
 import lessonsData from '@/data/lessons.json';
-import tipsData from '@/data/tips.json';
+import tipsData from '@/data/t4.json';
 
 export default function Dashboard() {
   const navigate = useNavigate();

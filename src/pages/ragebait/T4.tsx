@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { storage } from "@/utils/localStorage";
 import { toast } from "@/hooks/use-toast";
-import tipsData from "@/data/tips.json";
+import tipsData from "@/data/t4.json";
 
 export default function EnhancedTips() {
   const [openTip, setOpenTip] = useState<string | null>(null);

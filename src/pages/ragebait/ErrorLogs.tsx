@@ -1,6 +1,14 @@
 import { AlertTriangle, Code2, Lightbulb } from "lucide-react";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 const ErrorLogs = () => {
+  const isMobile = useIsMobile();
   const errors = [
     {
       id: 1,
@@ -140,49 +148,103 @@ const ErrorLogs = () => {
           </p>
         </div>
 
-        <div className="max-w-4xl mx-auto space-y-8">
-          {errors.map((error) => (
-            <div
-              key={error.id}
-              className="bg-card border border-border rounded p-6 md:p-8 space-y-6 hover:border-primary transition-colors"
-            >
-          <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3 sm:gap-4">
-                <div className="space-y-2 flex-1">
-                  <h3 className="text-xl font-bold text-primary">
-                    {error.name}
-                  </h3>
-                  <p className="text-sm text-muted-foreground">{error.context}</p>
-                </div>
-                <div className="flex flex-col items-end gap-2">
-                  <span className="text-3xl">{error.mood}</span>
-                  <span className="text-xs text-muted-foreground">{error.date}</span>
-                </div>
-              </div>
+        <div className="max-w-4xl mx-auto">
+          {isMobile ? (
+            <Accordion type="single" collapsible className="space-y-4">
+              {errors.map((error) => (
+                <AccordionItem
+                  key={error.id}
+                  value={error.id.toString()}
+                  className="bg-card border border-border rounded overflow-hidden"
+                >
+                  <AccordionTrigger className="px-4 py-4 hover:no-underline hover:bg-muted/50">
+                    <div className="flex items-start justify-between w-full gap-3">
+                      <div className="flex-1 text-left">
+                        <h3 className="text-sm font-bold text-primary pr-2">
+                          {error.name}
+                        </h3>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <span className="text-2xl">{error.mood}</span>
+                      </div>
+                    </div>
+                  </AccordionTrigger>
+                  <AccordionContent className="px-4 pb-4">
+                    <div className="space-y-4 pt-2">
+                      <p className="text-xs text-muted-foreground">{error.context}</p>
+                      <span className="text-xs text-muted-foreground block">{error.date}</span>
+                      
+                      <div className="flex items-start gap-3">
+                        <Code2 className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
+                        <div className="flex-1">
+                          <p className="text-xs font-semibold mb-1">The Fix:</p>
+                          <p className="text-xs text-muted-foreground mb-2">{error.fix}</p>
+                          {error.code && (
+                            <pre className="bg-muted p-2 rounded text-[10px] overflow-x-auto mt-2 max-w-full">
+                              <code className="block break-words whitespace-pre-wrap">{error.code}</code>
+                            </pre>
+                          )}
+                        </div>
+                      </div>
 
-              <div className="space-y-4">
-                <div className="flex items-start gap-3">
-                  <Code2 className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
-                  <div className="flex-1">
-                    <p className="text-sm font-semibold mb-1">The Fix:</p>
-                    <p className="text-sm text-muted-foreground mb-2">{error.fix}</p>
-                    {error.code && (
-                      <pre className="bg-muted p-2 sm:p-3 rounded text-xs overflow-x-auto mt-2 text-[11px] sm:text-xs">
-                        <code>{error.code}</code>
-                      </pre>
-                    )}
+                      <div className="flex items-start gap-3">
+                        <Lightbulb className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
+                        <div>
+                          <p className="text-xs font-semibold mb-1">What I Learned:</p>
+                          <p className="text-xs text-muted-foreground">{error.learned}</p>
+                        </div>
+                      </div>
+                    </div>
+                  </AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
+          ) : (
+            <div className="space-y-8">
+              {errors.map((error) => (
+                <div
+                  key={error.id}
+                  className="bg-card border border-border rounded p-6 md:p-8 space-y-6 hover:border-primary transition-colors"
+                >
+                  <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3 sm:gap-4">
+                    <div className="space-y-2 flex-1">
+                      <h3 className="text-xl font-bold text-primary">
+                        {error.name}
+                      </h3>
+                      <p className="text-sm text-muted-foreground">{error.context}</p>
+                    </div>
+                    <div className="flex flex-col items-end gap-2">
+                      <span className="text-3xl">{error.mood}</span>
+                      <span className="text-xs text-muted-foreground">{error.date}</span>
+                    </div>
+                  </div>
+
+                  <div className="space-y-4">
+                    <div className="flex items-start gap-3">
+                      <Code2 className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
+                      <div className="flex-1">
+                        <p className="text-sm font-semibold mb-1">The Fix:</p>
+                        <p className="text-sm text-muted-foreground mb-2">{error.fix}</p>
+                        {error.code && (
+                          <pre className="bg-muted p-2 sm:p-3 rounded text-xs overflow-x-auto mt-2 text-[11px] sm:text-xs max-w-full">
+                            <code className="block break-words whitespace-pre-wrap">{error.code}</code>
+                          </pre>
+                        )}
+                      </div>
+                    </div>
+
+                    <div className="flex items-start gap-3">
+                      <Lightbulb className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
+                      <div>
+                        <p className="text-sm font-semibold mb-1">What I Learned:</p>
+                        <p className="text-sm text-muted-foreground">{error.learned}</p>
+                      </div>
+                    </div>
                   </div>
                 </div>
-
-                <div className="flex items-start gap-3">
-                  <Lightbulb className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
-                  <div>
-                    <p className="text-sm font-semibold mb-1">What I Learned:</p>
-                    <p className="text-sm text-muted-foreground">{error.learned}</p>
-                  </div>
-                </div>
-              </div>
+              ))}
             </div>
-          ))}
+          )}
         </div>
 
         <div className="max-w-4xl mx-auto mt-16">

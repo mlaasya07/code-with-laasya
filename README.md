@@ -19,21 +19,48 @@ To create an accessible, interactive learning environment where students can:
 
 ## ✨ Core Features
 
-### 📚 Learning Flow
-- Structured lesson paths covering Frontend, Backend, Debugging, and more
-- Embedded video tutorials from trusted YouTube educators
-- Practice code snippets for each lesson
-- Category filters for focused learning
-- Progress tracking with completion status
-- **Offline Mode**: Service worker caches static content for offline learning
-- **Daily Byte**: Random developer tip displayed as toast on app startup (8s duration)
+## 📝 Features
 
-### 🎮 Gamification System
-- **XP Points**: Earn 10 XP per lesson, 5 XP per quiz
-- **Levels**: Progress through levels (100 XP = 1 level)
-- **Daily Streaks**: Track consecutive learning days
-- **12 Achievements**: Unlock milestones (First Steps, Century Club, Week Warrior, etc.)
-- **Toast Notifications**: Visual feedback for XP gains and level-ups
+- **Home**: Landing page with introduction and daily coding bytes
+- **Archive**: Collection of resources including videos, PDFs, and development library
+- **Playground**: Interactive coding exercises and challenges
+  - Run Your Code (RYC)
+  - Run Your Quiz (RYQ)
+  - Build With Me
+  - Tool Time - Development tools collection with mobile-optimized view
+  - Byte Rush - Quick coding challenges
+  - Bugs Kill - Debug practice exercises
+- **Projects**: 
+  - Projects - Personal projects showcase
+  - Mini Projects - Collection of smaller projects
+- **Ragebait**: 
+  - Error Logs - Real debugging experiences with solutions (mobile accordion view)
+  - T^4 Tips - Time, Task, Team, and Technology tips
+- **Profile**: Comprehensive user profile with XP tracking, level progression, achievements, and statistics
+
+## 🎯 Components
+
+### UI Components (Shadcn)
+The project uses a comprehensive set of Shadcn UI components including:
+- Accordion, Alert Dialog, Avatar, Badge
+- Button, Card, Calendar, Carousel
+- Checkbox, Collapsible, Command, Context Menu
+- Dialog, Drawer, Dropdown Menu
+- Form, Hover Card, Input, Label
+- Menubar, Navigation Menu
+- Pagination, Popover, Progress
+- Radio Group, Scroll Area, Select
+- Separator, Sheet, Sidebar, Skeleton
+- Slider, Switch, Table, Tabs
+- Textarea, Toast, Toggle, Tooltip
+
+### Custom Components
+- **Navbar**: Fully responsive navigation with device-specific sizing and mobile menu
+- **Footer**: Dynamic footer with rotating quotes
+- **NavLink**: Custom navigation link component
+- **PDFViewer**: Interactive PDF viewer with page navigation
+- **ProgressBar**: Gamified progress tracking component
+- **XPToast**: Experience points notification component
 
 ### 🛠️ Practice Playgrounds
 - **RYC (Run Your Code)**: Live HTML/CSS/JS editor with instant preview
@@ -85,18 +112,32 @@ To create an accessible, interactive learning environment where students can:
   - Resources & APIs
   - Debugging guides
   - Database fundamentals
-- **PDFs & PPTs**: Educational resources with preview and download options
+- **PDFs & PPTs**: Educational resources with enhanced PDF viewer
+  - 9 programming resources (HTML/CSS, C, Ada, MatLab, Data Structures)
+  - Native PDF rendering with react-pdf
+  - Page navigation and zoom controls (0.5x - 2.0x)
   - Last opened tracking
-  - Direct PDF viewer integration
+  - Download and preview options
+  - Categorized by Frontend and Programming
 - **Dev Library**: Curated collection of learning resources
   - 10 YouTube channels (Traversy Media, freeCodeCamp, The Net Ninja, etc.)
   - 15 documentation sites and cheat sheets (MDN, W3Schools, DevDocs, etc.)
   - Simple text + link format with descriptions
 
 ### 🐛 RageBait Section
-- **Error Logs**: Real debugging stories with code examples
-- **Debug Commandments**: Best practices for troubleshooting
-- Lessons learned from common mistakes
+- **Error Logs**: 12 real debugging stories with code examples
+  - TypeError, Infinite Loops, CORS errors, and more
+  - Before/after code comparisons
+  - Lessons learned and debugging commandments
+- **T⁴ (Tips, Tricks, Tech & Tools)**: 40 curated developer tips
+  - Debugging, CSS, JavaScript, React, Python, Git, Tools, Database, Backend
+  - Bookmark system with category filters
+- **ToolTime**: 40 developer productivity tips
+  - Git workflows and shortcuts
+  - VSCode productivity hacks
+  - Terminal and Bash shortcuts
+  - Chrome DevTools techniques
+  - Docker, NPM, and JSON utilities
 
 ---
 
@@ -130,11 +171,12 @@ To create an accessible, interactive learning environment where students can:
 ```
 src/
 ├── components/
-│   ├── ui/              # Reusable UI components (shadcn)
-│   ├── Navbar.tsx       # Main navigation with dropdowns
-│   ├── Footer.tsx       # Sticky footer with social links
-│   ├── XPToast.tsx      # XP notification component
-│   └── ProgressBar.tsx  # Visual progress indicator
+│   ├── ui/                    # shadcn components (button, card, etc.)
+│   ├── Navbar.tsx             # Responsive navigation with screen size detection
+│   ├── Footer.tsx             # Footer with social links and random quote
+│   ├── PDFViewer.tsx          # Enhanced PDF viewer with zoom and navigation
+│   ├── ProgressBar.tsx        # Reusable progress indicator
+│   └── XPToast.tsx            # Toast notifications for XP/achievements
 ├── pages/
 │   ├── Home.tsx         # Landing page introduction
 │   ├── Dashboard.tsx    # User stats and quick actions
@@ -153,13 +195,16 @@ src/
 │       ├── ErrorLogs.tsx   # Debugging stories
 │       └── Tips.tsx        # Tips & tricks
 ├── data/
-│   ├── dailyBytes.json  # Daily Byte tips (15 tips)
-│   ├── footerQuotes.json # Footer quotes (8 quotes)
-│   ├── miniProjects.json # Mini projects (20 projects)
-│   ├── lessons.json     # Lesson content and metadata
-│   ├── quizzes.json     # Quiz questions and answers
-│   ├── tips.json        # Coding tips database
-│   └── projects.json    # Project templates
+│   ├── dailyBytes.json        # Daily Byte tips (15 tips)
+│   ├── footerQuotes.json      # Footer quotes (8 quotes)
+│   ├── miniProjects.json      # Mini projects (20 projects)
+│   ├── lessons.json           # Lesson content and metadata
+│   ├── quizzes.json           # Quiz questions and answers
+│   ├── tips.json              # Coding tips database (40 tips)
+│   ├── tools.json             # Developer tool tips (40 tips)
+│   ├── BugsKill.json          # Bug fixing challenges
+│   ├── ByteRush.json          # Quick coding challenges
+│   └── projects.json          # Project templates
 ├── utils/
 │   ├── localStorage.ts  # localStorage management
 │   └── gamification.ts  # XP, levels, achievements logic
@@ -268,8 +313,8 @@ Code.With.Laasya (Home)
 - **LeetCode**: [ydHg4pM34m](https://leetcode.com/u/ydHg4pM34m/)
 - **CodinGame**: [Profile](https://www.codingame.com/profile/1926e3967e6d68739783fc04eba77d9a5852966)
 - **LinkedIn**: [mlaasya07](https://www.linkedin.com/in/mlaasya07/)
-- **Instagram**: [@mlaasya_05](https://instagram.com/mlaasya_05)
 - **Email**: mlaasy16@gmail.com
+- **Substack**: [@mlaasya07](https://substack.com/@mlaasya0)
 
 ---
 

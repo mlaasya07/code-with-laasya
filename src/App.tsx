@@ -16,7 +16,7 @@ import RYC from "./pages/playground/RYC";
 import RYQ from "./pages/playground/RYQ";
 import ErrorLogs from "./pages/ragebait/ErrorLogs";
 import DevLibrary from "./pages/archive/DevLibrary";
-import Tips from "./pages/ragebait/Tips";
+import Tips from "./pages/ragebait/T4";
 import dailyBytesData from "./data/dailyBytes.json";
 import NotFound from "./pages/NotFound";
 import BuildWithMe from "./pages/playground/BuildWithMe";
@@ -65,7 +65,7 @@ const AppContent = () => {
           <Route path="/projects/myprojects" element={<Projects />} />
           <Route path="/projects/miniprojects" element={<MiniProjects />} />
           <Route path="/ragebait/errors" element={<ErrorLogs />} />
-          <Route path="/ragebait/tips" element={<Tips />} />
+          <Route path="/ragebait/t4" element={<Tips />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </main>
