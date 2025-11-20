@@ -24,6 +24,7 @@ import ToolTime from "./pages/playground/ToolTime";
 import ByteRush from "./pages/playground/ByteRush";
 import BugsKill from "./pages/playground/BugsKill";
 import MiniProjects from "./pages/Projects/MiniProjects";
+import Profile from "./pages/Profile";
 
 const queryClient = new QueryClient();
 
@@ -66,6 +67,7 @@ const AppContent = () => {
           <Route path="/projects/miniprojects" element={<MiniProjects />} />
           <Route path="/ragebait/errors" element={<ErrorLogs />} />
           <Route path="/ragebait/t4" element={<Tips />} />
+          <Route path="/profile" element={<Profile />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </main>
