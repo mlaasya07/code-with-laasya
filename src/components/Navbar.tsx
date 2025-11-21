@@ -38,7 +38,7 @@ const Navbar = () => {
       path: null,
       submenu: [
         { label: "Error Log", path: "/ragebait/errors" },
-        { label: "T⁴: Tips, Tricks, Tech & Tools", path: "/ragebait/tips" },
+        { label: "T⁴: Tips, Tricks, Tech & Tools", path: "/ragebait/t4" },
       ],
     },
   ];
