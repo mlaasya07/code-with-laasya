@@ -6,7 +6,7 @@ Code.With.Laasya is a student-friendly web application designed to make coding e
 
 ---
 
-## 🎯 Project Mission
+## Project Mission
 
 To create an accessible, interactive learning environment where students can:
 - Learn coding fundamentals through structured video lessons
@@ -17,9 +17,9 @@ To create an accessible, interactive learning environment where students can:
 
 ---
 
-## ✨ Core Features
+## Core Features
 
-## 📝 Features
+## Features
 
 - **Home**: Landing page with introduction and daily coding bytes
 - **Archive**: Collection of resources including videos, PDFs, and development library
@@ -38,7 +38,7 @@ To create an accessible, interactive learning environment where students can:
   - T^4 Tips - Time, Task, Team, and Technology tips
 - **Profile**: Comprehensive user profile with XP tracking, level progression, achievements, and statistics
 
-## 🎯 Components
+## Components
 
 ### UI Components (Shadcn)
 The project uses a comprehensive set of Shadcn UI components including:
@@ -62,7 +62,7 @@ The project uses a comprehensive set of Shadcn UI components including:
 - **ProgressBar**: Gamified progress tracking component
 - **XPToast**: Experience points notification component
 
-### 🛠️ Practice Playgrounds
+### Practice Playgrounds
 - **RYC (Run Your Code)**: Live HTML/CSS/JS editor with instant preview
 - **RYQ (Run Your Query)**: SQL playground with multiple sample databases
   - E-commerce database (10 users, 12 orders, 10 products)
@@ -73,20 +73,20 @@ The project uses a comprehensive set of Shadcn UI components including:
 - Syntax highlighting and error detection
 - Undo/Redo query history
 
-### 📝 Interactive Quizzes
+### Interactive Quizzes
 - Multiple-choice questions on HTML, CSS, JS, React, Python
 - Bug-finding challenges with code snippets
 - Instant scoring and feedback
 - XP rewards for passing (≥50%)
 - Difficulty badges (Easy, Medium, Hard)
 
-### 📊 Progress Dashboard
+### Progress Dashboard
 - View XP, Level, Streak, and Completed Lessons
 - Achievement showcase with locked/unlocked states
 - Export/Import progress data (JSON format)
 - Visual progress bars and stats
 
-### 💡 Tips & Tricks (T⁴)
+### Tips & Tricks (T⁴)
 - 40 curated coding tips across multiple categories
 - Debugging, CSS, JavaScript, React, Python, Git, Tools, Database, Backend, General
 - Bookmark system for favorite tips with dedicated bookmarked filter
@@ -95,7 +95,7 @@ The project uses a comprehensive set of Shadcn UI components including:
 - 12 Tools-specific tips covering Git, DevTools, Terminal, Docker, and more
 - Mobile/tablet optimized with touch-friendly interactions
 
-### 🚀 Mini Projects Section
+### Mini Projects Section
 - **20 curated beginner → advanced projects** with YouTube tutorial links
 - Organized by difficulty: Beginner, Intermediate, Advanced
 - Each project includes:
@@ -105,7 +105,7 @@ The project uses a comprehensive set of Shadcn UI components including:
   - Difficulty badge
 - Projects range from Tip Calculator to Snake Game and Chat Applications
 
-### 📚 Archive Section
+### Archive Section
 - **VideoZone**: Curated YouTube playlists organized by topic
   - Conceptual learning
   - Tech & Tools tutorials
@@ -124,7 +124,7 @@ The project uses a comprehensive set of Shadcn UI components including:
   - 15 documentation sites and cheat sheets (MDN, W3Schools, DevDocs, etc.)
   - Simple text + link format with descriptions
 
-### 🐛 RageBait Section
+### RageBait Section
 - **Error Logs**: 12 real debugging stories with code examples
   - TypeError, Infinite Loops, CORS errors, and more
   - Before/after code comparisons
@@ -141,7 +141,7 @@ The project uses a comprehensive set of Shadcn UI components including:
 
 ---
 
-## 🎨 Design Philosophy
+## Design Philosophy
 
 - **Font**: Roboto Mono (monospace for dev aesthetic)
 - **Color Palette**: Crimson red primary, golden yellow accents, black background
@@ -154,7 +154,7 @@ The project uses a comprehensive set of Shadcn UI components including:
 
 ---
 
-## 🏗️ Tech Stack
+## Tech Stack
 
 - **Frontend**: React 18.3.1 + TypeScript
 - **Build Tool**: Vite
@@ -166,7 +166,7 @@ The project uses a comprehensive set of Shadcn UI components including:
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 src/
@@ -264,7 +264,7 @@ codeWithLaasya_savedCode       // Saved code from playground
 codeWithLaasya_achievements    // Unlocked achievements
 ```
 
-**⚠️ Note**: localStorage data can be cleared if browser data is deleted. Use the Export/Import feature in the Progress page to backup your data.
+**⚠️ Note**: localStorage data can be cleared if browser data is deleted. Use the Export/Import feature in the Profile page to backup your data.
 
 ---
 
@@ -291,17 +291,25 @@ codeWithLaasya_achievements    // Unlocked achievements
 
 ```
 Code.With.Laasya (Home)
-├── Archive
+├── ARCHIVE
 │   ├── VideoZone
 │   ├── PDFs & PPTs
 │   └── Dev Library
-├── Playground
+├── PLAYGROUND
 │   ├── RYC - Run Your Code
 │   └── RYQ - Run Your Query
-├── Projects (with Mini Projects section)
-└── RageBait
-    ├── Error Logs
-    └── T⁴: Tips, Tricks, Tech & Tools
+|   └── Build With Me [BWM]
+|   └── ToolTime
+|   └── ByteRush
+|   └── BugsKill
+├── PROJECTS 
+|   └── Projects
+|   └── Mini Projects
+├── RAGEBAITs
+|   ├── Error Logs
+|   └── T⁴: Tips, Tricks, Tech & Tools
+├── PROFILE
+|
 ```
 
 ---
@@ -314,7 +322,7 @@ Code.With.Laasya (Home)
 - **CodinGame**: [Profile](https://www.codingame.com/profile/1926e3967e6d68739783fc04eba77d9a5852966)
 - **LinkedIn**: [mlaasya07](https://www.linkedin.com/in/mlaasya07/)
 - **Email**: mlaasy16@gmail.com
-- **Substack**: [@mlaasya07](https://substack.com/@mlaasya0)
+- **Substack**: [@mlaasya07](https://substack.com/@mlaasya07)
 
 ---
 

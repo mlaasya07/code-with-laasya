@@ -1,5 +1,22 @@
 # Code.With.Laasya - Complete Changelog
 
+## [1.2.1] - 21-11-2025
+
+### Changed
+- Updated README to clarify that RYC = Run Your Code and RYQ = Run Your Query across documentation.
+- Adjusted PDFs & PPTs page so "Last opened" tracking uses localStorage only on desktop.
+- Added Substack profile icon link to footer social links.
+- Improved mobile button layout in PDFs & PPTs actions.
+- Fixed intermittent mobile navbar background turning white by refining touch hover handling.
+
+### Files Updated
+- src/pages/archive/PDFs.tsx
+- src/components/Footer.tsx
+- src/index.css
+- README.md
+- CHANGELOG.md
+
+---
 ## [1.2.0] - 2025-11-20
 
 ### Added

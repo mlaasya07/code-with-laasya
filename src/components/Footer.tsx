@@ -1,4 +1,4 @@
-import { Github, Linkedin, Mail, Code2, Terminal, Instagram, Globe, Rss} from "lucide-react";
+import { Github, Linkedin, Mail, Code2, Terminal, Instagram, Globe } from "lucide-react";
 import footerQuotesData from "@/data/footerQuotes.json";
 
 const Footer = () => {
@@ -34,6 +34,25 @@ const Footer = () => {
               <Github className="w-5 h-5" />
             </a>
             <a
+              href="https://mlaasya07.substack.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-muted-foreground hover:text-primary transition-colors"
+              aria-label="Substack"
+            >
+              <svg
+                className="w-5 h-5"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+                focusable="false"
+              >
+                <rect x="3" y="4" width="18" height="16" rx="3" fill="currentColor" />
+                <rect x="5" y="8" width="14" height="1.8" fill="hsl(var(--background))" />
+                <rect x="5" y="12" width="14" height="1.8" fill="hsl(var(--background))" />
+                <rect x="5" y="16" width="14" height="1.8" fill="hsl(var(--background))" />
+              </svg>
+            </a>
+            <a
               href="https://leetcode.com/u/ydHg4pM34m/"
               target="_blank"
               rel="noopener noreferrer"
@@ -60,7 +79,6 @@ const Footer = () => {
             >
               <Linkedin className="w-5 h-5" />
             </a>
-
             <a
               href="https://instagram.com/mlaasya_05"
               target="_blank"
@@ -70,7 +88,6 @@ const Footer = () => {
             >
               <Instagram className="w-5 h-5" />
             </a>
-
             <a
               href="mailto:mlaasy16@gmail.com"
               className="text-muted-foreground hover:text-primary transition-colors"
@@ -78,16 +95,6 @@ const Footer = () => {
             >
               <Mail className="w-5 h-5" />
             </a>
-            <a
-              href="https://substack.com/@mlaasya07"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-muted-foreground hover:text-primary transition-colors"
-              aria-label="Substack"
-            >
-              <Rss className="w-5 h-5" />
-            </a>
-
           </div>
 
           <div className="text-center">
