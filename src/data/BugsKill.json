@@ -1,139 +1,1850 @@
 [
-    {
-      "id": "bug-1",
-      "title": "Missing Return Statement",
-      "language": "JavaScript",
-      "difficulty": "Easy",
-      "description": "This function should return the sum of two numbers, but it's not working. What's the bug?",
-      "buggyCode": "function addNumbers(a, b) {\n  const sum = a + b;\n}\n\nconsole.log(addNumbers(5, 3)); // undefined",
-      "options": [
-        "Missing semicolon after sum",
-        "Missing return statement",
-        "Wrong variable name",
-        "Function parameters are incorrect"
-      ],
-      "correctAnswer": 1,
-      "explanation": "The function calculates the sum but never returns it. Add 'return sum;' before the closing brace.",
-      "xp": 10
-    },
-    {
-      "id": "bug-2",
-      "title": "Array Index Out of Bounds",
-      "language": "Python",
-      "difficulty": "Easy",
-      "description": "This code tries to access array elements but crashes. What's wrong?",
-      "buggyCode": "numbers = [1, 2, 3, 4, 5]\nfor i in range(6):\n    print(numbers[i])\n    \n# IndexError: list index out of range",
-      "options": [
-        "Array is empty",
-        "Loop range exceeds array length",
-        "Wrong syntax for range",
-        "Print statement is incorrect"
-      ],
-      "correctAnswer": 1,
-      "explanation": "The array has 5 elements (indices 0-4), but the loop runs 6 times (0-5). Change range(6) to range(len(numbers)).",
-      "xp": 10
-    },
-    {
-      "id": "bug-3",
-      "title": "State Update Not Reflecting",
-      "language": "React",
-      "difficulty": "Medium",
-      "description": "Clicking the button doesn't update the counter. Why?",
-      "buggyCode": "function Counter() {\n  let count = 0;\n  \n  const increment = () => {\n    count = count + 1;\n  };\n  \n  return (\n    <button onClick={increment}>\n      Count: {count}\n    </button>\n  );\n}",
-      "options": [
-        "Missing useState hook",
-        "Wrong onClick syntax",
-        "Button is disabled",
-        "Count should be const"
-      ],
-      "correctAnswer": 0,
-      "explanation": "Regular variables don't trigger re-renders in React. Use const [count, setCount] = useState(0) and setCount(count + 1) in the increment function.",
-      "xp": 10
-    },
-    {
-      "id": "bug-4",
-      "title": "Infinite Loop Alert",
-      "language": "JavaScript",
-      "difficulty": "Medium",
-      "description": "This loop never stops! What's the issue?",
-      "buggyCode": "let i = 0;\nwhile (i < 10) {\n  console.log(i);\n  // Do something\n}\n\n// Browser freezes!",
-      "options": [
-        "Wrong comparison operator",
-        "Missing increment statement (i++)",
-        "Console.log is blocking",
-        "While loop syntax error"
-      ],
-      "correctAnswer": 1,
-      "explanation": "The variable 'i' never increases, so the condition 'i < 10' is always true. Add 'i++' inside the loop to increment i.",
-      "xp": 10
-    },
-    {
-      "id": "bug-5",
-      "title": "Null Pointer Exception",
-      "language": "Java",
-      "difficulty": "Medium",
-      "description": "This code crashes with NullPointerException. What's the bug?",
-      "buggyCode": "String name = null;\nSystem.out.println(name.length());\n\n// NullPointerException",
-      "options": [
-        "Length() method doesn't exist",
-        "Trying to call method on null object",
-        "String is not initialized properly",
-        "Wrong println syntax"
-      ],
-      "correctAnswer": 1,
-      "explanation": "You cannot call methods on a null reference. Check if name != null before calling name.length(), or initialize name with a value.",
-      "xp": 10
-    },
-    {
-      "id": "bug-6",
-      "title": "Async Await Missing",
-      "language": "JavaScript",
-      "difficulty": "Hard",
-      "description": "The data is always undefined. What's missing?",
-      "buggyCode": "function fetchUserData() {\n  const response = fetch('/api/user');\n  const data = response.json();\n  return data;\n}\n\nconst user = fetchUserData();\nconsole.log(user); // Promise {<pending>}",
-      "options": [
-        "Missing async/await keywords",
-        "Wrong API endpoint",
-        "JSON() method is wrong",
-        "Fetch is not defined"
-      ],
-      "correctAnswer": 0,
-      "explanation": "fetch() returns a Promise. Make the function async and use await: 'const response = await fetch(...)' and 'const data = await response.json()'.",
-      "xp": 10
-    },
-    {
-      "id": "bug-7",
-      "title": "Comparison Type Coercion",
-      "language": "JavaScript",
-      "difficulty": "Hard",
-      "description": "This condition should be false but it's true. Why?",
-      "buggyCode": "const value = '0';\nif (value == false) {\n  console.log('This shouldn't print!');\n}\n\n// Output: This shouldn't print!",
-      "options": [
-        "String is always truthy",
-        "Type coercion with == operator",
-        "False is not a valid value",
-        "Missing NOT operator"
-      ],
-      "correctAnswer": 1,
-      "explanation": "The == operator performs type coercion. '0' is converted to 0, which equals false. Use === for strict equality or check if (value === 'false').",
-      "xp": 10
-    },
-    {
-      "id": "bug-8",
-      "title": "Closure Variable Scope",
-      "language": "JavaScript",
-      "difficulty": "Hard",
-      "description": "All buttons alert '3'. What's the bug?",
-      "buggyCode": "for (var i = 0; i < 3; i++) {\n  document.getElementById('btn' + i)\n    .addEventListener('click', function() {\n      alert(i);\n    });\n}\n\n// All buttons alert: 3",
-      "options": [
-        "Wrong loop counter",
-        "var has function scope, use let for block scope",
-        "addEventListener syntax error",
-        "Alert function is broken"
-      ],
-      "correctAnswer": 1,
-      "explanation": "var has function scope, so all closures reference the same 'i' which is 3 after the loop. Use 'let i = 0' for block scope, creating a new binding for each iteration.",
-      "xp": 10
-    }
-  ]
+  {
+    "id": "bug-1",
+    "title": "Missing Return Statement",
+    "language": "JavaScript",
+    "difficulty": "Easy",
+    "description": "This function should return the sum of two numbers, but it's not working. What's the bug?",
+    "buggyCode": "function addNumbers(a, b) {\n  const sum = a + b;\n}\n\nconsole.log(addNumbers(5, 3)); // undefined",
+    "options": [
+      "Missing semicolon after sum",
+      "Missing return statement",
+      "Wrong variable name",
+      "Function parameters are incorrect"
+    ],
+    "correctAnswer": 1,
+    "explanation": "The function calculates the sum but never returns it. Add 'return sum;' before the closing brace.",
+    "xp": 10
+  },
+  {
+    "id": "bug-2",
+    "title": "Array Index Out of Bounds",
+    "language": "Python",
+    "difficulty": "Easy",
+    "description": "This code tries to access array elements but crashes. What's wrong?",
+    "buggyCode": "numbers = [1, 2, 3, 4, 5]\nfor i in range(6):\n    print(numbers[i])\n    \n# IndexError: list index out of range",
+    "options": [
+      "Array is empty",
+      "Loop range exceeds array length",
+      "Wrong syntax for range",
+      "Print statement is incorrect"
+    ],
+    "correctAnswer": 1,
+    "explanation": "The array has 5 elements (indices 0-4), but the loop runs 6 times (0-5). Change range(6) to range(len(numbers)).",
+    "xp": 10
+  },
+  {
+    "id": "bug-3",
+    "title": "State Update Not Reflecting",
+    "language": "React",
+    "difficulty": "Medium",
+    "description": "Clicking the button doesn't update the counter. Why?",
+    "buggyCode": "function Counter() {\n  let count = 0;\n  \n  const increment = () => {\n    count = count + 1;\n  };\n  \n  return (\n    <button onClick={increment}>\n      Count: {count}\n    </button>\n  );\n}",
+    "options": [
+      "Missing useState hook",
+      "Wrong onClick syntax",
+      "Button is disabled",
+      "Count should be const"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Regular variables don't trigger re-renders in React. Use const [count, setCount] = useState(0) and setCount(count + 1) in the increment function.",
+    "xp": 10
+  },
+  {
+    "id": "bug-4",
+    "title": "Infinite Loop Alert",
+    "language": "JavaScript",
+    "difficulty": "Medium",
+    "description": "This loop never stops! What's the issue?",
+    "buggyCode": "let i = 0;\nwhile (i < 10) {\n  console.log(i);\n  // Do something\n}\n\n// Browser freezes!",
+    "options": [
+      "Wrong comparison operator",
+      "Missing increment statement (i++)",
+      "Console.log is blocking",
+      "While loop syntax error"
+    ],
+    "correctAnswer": 1,
+    "explanation": "The variable 'i' never increases, so the condition 'i < 10' is always true. Add 'i++' inside the loop to increment i.",
+    "xp": 10
+  },
+  {
+    "id": "bug-5",
+    "title": "Null Pointer Exception",
+    "language": "Java",
+    "difficulty": "Medium",
+    "description": "This code crashes with NullPointerException. What's the bug?",
+    "buggyCode": "String name = null;\nSystem.out.println(name.length());\n\n// NullPointerException",
+    "options": [
+      "Length() method doesn't exist",
+      "Trying to call method on null object",
+      "String is not initialized properly",
+      "Wrong println syntax"
+    ],
+    "correctAnswer": 1,
+    "explanation": "You cannot call methods on a null reference. Check if name != null before calling name.length(), or initialize name with a value.",
+    "xp": 10
+  },
+  {
+    "id": "bug-6",
+    "title": "Async Await Missing",
+    "language": "JavaScript",
+    "difficulty": "Hard",
+    "description": "The data is always undefined. What's missing?",
+    "buggyCode": "function fetchUserData() {\n  const response = fetch('/api/user');\n  const data = response.json();\n  return data;\n}\n\nconst user = fetchUserData();\nconsole.log(user); // Promise {<pending>}",
+    "options": [
+      "Missing async/await keywords",
+      "Wrong API endpoint",
+      "JSON() method is wrong",
+      "Fetch is not defined"
+    ],
+    "correctAnswer": 0,
+    "explanation": "fetch() returns a Promise. Make the function async and use await: 'const response = await fetch(...)' and 'const data = await response.json()'.",
+    "xp": 10
+  },
+  {
+    "id": "bug-7",
+    "title": "Comparison Type Coercion",
+    "language": "JavaScript",
+    "difficulty": "Hard",
+    "description": "This condition should be false but it's true. Why?",
+    "buggyCode": "const value = '0';\nif (value == false) {\n  console.log('This shouldn\\'t print!');\n}\n\n// Output: This shouldn't print!",
+    "options": [
+      "String is always truthy",
+      "Type coercion with == operator",
+      "False is not a valid value",
+      "Missing NOT operator"
+    ],
+    "correctAnswer": 1,
+    "explanation": "The == operator performs type coercion. '0' is converted to 0, which equals false. Use === for strict equality or check if (value === 'false').",
+    "xp": 10
+  },
+  {
+    "id": "bug-8",
+    "title": "Closure Variable Scope",
+    "language": "JavaScript",
+    "difficulty": "Hard",
+    "description": "All buttons alert '3'. What's the bug?",
+    "buggyCode": "for (var i = 0; i < 3; i++) {\n  document.getElementById('btn' + i)\n    .addEventListener('click', function() {\n      alert(i);\n    });\n}\n\n// All buttons alert: 3",
+    "options": [
+      "Wrong loop counter",
+      "var has function scope, use let for block scope",
+      "addEventListener syntax error",
+      "Alert function is broken"
+    ],
+    "correctAnswer": 1,
+    "explanation": "var has function scope, so all closures reference the same 'i' which is 3 after the loop. Use 'let i = 0' for block scope, creating a new binding for each iteration.",
+    "xp": 10
+  },
+  {
+    "id": "bug-9",
+    "title": "Division by Zero",
+    "language": "Python",
+    "difficulty": "Easy",
+    "description": "This calculator crashes when dividing. What's wrong?",
+    "buggyCode": "def divide(a, b):\n    return a / b\n\nresult = divide(10, 0)\n# ZeroDivisionError",
+    "options": [
+      "Wrong operator used",
+      "Missing return statement",
+      "No check for division by zero",
+      "Parameters in wrong order"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Dividing by zero causes an error. Add a check: if b == 0: return 'Cannot divide by zero' before the division.",
+    "xp": 10
+  },
+  {
+    "id": "bug-10",
+    "title": "Off-by-One Array Access",
+    "language": "JavaScript",
+    "difficulty": "Easy",
+    "description": "Getting undefined for the last element. Why?",
+    "buggyCode": "const arr = [10, 20, 30, 40, 50];\nfor (let i = 1; i <= arr.length; i++) {\n  console.log(arr[i]);\n}\n// Output: 20, 30, 40, 50, undefined",
+    "options": [
+      "Array is empty",
+      "Loop should start at 0, not 1",
+      "Console.log syntax error",
+      "Array length is wrong"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Arrays are zero-indexed. Start the loop at i = 0, not i = 1, and use i < arr.length (not <=) to avoid accessing arr[5] which doesn't exist.",
+    "xp": 10
+  },
+  {
+    "id": "bug-11",
+    "title": "Missing Break in Switch",
+    "language": "JavaScript",
+    "difficulty": "Easy",
+    "description": "Switch statement executes multiple cases. What's missing?",
+    "buggyCode": "const day = 2;\nswitch(day) {\n  case 1:\n    console.log('Monday');\n  case 2:\n    console.log('Tuesday');\n  case 3:\n    console.log('Wednesday');\n}\n// Output: Tuesday, Wednesday",
+    "options": [
+      "Wrong variable type",
+      "Missing break statements",
+      "Case values are wrong",
+      "Switch syntax error"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Without break statements, execution 'falls through' to subsequent cases. Add 'break;' after each console.log() to prevent this.",
+    "xp": 10
+  },
+  {
+    "id": "bug-12",
+    "title": "String Concatenation vs Addition",
+    "language": "JavaScript",
+    "difficulty": "Easy",
+    "description": "Getting '510' instead of 15. Why?",
+    "buggyCode": "const a = '5';\nconst b = 10;\nconst sum = a + b;\nconsole.log(sum); // '510'",
+    "options": [
+      "Addition operator is wrong",
+      "String concatenation instead of numeric addition",
+      "Variables not declared properly",
+      "Console.log is broken"
+    ],
+    "correctAnswer": 1,
+    "explanation": "When one operand is a string, + performs concatenation. Convert 'a' to a number: const sum = Number(a) + b or parseInt(a) + b.",
+    "xp": 10
+  },
+  {
+    "id": "bug-13",
+    "title": "Semicolon Missing",
+    "language": "JavaScript",
+    "difficulty": "Easy",
+    "description": "Code behaves unexpectedly. What's the issue?",
+    "buggyCode": "const value = 5\n[1, 2, 3].forEach(n => console.log(n))\n// TypeError: Cannot read property 'forEach' of undefined",
+    "options": [
+      "forEach is not a function",
+      "Missing semicolon causes array to be treated as index",
+      "Array syntax error",
+      "Arrow function syntax wrong"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Without a semicolon after 'const value = 5', JavaScript interprets it as value = 5[1,2,3], trying to access index [1,2,3] on 5. Add a semicolon after the first line.",
+    "xp": 10
+  },
+  {
+    "id": "bug-14",
+    "title": "Uninitialized Variable",
+    "language": "Python",
+    "difficulty": "Easy",
+    "description": "Getting NameError. What's wrong?",
+    "buggyCode": "def calculate():\n    total = total + 5\n    return total\n\nresult = calculate()\n# UnboundLocalError: local variable 'total' referenced before assignment",
+    "options": [
+      "Function name is wrong",
+      "Variable 'total' not initialized before use",
+      "Return statement is missing",
+      "Addition operator is wrong"
+    ],
+    "correctAnswer": 1,
+    "explanation": "You cannot use a variable before assigning it a value. Initialize it first: total = 0 before adding to it.",
+    "xp": 10
+  },
+  {
+    "id": "bug-15",
+    "title": "useEffect Dependency Missing",
+    "language": "React",
+    "difficulty": "Medium",
+    "description": "Component doesn't update when prop changes. Why?",
+    "buggyCode": "function UserProfile({ userId }) {\n  const [user, setUser] = useState(null);\n  \n  useEffect(() => {\n    fetchUser(userId).then(setUser);\n  }, []);\n  \n  return <div>{user?.name}</div>;\n}",
+    "options": [
+      "useState is wrong",
+      "Missing userId in dependency array",
+      "fetchUser is not defined",
+      "Return statement is wrong"
+    ],
+    "correctAnswer": 1,
+    "explanation": "The empty dependency array [] means the effect only runs once. Add userId to dependencies: [userId] so it re-runs when userId changes.",
+    "xp": 10
+  },
+  {
+    "id": "bug-16",
+    "title": "Floating Point Precision",
+    "language": "JavaScript",
+    "difficulty": "Medium",
+    "description": "0.1 + 0.2 doesn't equal 0.3. What's happening?",
+    "buggyCode": "const sum = 0.1 + 0.2;\nif (sum === 0.3) {\n  console.log('Equal!');\n} else {\n  console.log('Not equal!'); // This prints\n}\nconsole.log(sum); // 0.30000000000000004",
+    "options": [
+      "Addition operator broken",
+      "Floating point precision issue",
+      "Variables not declared correctly",
+      "Comparison operator wrong"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Floating point arithmetic has precision limitations. Use a tolerance: Math.abs(sum - 0.3) < Number.EPSILON or round to fixed decimals.",
+    "xp": 10
+  },
+  {
+    "id": "bug-17",
+    "title": "Modifying Const Object",
+    "language": "JavaScript",
+    "difficulty": "Medium",
+    "description": "This shouldn't work, but it does. Why?",
+    "buggyCode": "const user = { name: 'John' };\nuser.name = 'Jane'; // No error!\nconsole.log(user.name); // 'Jane'",
+    "options": [
+      "const keyword is broken",
+      "const prevents reassignment, not mutation",
+      "Object syntax is wrong",
+      "Variables should use let"
+    ],
+    "correctAnswer": 1,
+    "explanation": "const prevents reassigning the variable, but object properties can still be modified. Use Object.freeze(user) to prevent mutations or use a library like Immer.",
+    "xp": 10
+  },
+  {
+    "id": "bug-18",
+    "title": "Array Sort Numeric Issue",
+    "language": "JavaScript",
+    "difficulty": "Medium",
+    "description": "Numbers not sorting correctly. What's wrong?",
+    "buggyCode": "const numbers = [1, 5, 10, 20, 3];\nnumbers.sort();\nconsole.log(numbers); // [1, 10, 20, 3, 5]",
+    "options": [
+      "Sort method is broken",
+      "Sort converts to strings by default",
+      "Array contains wrong data type",
+      "Numbers need to be parsed"
+    ],
+    "correctAnswer": 1,
+    "explanation": "sort() converts elements to strings and sorts lexicographically. For numeric sort, use: numbers.sort((a, b) => a - b).",
+    "xp": 10
+  },
+  {
+    "id": "bug-19",
+    "title": "This Binding Lost",
+    "language": "JavaScript",
+    "difficulty": "Medium",
+    "description": "Method call fails. What's the issue?",
+    "buggyCode": "class Counter {\n  count = 0;\n  increment() {\n    this.count++;\n  }\n}\n\nconst counter = new Counter();\nsetTimeout(counter.increment, 1000);\n// TypeError: Cannot read property 'count' of undefined",
+    "options": [
+      "Class syntax is wrong",
+      "'this' context lost when passing method",
+      "setTimeout is broken",
+      "count should be private"
+    ],
+    "correctAnswer": 1,
+    "explanation": "'this' is lost when passing a method as a callback. Fix: setTimeout(() => counter.increment(), 1000) or bind it: counter.increment.bind(counter).",
+    "xp": 10
+  },
+  {
+    "id": "bug-20",
+    "title": "Race Condition",
+    "language": "JavaScript",
+    "difficulty": "Hard",
+    "description": "Counter value is wrong after multiple clicks. Why?",
+    "buggyCode": "let count = 0;\n\nasync function increment() {\n  const current = count;\n  await delay(100);\n  count = current + 1;\n}\n\n// Clicking 5 times quickly gives count = 1, not 5",
+    "options": [
+      "Async syntax is wrong",
+      "Race condition - multiple operations overlap",
+      "count variable is broken",
+      "delay function is incorrect"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Multiple async operations read the same initial value before updating. Use atomic operations or a queue, or in React, use the functional setState form: setCount(c => c + 1).",
+    "xp": 10
+  },
+  {
+    "id": "bug-21",
+    "title": "Memory Leak Event Listener",
+    "language": "JavaScript",
+    "difficulty": "Hard",
+    "description": "App slows down over time. What's causing it?",
+    "buggyCode": "function Component() {\n  useEffect(() => {\n    window.addEventListener('resize', handleResize);\n  });\n  \n  const handleResize = () => {\n    console.log('Resized!');\n  };\n}",
+    "options": [
+      "handleResize is not defined",
+      "Missing cleanup function to remove listener",
+      "addEventListener syntax wrong",
+      "useEffect dependency issue"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Event listeners accumulate without cleanup. Return a cleanup function: return () => window.removeEventListener('resize', handleResize);",
+    "xp": 10
+  },
+  {
+    "id": "bug-22",
+    "title": "Stale Closure",
+    "language": "React",
+    "difficulty": "Hard",
+    "description": "Interval always logs 0. What's wrong?",
+    "buggyCode": "function Timer() {\n  const [count, setCount] = useState(0);\n  \n  useEffect(() => {\n    const id = setInterval(() => {\n      console.log(count); // Always 0\n    }, 1000);\n    return () => clearInterval(id);\n  }, []);\n  \n  return <button onClick={() => setCount(count + 1)}>Inc</button>;\n}",
+    "options": [
+      "setInterval syntax wrong",
+      "Closure captures initial count value",
+      "useState is broken",
+      "useEffect missing dependency"
+    ],
+    "correctAnswer": 1,
+    "explanation": "The interval closure captures the initial count (0). Either add count to dependencies or use a ref to access current value, or use setCount(c => c + 1) if you need updates.",
+    "xp": 10
+  },
+  {
+    "id": "bug-23",
+    "title": "Wrong Comparison Operator",
+    "language": "Python",
+    "difficulty": "Easy",
+    "description": "Assignment instead of comparison. What's the bug?",
+    "buggyCode": "x = 5\nif x = 5:\n    print('Five')\n\n# SyntaxError: invalid syntax",
+    "options": [
+      "print statement is wrong",
+      "Should use == for comparison, not =",
+      "Variable x not defined",
+      "if statement syntax wrong"
+    ],
+    "correctAnswer": 1,
+    "explanation": "= is assignment, == is comparison. Change 'if x = 5' to 'if x == 5' to compare values.",
+    "xp": 10
+  },
+  {
+    "id": "bug-24",
+    "title": "Mutable Default Argument",
+    "language": "Python",
+    "difficulty": "Medium",
+    "description": "List keeps growing unexpectedly. Why?",
+    "buggyCode": "def add_item(item, items=[]):\n    items.append(item)\n    return items\n\nprint(add_item(1))  # [1]\nprint(add_item(2))  # [1, 2] - Expected [2]!",
+    "options": [
+      "Append method is broken",
+      "Default argument list is shared across calls",
+      "Return statement is wrong",
+      "Function parameters incorrect"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Default mutable arguments are created once and shared. Use None as default: def add_item(item, items=None): items = items or []",
+    "xp": 10
+  },
+  {
+    "id": "bug-25",
+    "title": "Key Prop Missing",
+    "language": "React",
+    "difficulty": "Medium",
+    "description": "React warning about keys in list. What's needed?",
+    "buggyCode": "function TodoList({ todos }) {\n  return (\n    <ul>\n      {todos.map(todo => <li>{todo.text}</li>)}\n    </ul>\n  );\n}\n// Warning: Each child should have a unique key prop",
+    "options": [
+      "Map function syntax wrong",
+      "Missing unique key prop on list items",
+      "ul/li tags incorrect",
+      "todos array is wrong"
+    ],
+    "correctAnswer": 1,
+    "explanation": "React needs unique keys to track list items. Add key prop: todos.map(todo => <li key={todo.id}>{todo.text}</li>)",
+    "xp": 10
+  },
+  {
+    "id": "bug-26",
+    "title": "Hoisting Issue",
+    "language": "JavaScript",
+    "difficulty": "Medium",
+    "description": "Variable is undefined before declaration. Why?",
+    "buggyCode": "console.log(name); // undefined\nvar name = 'John';\nconsole.log(name); // 'John'",
+    "options": [
+      "Variable not declared",
+      "var is hoisted but not initialized",
+      "console.log is in wrong place",
+      "Variable name is reserved"
+    ],
+    "correctAnswer": 1,
+    "explanation": "var declarations are hoisted to the top but not initialized. Use let or const which throw ReferenceError if accessed before declaration.",
+    "xp": 10
+  },
+  {
+    "id": "bug-27",
+    "title": "Integer Division",
+    "language": "Python",
+    "difficulty": "Easy",
+    "description": "Getting wrong result. What's the issue?",
+    "buggyCode": "result = 7 / 2\nprint(result)  # 3.5 in Python 3\n# Expected 3 (integer division)",
+    "options": [
+      "Division operator is broken",
+      "Use // for integer division",
+      "Numbers are wrong type",
+      "print function is wrong"
+    ],
+    "correctAnswer": 1,
+    "explanation": "In Python 3, / always returns float. For integer division (floor division), use // operator: result = 7 // 2 gives 3.",
+    "xp": 10
+  },
+  {
+    "id": "bug-28",
+    "title": "JSON Parse Error",
+    "language": "JavaScript",
+    "difficulty": "Medium",
+    "description": "JSON parsing fails. What's wrong?",
+    "buggyCode": "const json = \"{'name': 'John', 'age': 30}\";\nconst obj = JSON.parse(json);\n// SyntaxError: Unexpected token ' in JSON",
+    "options": [
+      "JSON.parse is not a function",
+      "JSON requires double quotes, not single",
+      "Object structure is wrong",
+      "Variable declaration is wrong"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Valid JSON uses double quotes for property names and string values. Change to: {\"name\": \"John\", \"age\": 30}",
+    "xp": 10
+  },
+  {
+    "id": "bug-29",
+    "title": "Callback vs Promise",
+    "language": "JavaScript",
+    "difficulty": "Medium",
+    "description": "Data is undefined. What's the issue?",
+    "buggyCode": "function getData() {\n  fetch('/api/data')\n    .then(response => response.json())\n    .then(data => {\n      return data;\n    });\n}\n\nconst result = getData();\nconsole.log(result); // undefined",
+    "options": [
+      "Fetch is not working",
+      "Function doesn't return the Promise",
+      "JSON parsing is wrong",
+      "Variable result is wrong"
+    ],
+    "correctAnswer": 1,
+    "explanation": "The promise chain isn't returned. Add 'return' before fetch(): return fetch('/api/data')... or use async/await pattern.",
+    "xp": 10
+  },
+  {
+    "id": "bug-30",
+    "title": "Boolean Coercion",
+    "language": "JavaScript",
+    "difficulty": "Medium",
+    "description": "Empty array is truthy? Why?",
+    "buggyCode": "const arr = [];\nif (arr) {\n  console.log('Array exists'); // This prints!\n}\nif (arr.length) {\n  console.log('Has items'); // This doesn't\n}",
+    "options": [
+      "if statement is broken",
+      "Empty arrays are truthy objects",
+      "Array declaration is wrong",
+      "Length property is wrong"
+    ],
+    "correctAnswer": 1,
+    "explanation": "In JavaScript, all objects (including empty arrays) are truthy. Check the length property explicitly: if (arr.length > 0)",
+    "xp": 10
+  },
+  {
+    "id": "bug-31",
+    "title": "Indentation Error",
+    "language": "Python",
+    "difficulty": "Easy",
+    "description": "Getting IndentationError. What's wrong?",
+    "buggyCode": "def greet(name):\nprint(f'Hello {name}')\n\n# IndentationError: expected an indented block",
+    "options": [
+      "Function syntax is wrong",
+      "Missing indentation for function body",
+      "print statement syntax error",
+      "name parameter is wrong"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Python requires indentation for code blocks. Indent the print statement: print(f'Hello {name}') should be indented with 4 spaces or a tab.",
+    "xp": 10
+  },
+  {
+    "id": "bug-32",
+    "title": "Object Reference Copy",
+    "language": "JavaScript",
+    "difficulty": "Medium",
+    "description": "Changing one object affects the other. Why?",
+    "buggyCode": "const original = { name: 'John', age: 30 };\nconst copy = original;\ncopy.age = 31;\nconsole.log(original.age); // 31 - Changed!",
+    "options": [
+      "Assignment operator is broken",
+      "Objects are copied by reference",
+      "Object syntax is wrong",
+      "Age property is immutable"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Assignment copies the reference, not the object. Create a new object: const copy = { ...original } or const copy = Object.assign({}, original).",
+    "xp": 10
+  },
+  {
+    "id": "bug-33",
+    "title": "Event Propagation",
+    "language": "JavaScript",
+    "difficulty": "Medium",
+    "description": "Parent click fires when child is clicked. Why?",
+    "buggyCode": "<div onClick={handleParent}>\n  <button onClick={handleChild}>Click</button>\n</div>\n// Both handlers fire when button clicked",
+    "options": [
+      "onClick is wrong",
+      "Event bubbles up to parent",
+      "Button syntax is wrong",
+      "Handlers are wrong"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Events bubble up the DOM tree. Stop propagation in child handler: e.stopPropagation() or use event capturing phase.",
+    "xp": 10
+  },
+  {
+    "id": "bug-34",
+    "title": "Missing Await",
+    "language": "TypeScript",
+    "difficulty": "Medium",
+    "description": "Getting Promise instead of data. What's missing?",
+    "buggyCode": "async function getUser(id: string) {\n  const user = fetchUser(id);\n  console.log(user); // Promise {<pending>}\n  return user.name; // Error!\n}",
+    "options": [
+      "fetchUser is not defined",
+      "Missing await keyword",
+      "Function signature is wrong",
+      "Return statement is wrong"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Async functions return Promises. Use await to get the resolved value: const user = await fetchUser(id);",
+    "xp": 10
+  },
+  {
+    "id": "bug-35",
+    "title": "Array Filter Mutation",
+    "language": "JavaScript",
+    "difficulty": "Hard",
+    "description": "Original array modified. What went wrong?",
+    "buggyCode": "const numbers = [1, 2, 3, 4, 5];\nconst evens = numbers.filter(n => {\n  if (n % 2 === 0) return true;\n  numbers.splice(numbers.indexOf(n), 1);\n  return false;\n});\n// Original array is now [2, 4]",
+    "options": [
+      "Filter method is wrong",
+      "Mutating array during iteration",
+      "Splice syntax is wrong",
+      "Modulo operator is wrong"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Never mutate an array while iterating it. Filter creates a new array, don't modify the original. Remove the splice call entirely.",
+    "xp": 10
+  },
+  {
+    "id": "bug-36",
+    "title": "String Immutability",
+    "language": "JavaScript",
+    "difficulty": "Easy",
+    "description": "String doesn't change. Why?",
+    "buggyCode": "let str = 'hello';\nstr[0] = 'H';\nconsole.log(str); // Still 'hello'",
+    "options": [
+      "Indexing is wrong",
+      "Strings are immutable in JavaScript",
+      "Assignment operator broken",
+      "str should be const"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Strings are immutable. Create a new string: str = 'H' + str.slice(1) or str = str.replace('h', 'H').",
+    "xp": 10
+  },
+  {
+    "id": "bug-37",
+    "title": "Template Literal Syntax",
+    "language": "JavaScript",
+    "difficulty": "Easy",
+    "description": "Variable not interpolating. What's wrong?",
+    "buggyCode": "const name = 'John';\nconst greeting = 'Hello ${name}';\nconsole.log(greeting); // 'Hello ${name}'",
+    "options": [
+      "Variable not declared",
+      "Use backticks ` not quotes ' for template literals",
+      "Syntax for interpolation wrong",
+      "console.log is broken"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Template literals require backticks, not quotes. Change to: const greeting = `Hello ${name}`;",
+    "xp": 10
+  },
+  {
+    "id": "bug-38",
+    "title": "Forgotten Return in Map",
+    "language": "JavaScript",
+    "difficulty": "Medium",
+    "description": "Getting undefined array items. Why?",
+    "buggyCode": "const numbers = [1, 2, 3];\nconst doubled = numbers.map(n => {\n  n * 2;\n});\nconsole.log(doubled); // [undefined, undefined, undefined]",
+    "options": [
+      "Map syntax is wrong",
+      "Missing return statement in arrow function",
+      "Multiplication operator broken",
+      "Array is wrong"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Arrow functions with braces need explicit return. Either remove braces: n => n * 2, or add return: { return n * 2; }",
+    "xp": 10
+  },
+  {
+    "id": "bug-39",
+    "title": "List Mutation in Loop",
+    "language": "Python",
+    "difficulty": "Medium",
+    "description": "Not all items removed. What's wrong?",
+    "buggyCode": "numbers = [1, 2, 3, 4, 5]\nfor num in numbers:\n    if num % 2 == 0:\n        numbers.remove(num)\n\nprint(numbers)  # [1, 3, 5] but iteration skips items",
+    "options": [
+      "Remove method is wrong",
+      "Modifying list while iterating causes skip",
+      "Modulo operator is wrong",
+      "Loop syntax is wrong"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Modifying a list during iteration causes the iterator to skip elements. Use list comprehension instead: numbers = [num for num in numbers if num % 2 != 0]",
+    "xp": 10
+  },
+  {
+    "id": "bug-40",
+    "title": "CSS Z-Index Not Working",
+    "language": "CSS",
+    "difficulty": "Medium",
+    "description": "Element won't appear above others. Why?",
+    "buggyCode": ".overlay {\n  z-index: 9999;\n  background: rgba(0,0,0,0.5);\n}\n/* Still appears behind other elements */",
+    "options": [
+      "z-index value too high",
+      "z-index only works on positioned elements",
+      "Background syntax wrong",
+      "Class name is wrong"
+    ],
+    "correctAnswer": 1,
+    "explanation": "z-index only works on positioned elements (position: relative, absolute, fixed, or sticky). Add position: relative; to the .overlay class.",
+    "xp": 10
+  },
+  {
+    "id": "bug-41",
+    "title": "SQL Injection Vulnerability",
+    "language": "SQL",
+    "difficulty": "Hard",
+    "description": "Query is vulnerable. What's the issue?",
+    "buggyCode": "const query = `SELECT * FROM users WHERE email = '${userInput}'`;\ndb.query(query);\n// Vulnerable to: ' OR '1'='1",
+    "options": [
+      "SELECT syntax is wrong",
+      "SQL injection - use parameterized queries",
+      "Table name is wrong",
+      "WHERE clause is wrong"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Never concatenate user input into SQL. Use parameterized queries: db.query('SELECT * FROM users WHERE email = ?', [userInput])",
+    "xp": 10
+  },
+  {
+    "id": "bug-42",
+    "title": "Async Function Not Awaited",
+    "language": "JavaScript",
+    "difficulty": "Medium",
+    "description": "Code executes before data loads. Why?",
+    "buggyCode": "async function loadData() {\n  const data = await fetchData();\n  return data;\n}\n\nloadData();\nconsole.log('Data loaded'); // Prints before data actually loads",
+    "options": [
+      "async/await syntax wrong",
+      "loadData() returns Promise, need to await it",
+      "fetchData is broken",
+      "console.log is in wrong place"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Async functions return Promises. Either await it: await loadData(); or use .then(): loadData().then(() => console.log('Data loaded'));",
+    "xp": 10
+  },
+  {
+    "id": "bug-43",
+    "title": "Destructuring Error",
+    "language": "JavaScript",
+    "difficulty": "Easy",
+    "description": "Cannot destructure undefined. What's wrong?",
+    "buggyCode": "const user = null;\nconst { name, age } = user;\n// TypeError: Cannot destructure property 'name' of 'null'",
+    "options": [
+      "Destructuring syntax wrong",
+      "Cannot destructure null/undefined",
+      "Object properties don't exist",
+      "Const should be let"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Cannot destructure null or undefined. Add a check: if (user) { const { name, age } = user; } or use default: const { name, age } = user || {};",
+    "xp": 10
+  },
+  {
+    "id": "bug-44",
+    "title": "Wrong Array Method",
+    "language": "JavaScript",
+    "difficulty": "Easy",
+    "description": "push returns length, not array. What's wrong?",
+    "buggyCode": "const numbers = [1, 2, 3];\nconst newArray = numbers.push(4);\nconsole.log(newArray); // 4 (length), not [1,2,3,4]",
+    "options": [
+      "Push method is broken",
+      "push modifies original and returns length",
+      "Array syntax is wrong",
+      "Should use concat instead"
+    ],
+    "correctAnswer": 1,
+    "explanation": "push modifies the original array and returns its new length. Use concat or spread: const newArray = [...numbers, 4]; or numbers.concat(4);",
+    "xp": 10
+  },
+  {
+    "id": "bug-45",
+    "title": "Scope Issue with Let",
+    "language": "JavaScript",
+    "difficulty": "Medium",
+    "description": "Variable not accessible. Why?",
+    "buggyCode": "if (true) {\n  let message = 'Hello';\n}\nconsole.log(message);\n// ReferenceError: message is not defined",
+    "options": [
+      "let syntax is wrong",
+      "let has block scope, not function scope",
+      "if statement is wrong",
+      "console.log is in wrong place"
+    ],
+    "correctAnswer": 1,
+    "explanation": "let and const have block scope. Declare message outside the if block, or use var (not recommended): let message; if (true) { message = 'Hello'; }",
+    "xp": 10
+  },
+  {
+    "id": "bug-46",
+    "title": "Class Method Not Bound",
+    "language": "JavaScript",
+    "difficulty": "Hard",
+    "description": "Method loses 'this' context. Why?",
+    "buggyCode": "class Button {\n  text = 'Click me';\n  handleClick() {\n    console.log(this.text);\n  }\n}\nconst btn = new Button();\ndocument.querySelector('button').onclick = btn.handleClick;\n// TypeError: Cannot read property 'text' of undefined",
+    "options": [
+      "Method syntax is wrong",
+      "Method not bound, this context lost",
+      "Class declaration is wrong",
+      "onclick syntax is wrong"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Class methods aren't auto-bound. Use arrow function: handleClick = () => { ... } or bind it: btn.handleClick.bind(btn)",
+    "xp": 10
+  },
+  {
+    "id": "bug-47",
+    "title": "Set Timeout Zero",
+    "language": "JavaScript",
+    "difficulty": "Hard",
+    "description": "Unexpected execution order. Why?",
+    "buggyCode": "console.log('1');\nsetTimeout(() => console.log('2'), 0);\nconsole.log('3');\n// Output: 1, 3, 2",
+    "options": [
+      "setTimeout is broken",
+      "Event loop - setTimeout callback queued after current stack",
+      "Delay should be higher",
+      "Arrow function syntax wrong"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Even with 0ms delay, setTimeout callbacks are queued in the event loop and execute after the current call stack completes. This is expected behavior.",
+    "xp": 10
+  },
+  {
+    "id": "bug-48",
+    "title": "Incorrect Reduce Initial Value",
+    "language": "JavaScript",
+    "difficulty": "Medium",
+    "description": "Getting NaN from reduce. What's wrong?",
+    "buggyCode": "const numbers = [1, 2, 3, 4];\nconst sum = numbers.reduce((acc, num) => acc + num);\n// Works, but fails on empty array",
+    "options": [
+      "Reduce syntax is wrong",
+      "Missing initial value for accumulator",
+      "Addition operator broken",
+      "Array is wrong"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Always provide an initial value: numbers.reduce((acc, num) => acc + num, 0). Without it, reduce fails on empty arrays.",
+    "xp": 10
+  },
+  {
+    "id": "bug-49",
+    "title": "Dictionary Key Error",
+    "language": "Python",
+    "difficulty": "Easy",
+    "description": "KeyError when accessing dict. What's wrong?",
+    "buggyCode": "user = {'name': 'John', 'age': 30}\nprint(user['email'])\n# KeyError: 'email'",
+    "options": [
+      "Dictionary syntax wrong",
+      "Key doesn't exist in dictionary",
+      "print statement wrong",
+      "Variable not declared"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Accessing non-existent key raises KeyError. Use get() method with default: user.get('email', 'N/A') or check key existence: if 'email' in user:",
+    "xp": 10
+  },
+  {
+    "id": "bug-50",
+    "title": "Controlled Input Issue",
+    "language": "React",
+    "difficulty": "Medium",
+    "description": "Input field is read-only. Why?",
+    "buggyCode": "function Form() {\n  const [value, setValue] = useState('');\n  return <input value={value} />;\n}\n// Can't type in the input",
+    "options": [
+      "Input syntax is wrong",
+      "Missing onChange handler",
+      "useState is broken",
+      "value prop is wrong"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Controlled inputs need onChange handler: <input value={value} onChange={(e) => setValue(e.target.value)} />",
+    "xp": 10
+  },
+  {
+    "id": "bug-51",
+    "title": "Arrow Function Object Return",
+    "language": "JavaScript",
+    "difficulty": "Medium",
+    "description": "Returning undefined instead of object. Why?",
+    "buggyCode": "const getUser = () => { name: 'John', age: 30 };\nconsole.log(getUser()); // undefined",
+    "options": [
+      "Arrow function syntax wrong",
+      "Braces interpreted as function body, not object",
+      "Object syntax is wrong",
+      "Return type is wrong"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Wrap object in parentheses to distinguish from function body: const getUser = () => ({ name: 'John', age: 30 });",
+    "xp": 10
+  },
+  {
+    "id": "bug-52",
+    "title": "Import Error",
+    "language": "JavaScript",
+    "difficulty": "Easy",
+    "description": "Cannot find module. What's wrong?",
+    "buggyCode": "import Button from './Button';\n// Error: Cannot find module './Button'",
+    "options": [
+      "Import syntax is wrong",
+      "Missing file extension (.jsx or .js)",
+      "File doesn't exist",
+      "Button is not default export"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Include file extension or ensure module resolution is configured: import Button from './Button.jsx' or check if file exists and exports are correct.",
+    "xp": 10
+  },
+  {
+    "id": "bug-53",
+    "title": "Triple Equals vs Double Equals",
+    "language": "JavaScript",
+    "difficulty": "Easy",
+    "description": "Comparison gives unexpected result. Why?",
+    "buggyCode": "console.log(0 == false);  // true\nconsole.log(0 === false); // false",
+    "options": [
+      "Comparison operators broken",
+      "== coerces types, === checks type and value",
+      "0 is not a number",
+      "false is not a boolean"
+    ],
+    "correctAnswer": 1,
+    "explanation": "== performs type coercion, === checks both type and value. Always prefer === for strict equality to avoid unexpected type conversions.",
+    "xp": 10
+  },
+  {
+    "id": "bug-54",
+    "title": "Math.random Not Called",
+    "language": "JavaScript",
+    "difficulty": "Easy",
+    "description": "Getting the same 'random' value. Why?",
+    "buggyCode": "const random = Math.random;\nconsole.log(random); // [Function: random]\nconsole.log(random); // [Function: random]",
+    "options": [
+      "Math object is broken",
+      "Missing parentheses to invoke function",
+      "random is not a method",
+      "console.log is wrong"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Functions need parentheses to execute. Change to: const random = Math.random(); to call the function and get a random number.",
+    "xp": 10
+  },
+  {
+    "id": "bug-55",
+    "title": "Forgotten Async Keyword",
+    "language": "JavaScript",
+    "difficulty": "Medium",
+    "description": "await is not allowed. What's missing?",
+    "buggyCode": "function getData() {\n  const response = await fetch('/api/data');\n  return response;\n}\n// SyntaxError: await is only valid in async functions",
+    "options": [
+      "await syntax is wrong",
+      "Function must be declared async",
+      "fetch is not defined",
+      "return statement is wrong"
+    ],
+    "correctAnswer": 1,
+    "explanation": "await can only be used inside async functions. Add async keyword: async function getData() { ... }",
+    "xp": 10
+  },
+  {
+    "id": "bug-56",
+    "title": "Promise All Failure",
+    "language": "JavaScript",
+    "difficulty": "Hard",
+    "description": "One failure breaks everything. Why?",
+    "buggyCode": "const promises = [fetch('/api/1'), fetch('/api/2'), fetch('/api/fail')];\nconst results = await Promise.all(promises);\n// If one fails, all fail",
+    "options": [
+      "Promise.all syntax wrong",
+      "Promise.all rejects if any promise rejects",
+      "fetch is broken",
+      "await is in wrong place"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Promise.all fails fast on first rejection. Use Promise.allSettled() to handle individual failures: await Promise.allSettled(promises);",
+    "xp": 10
+  },
+  {
+    "id": "bug-57",
+    "title": "Undefined vs Null",
+    "language": "JavaScript",
+    "difficulty": "Medium",
+    "description": "Checking for null doesn't work. Why?",
+    "buggyCode": "let value;\nif (value === null) {\n  console.log('Null');\n} else {\n  console.log('Not null'); // This prints\n}\nconsole.log(value); // undefined",
+    "options": [
+      "Comparison is wrong",
+      "Uninitialized variables are undefined, not null",
+      "value should be const",
+      "if statement syntax wrong"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Uninitialized variables are undefined, not null. Check for both: if (value == null) uses == to match both, or check explicitly: value === null || value === undefined",
+    "xp": 10
+  },
+  {
+    "id": "bug-58",
+    "title": "SetState Not Immediate",
+    "language": "React",
+    "difficulty": "Medium",
+    "description": "State doesn't update immediately. Why?",
+    "buggyCode": "function Counter() {\n  const [count, setCount] = useState(0);\n  \n  const handleClick = () => {\n    setCount(count + 1);\n    console.log(count); // Still 0!\n  };\n}",
+    "options": [
+      "useState is broken",
+      "setState is asynchronous",
+      "console.log is in wrong place",
+      "count variable is wrong"
+    ],
+    "correctAnswer": 1,
+    "explanation": "React state updates are asynchronous and batched. Use useEffect to react to state changes, or log the new value directly: console.log(count + 1);",
+    "xp": 10
+  },
+  {
+    "id": "bug-59",
+    "title": "Try-Catch Doesn't Catch",
+    "language": "JavaScript",
+    "difficulty": "Hard",
+    "description": "Async error not caught. Why?",
+    "buggyCode": "try {\n  setTimeout(() => {\n    throw new Error('Oops!');\n  }, 1000);\n} catch (error) {\n  console.log('Caught'); // Never executes\n}",
+    "options": [
+      "try-catch syntax wrong",
+      "Async errors escape try-catch scope",
+      "setTimeout is broken",
+      "Error syntax is wrong"
+    ],
+    "correctAnswer": 1,
+    "explanation": "try-catch doesn't catch async errors. Put try-catch inside the callback: setTimeout(() => { try { throw new Error('Oops!'); } catch(e) { ... } }, 1000);",
+    "xp": 10
+  },
+  {
+    "id": "bug-60",
+    "title": "Regex Escape Issue",
+    "language": "JavaScript",
+    "difficulty": "Medium",
+    "description": "Regex not matching dots. What's wrong?",
+    "buggyCode": "const pattern = /./;\nconst text = 'file.txt';\nconsole.log(pattern.test(text)); // true (matches any char)",
+    "options": [
+      "Regex syntax is wrong",
+      "Dot matches any character, needs escaping",
+      "test method is wrong",
+      "String is wrong"
+    ],
+    "correctAnswer": 1,
+    "explanation": "In regex, . matches any character. To match literal dot, escape it: const pattern = /\\./; or use character class: /[.]/",
+    "xp": 10
+  },
+  {
+    "id": "bug-61",
+    "title": "CSS Specificity Issue",
+    "language": "CSS",
+    "difficulty": "Medium",
+    "description": "Styles not applying. Why?",
+    "buggyCode": ".button { color: blue; }\n#header .button { color: red; }\n/* Red wins despite order */",
+    "options": [
+      "CSS syntax is wrong",
+      "ID selector has higher specificity than class",
+      "Order matters more than specificity",
+      "Both selectors are wrong"
+    ],
+    "correctAnswer": 1,
+    "explanation": "CSS specificity: inline styles > IDs > classes > elements. #header .button has higher specificity due to ID. Use !important (last resort) or increase specificity.",
+    "xp": 10
+  },
+  {
+    "id": "bug-62",
+    "title": "Array Includes Gotcha",
+    "language": "JavaScript",
+    "difficulty": "Medium",
+    "description": "includes returns false. What's wrong?",
+    "buggyCode": "const arr = [1, 2, 3, NaN];\nconsole.log(arr.includes(NaN)); // true\nconsole.log(arr.indexOf(NaN));  // -1 - Why different?",
+    "options": [
+      "includes method is broken",
+      "indexOf uses === which fails for NaN",
+      "NaN is not in array",
+      "Array syntax is wrong"
+    ],
+    "correctAnswer": 1,
+    "explanation": "indexOf uses strict equality (===), and NaN !== NaN. includes uses SameValueZero algorithm which correctly handles NaN. Prefer includes for NaN checks.",
+    "xp": 10
+  },
+  {
+    "id": "bug-63",
+    "title": "Git Merge Conflict",
+    "language": "Git",
+    "difficulty": "Medium",
+    "description": "Merge conflict markers in code. How to resolve?",
+    "buggyCode": "<<<<<<< HEAD\nconst version = 1;\n=======\nconst version = 2;\n>>>>>>> feature-branch",
+    "options": [
+      "Syntax error in code",
+      "Manually resolve by choosing correct version",
+      "Git is broken",
+      "File is corrupted"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Git conflict markers show both versions. Manually edit to keep desired code, remove markers, then git add and commit the resolved file.",
+    "xp": 10
+  },
+  {
+    "id": "bug-64",
+    "title": "LocalStorage String Only",
+    "language": "JavaScript",
+    "difficulty": "Easy",
+    "description": "Getting '[object Object]' from localStorage. Why?",
+    "buggyCode": "const user = { name: 'John', age: 30 };\nlocalStorage.setItem('user', user);\nconsole.log(localStorage.getItem('user')); // '[object Object]'",
+    "options": [
+      "localStorage is broken",
+      "localStorage stores strings, need JSON.stringify",
+      "Object syntax is wrong",
+      "getItem is wrong"
+    ],
+    "correctAnswer": 1,
+    "explanation": "localStorage only stores strings. Stringify objects: localStorage.setItem('user', JSON.stringify(user)); and parse when retrieving: JSON.parse(localStorage.getItem('user'));",
+    "xp": 10
+  },
+  {
+    "id": "bug-65",
+    "title": "Spread vs Rest",
+    "language": "JavaScript",
+    "difficulty": "Medium",
+    "description": "Syntax error with spread. What's wrong?",
+    "buggyCode": "function sum(...numbers, multiplier) {\n  return numbers.reduce((a, b) => a + b) * multiplier;\n}\n// SyntaxError: Rest parameter must be last",
+    "options": [
+      "Function syntax wrong",
+      "Rest parameter must be last in parameter list",
+      "reduce is wrong",
+      "Arrow function syntax wrong"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Rest parameter (...numbers) must be the last parameter. Change to: function sum(multiplier, ...numbers) { ... }",
+    "xp": 10
+  },
+  {
+    "id": "bug-66",
+    "title": "Missing Semicolon ASI",
+    "language": "JavaScript",
+    "difficulty": "Hard",
+    "description": "Function returns wrong value. Why?",
+    "buggyCode": "function getValue() {\n  return\n  {\n    value: 42\n  };\n}\nconsole.log(getValue()); // undefined",
+    "options": [
+      "Object syntax is wrong",
+      "Automatic Semicolon Insertion after return",
+      "Function has no return",
+      "Braces are wrong"
+    ],
+    "correctAnswer": 1,
+    "explanation": "JavaScript inserts semicolon after return, making it return undefined. Put opening brace on same line: return { value: 42 };",
+    "xp": 10
+  },
+  {
+    "id": "bug-67",
+    "title": "Map vs forEach Return",
+    "language": "JavaScript",
+    "difficulty": "Easy",
+    "description": "forEach returns undefined. Why?",
+    "buggyCode": "const numbers = [1, 2, 3];\nconst doubled = numbers.forEach(n => n * 2);\nconsole.log(doubled); // undefined",
+    "options": [
+      "forEach syntax is wrong",
+      "forEach returns undefined, use map instead",
+      "Arrow function is wrong",
+      "Array is wrong"
+    ],
+    "correctAnswer": 1,
+    "explanation": "forEach executes a function but returns undefined. Use map to transform arrays: const doubled = numbers.map(n => n * 2);",
+    "xp": 10
+  },
+  {
+    "id": "bug-68",
+    "title": "Async IIFE Syntax",
+    "language": "JavaScript",
+    "difficulty": "Medium",
+    "description": "Syntax error with async IIFE. What's wrong?",
+    "buggyCode": "async function() {\n  const data = await fetchData();\n  console.log(data);\n}();\n// SyntaxError",
+    "options": [
+      "async keyword is wrong",
+      "IIFE needs wrapping parentheses",
+      "await syntax is wrong",
+      "Function call is wrong"
+    ],
+    "correctAnswer": 1,
+    "explanation": "IIFE needs parentheses around function: (async function() { ... })(); or use arrow function: (async () => { ... })();",
+    "xp": 10
+  },
+  {
+    "id": "bug-69",
+    "title": "TypeScript Any Type",
+    "language": "TypeScript",
+    "difficulty": "Medium",
+    "description": "No type checking on variable. Why?",
+    "buggyCode": "let value: any = 'hello';\nvalue = 42;\nvalue.toUpperCase(); // No error, but crashes at runtime",
+    "options": [
+      "TypeScript is broken",
+      "any type disables type checking",
+      "Type declaration syntax wrong",
+      "Methods don't exist"
+    ],
+    "correctAnswer": 1,
+    "explanation": "any type bypasses TypeScript's type checking. Use specific types: let value: string | number or unknown (safer than any) for better type safety.",
+    "xp": 10
+  },
+  {
+    "id": "bug-70",
+    "title": "Import Default vs Named",
+    "language": "JavaScript",
+    "difficulty": "Medium",
+    "description": "Import doesn't work. What's the issue?",
+    "buggyCode": "// utils.js\nexport const helper = () => {};\n\n// main.js\nimport helper from './utils';\n// SyntaxError or undefined",
+    "options": [
+      "Export syntax is wrong",
+      "Named export needs curly braces in import",
+      "File path is wrong",
+      "Function syntax is wrong"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Named exports need curly braces: import { helper } from './utils'; Default export: export default helper; then import helper from './utils';",
+    "xp": 10
+  },
+  {
+    "id": "bug-71",
+    "title": "Undefined Object Property",
+    "language": "JavaScript",
+    "difficulty": "Easy",
+    "description": "Getting undefined instead of value. Why?",
+    "buggyCode": "const user = { name: 'John', age: 30 };\nconsole.log(user.email); // undefined",
+    "options": [
+      "Object syntax is wrong",
+      "Property doesn't exist on object",
+      "console.log is wrong",
+      "Dot notation is wrong"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Accessing non-existent properties returns undefined. Check existence: user.email || 'N/A' or use optional chaining: user?.email",
+    "xp": 10
+  },
+  {
+    "id": "bug-72",
+    "title": "CSS Flexbox Not Working",
+    "language": "CSS",
+    "difficulty": "Easy",
+    "description": "Items not arranging in row. What's missing?",
+    "buggyCode": ".container {\n  justify-content: center;\n  align-items: center;\n}\n/* Items still stack vertically */",
+    "options": [
+      "justify-content is wrong",
+      "Missing display: flex",
+      "align-items is wrong",
+      "CSS syntax error"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Flexbox properties only work on flex containers. Add display: flex; to activate flexbox layout on the container.",
+    "xp": 10
+  },
+  {
+    "id": "bug-73",
+    "title": "Console Log Object Reference",
+    "language": "JavaScript",
+    "difficulty": "Medium",
+    "description": "Object shows different values in console. Why?",
+    "buggyCode": "const obj = { count: 0 };\nconsole.log(obj); // Shows count: 5 in console!\nobj.count = 5;\n// Console shows final state, not state at log time",
+    "options": [
+      "console.log is broken",
+      "Console shows live object reference",
+      "Object is wrong",
+      "Assignment is wrong"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Some browsers show live object reference in console. To see value at log time, use: console.log(JSON.parse(JSON.stringify(obj)))",
+    "xp": 10
+  },
+  {
+    "id": "bug-74",
+    "title": "Array Constructor Gotcha",
+    "language": "JavaScript",
+    "difficulty": "Medium",
+    "description": "Array has unexpected length. Why?",
+    "buggyCode": "const arr1 = new Array(5);\nconsole.log(arr1); // [empty × 5]\nconst arr2 = new Array(5, 10);\nconsole.log(arr2); // [5, 10]",
+    "options": [
+      "Array constructor is broken",
+      "Single number creates array of that length",
+      "Numbers should be in brackets",
+      "Syntax is wrong"
+    ],
+    "correctAnswer": 1,
+    "explanation": "new Array(n) creates array with n empty slots. Use literal syntax: const arr = [5] or Array.from({ length: 5 }, (_, i) => i) for filled array.",
+    "xp": 10
+  },
+  {
+    "id": "bug-75",
+    "title": "SetInterval Not Cleared",
+    "language": "JavaScript",
+    "difficulty": "Medium",
+    "description": "Timer keeps running. What's missing?",
+    "buggyCode": "useEffect(() => {\n  setInterval(() => {\n    console.log('Tick');\n  }, 1000);\n}, []);\n// Interval never stops",
+    "options": [
+      "setInterval syntax wrong",
+      "Missing cleanup to clear interval",
+      "useEffect is wrong",
+      "Delay value is wrong"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Store interval ID and clear in cleanup: const id = setInterval(...); return () => clearInterval(id); to prevent memory leaks.",
+    "xp": 10
+  },
+  {
+    "id": "bug-76",
+    "title": "Optional Chaining Gotcha",
+    "language": "JavaScript",
+    "difficulty": "Hard",
+    "description": "Optional chaining doesn't prevent error. Why?",
+    "buggyCode": "const user = null;\nconst name = user?.profile.name;\n// TypeError: Cannot read property 'name' of undefined",
+    "options": [
+      "Optional chaining syntax wrong",
+      "Need chaining at each level: user?.profile?.name",
+      "user should be undefined not null",
+      "Property access is wrong"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Optional chaining only short-circuits at that level. If profile is undefined, accessing .name still throws. Use: user?.profile?.name",
+    "xp": 10
+  },
+  {
+    "id": "bug-77",
+    "title": "Date Constructor Gotcha",
+    "language": "JavaScript",
+    "difficulty": "Medium",
+    "description": "Month is off by one. Why?",
+    "buggyCode": "const date = new Date(2024, 3, 15);\nconsole.log(date); // April 15, not March 15!",
+    "options": [
+      "Date constructor is broken",
+      "Months are zero-indexed (0-11)",
+      "Year is wrong",
+      "Day value is wrong"
+    ],
+    "correctAnswer": 1,
+    "explanation": "In JavaScript Date, months are 0-indexed: 0=January, 1=February, etc. Use new Date(2024, 2, 15) for March 15.",
+    "xp": 10
+  },
+  {
+    "id": "bug-78",
+    "title": "ParseInt Without Radix",
+    "language": "JavaScript",
+    "difficulty": "Medium",
+    "description": "Parsing gives wrong number. Why?",
+    "buggyCode": "console.log(parseInt('08')); // 8 (correct)\nconsole.log(parseInt('010')); // 8 or 10 depending on browser",
+    "options": [
+      "parseInt is broken",
+      "Leading zero interpreted as octal, specify radix",
+      "String syntax is wrong",
+      "Numbers are invalid"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Always specify radix (base): parseInt('010', 10) for decimal. Without radix, leading zeros may be interpreted as octal in older browsers.",
+    "xp": 10
+  },
+  {
+    "id": "bug-79",
+    "title": "Switch Statement Fallthrough",
+    "language": "JavaScript",
+    "difficulty": "Easy",
+    "description": "Multiple cases execute. What's happening?",
+    "buggyCode": "const grade = 'B';\nswitch(grade) {\n  case 'A':\n  case 'B':\n    console.log('Good');\n  case 'C':\n    console.log('Average');\n}\n// Prints: Good, Average",
+    "options": [
+      "Switch syntax is wrong",
+      "Intentional fallthrough, add break if not desired",
+      "Case values are wrong",
+      "Grade variable is wrong"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Cases without break fall through to next case. This is intentional for grouping cases, but add break if you want to stop: case 'B': console.log('Good'); break;",
+    "xp": 10
+  },
+  {
+    "id": "bug-80",
+    "title": "Object Keys Are Strings",
+    "language": "JavaScript",
+    "difficulty": "Medium",
+    "description": "Numeric keys behave strangely. Why?",
+    "buggyCode": "const obj = {};\nobj[1] = 'one';\nobj['1'] = 'ONE';\nconsole.log(obj[1]); // 'ONE' - overwrote!",
+    "options": [
+      "Object syntax is wrong",
+      "Object keys are always strings, 1 and '1' are same",
+      "Assignment is wrong",
+      "Numbers should use different syntax"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Object keys are always strings. obj[1] and obj['1'] reference the same property. Use Map for numeric keys: const map = new Map();",
+    "xp": 10
+  },
+  {
+    "id": "bug-81",
+    "title": "Unhandled Promise Rejection",
+    "language": "JavaScript",
+    "difficulty": "Medium",
+    "description": "Error not caught. What's missing?",
+    "buggyCode": "async function fetchData() {\n  const response = await fetch('/api/data');\n  return response.json();\n}\n\nfetchData();\n// If fetch fails, UnhandledPromiseRejectionWarning",
+    "options": [
+      "Async syntax is wrong",
+      "Missing error handling with try-catch or .catch()",
+      "fetch is broken",
+      "Return statement is wrong"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Always handle promise rejections: fetchData().catch(err => console.error(err)); or wrap await in try-catch block.",
+    "xp": 10
+  },
+  {
+    "id": "bug-82",
+    "title": "Regex Greedy Matching",
+    "language": "JavaScript",
+    "difficulty": "Hard",
+    "description": "Regex matches too much. Why?",
+    "buggyCode": "const html = '<div>Hello</div><div>World</div>';\nconst match = html.match(/<div>.*<\\/div>/);\nconsole.log(match[0]); // '<div>Hello</div><div>World</div>'",
+    "options": [
+      "Regex syntax is wrong",
+      "Greedy quantifier, use .*? for non-greedy",
+      "HTML parsing is wrong",
+      "Match method is wrong"
+    ],
+    "correctAnswer": 1,
+    "explanation": "* is greedy by default. Use non-greedy *?: /<div>.*?<\\/div>/g to match each div separately. Better: use DOM parser for HTML.",
+    "xp": 10
+  },
+  {
+    "id": "bug-83",
+    "title": "Forgotten Bind",
+    "language": "React",
+    "difficulty": "Medium",
+    "description": "Method can't access this. Why?",
+    "buggyCode": "class Counter extends React.Component {\n  state = { count: 0 };\n  \n  increment() {\n    this.setState({ count: this.state.count + 1 });\n  }\n  \n  render() {\n    return <button onClick={this.increment}>+</button>;\n  }\n}\n// TypeError: Cannot read property 'setState' of undefined",
+    "options": [
+      "Method syntax is wrong",
+      "Method not bound, use arrow function or bind",
+      "setState is wrong",
+      "onClick syntax is wrong"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Class methods lose 'this' binding. Use arrow function: increment = () => { ... } or bind in constructor: this.increment = this.increment.bind(this);",
+    "xp": 10
+  },
+  {
+    "id": "bug-84",
+    "title": "Package Not Found",
+    "language": "Node.js",
+    "difficulty": "Easy",
+    "description": "Module not found error. What's wrong?",
+    "buggyCode": "const express = require('express');\n// Error: Cannot find module 'express'",
+    "options": [
+      "require syntax is wrong",
+      "Package not installed, run npm install express",
+      "Module name is wrong",
+      "Node.js is broken"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Module must be installed first. Run: npm install express or yarn add express to install the package.",
+    "xp": 10
+  },
+  {
+    "id": "bug-85",
+    "title": "CSS Position Absolute Issue",
+    "language": "CSS",
+    "difficulty": "Medium",
+    "description": "Element positioning relative to wrong parent. Why?",
+    "buggyCode": ".child {\n  position: absolute;\n  top: 0;\n  left: 0;\n}\n/* Positioned relative to viewport, not parent */",
+    "options": [
+      "Position value is wrong",
+      "Parent needs position: relative",
+      "top/left values are wrong",
+      "CSS syntax error"
+    ],
+    "correctAnswer": 1,
+    "explanation": "position: absolute positions relative to nearest positioned ancestor. Add position: relative; to parent to establish positioning context.",
+    "xp": 10
+  },
+  {
+    "id": "bug-86",
+    "title": "Array Slice vs Splice",
+    "language": "JavaScript",
+    "difficulty": "Medium",
+    "description": "Array mutated unexpectedly. Why?",
+    "buggyCode": "const arr = [1, 2, 3, 4, 5];\nconst removed = arr.splice(1, 2);\nconsole.log(arr); // [1, 4, 5] - Original changed!",
+    "options": [
+      "splice is wrong method",
+      "splice mutates original, slice doesn't",
+      "Arguments are wrong",
+      "Array syntax is wrong"
+    ],
+    "correctAnswer": 1,
+    "explanation": "splice modifies original array. Use slice for non-mutating copy: const copy = arr.slice(1, 3); Original array remains unchanged.",
+    "xp": 10
+  },
+  {
+    "id": "bug-87",
+    "title": "Implicit Type Coercion",
+    "language": "JavaScript",
+    "difficulty": "Medium",
+    "description": "Unexpected result from operation. Why?",
+    "buggyCode": "console.log('5' - 3);  // 2\nconsole.log('5' + 3);  // '53'\nconsole.log('5' * 3);  // 15",
+    "options": [
+      "Operators are broken",
+      "+ concatenates strings, other ops coerce to number",
+      "Variables are wrong",
+      "console.log is wrong"
+    ],
+    "correctAnswer": 1,
+    "explanation": "+ operator performs string concatenation if either operand is string. Other arithmetic operators (-, *, /) coerce strings to numbers. Use explicit Number() for clarity.",
+    "xp": 10
+  },
+  {
+    "id": "bug-88",
+    "title": "Duplicate Key in Object",
+    "language": "JavaScript",
+    "difficulty": "Easy",
+    "description": "Object has fewer properties than expected. Why?",
+    "buggyCode": "const config = {\n  port: 3000,\n  host: 'localhost',\n  port: 8080\n};\nconsole.log(config.port); // 8080 - First value lost",
+    "options": [
+      "Object syntax is wrong",
+      "Duplicate keys - last value wins",
+      "Port should be string",
+      "config variable is wrong"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Duplicate object keys are allowed, but the last value overwrites previous ones. Ensure unique keys or use different property names.",
+    "xp": 10
+  },
+  {
+    "id": "bug-89",
+    "title": "Middleware Order",
+    "language": "Express",
+    "difficulty": "Hard",
+    "description": "Route not working. What's the issue?",
+    "buggyCode": "app.get('/users/:id', (req, res) => {\n  res.json({ id: req.params.id });\n});\n\napp.use(express.json());\n// JSON body parsing doesn't work for above route",
+    "options": [
+      "Route syntax is wrong",
+      "Middleware must be registered before routes",
+      "express.json is wrong",
+      "Route path is wrong"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Middleware order matters. Register middleware before routes: app.use(express.json()) must come before app.get() definitions.",
+    "xp": 10
+  },
+  {
+    "id": "bug-90",
+    "title": "React Key with Index",
+    "language": "React",
+    "difficulty": "Hard",
+    "description": "List items behave incorrectly. Why?",
+    "buggyCode": "todos.map((todo, index) => (\n  <TodoItem key={index} todo={todo} />\n));\n// Reordering list causes wrong items to update",
+    "options": [
+      "Map syntax is wrong",
+      "Using index as key causes issues on reorder",
+      "TodoItem component is broken",
+      "key prop syntax is wrong"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Index as key breaks when list is reordered/filtered. Use stable unique IDs: key={todo.id}. React uses keys to track identity.",
+    "xp": 10
+  },
+  {
+    "id": "bug-91",
+    "title": "CSS Margin Collapse",
+    "language": "CSS",
+    "difficulty": "Medium",
+    "description": "Margins not adding up. What's happening?",
+    "buggyCode": ".box1 { margin-bottom: 20px; }\n.box2 { margin-top: 30px; }\n/* Gap between is 30px, not 50px! */",
+    "options": [
+      "Margin values are wrong",
+      "Vertical margins collapse to largest value",
+      "CSS syntax error",
+      "Box model is broken"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Adjacent vertical margins collapse to the larger value, not sum. Use padding, flexbox gap, or single margin to avoid collapse.",
+    "xp": 10
+  },
+  {
+    "id": "bug-92",
+    "title": "Trim Not Called",
+    "language": "JavaScript",
+    "difficulty": "Easy",
+    "description": "String still has whitespace. Why?",
+    "buggyCode": "let text = '  hello  ';\ntext.trim();\nconsole.log(text); // Still '  hello  '",
+    "options": [
+      "trim method is broken",
+      "trim returns new string, doesn't mutate",
+      "Whitespace is wrong",
+      "String is immutable"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Strings are immutable. trim() returns a new string. Use: text = text.trim(); to assign the trimmed value back.",
+    "xp": 10
+  },
+  {
+    "id": "bug-93",
+    "title": "CORS Error",
+    "language": "JavaScript",
+    "difficulty": "Hard",
+    "description": "API request blocked. What's the issue?",
+    "buggyCode": "fetch('https://api.example.com/data')\n  .then(res => res.json())\n// Error: CORS policy blocked request",
+    "options": [
+      "fetch syntax is wrong",
+      "Server needs to allow CORS headers",
+      "URL is wrong",
+      "Promise handling is wrong"
+    ],
+    "correctAnswer": 1,
+    "explanation": "CORS errors require server-side fix. Backend must include headers like Access-Control-Allow-Origin. Use a proxy during development as workaround.",
+    "xp": 10
+  },
+  {
+    "id": "bug-94",
+    "title": "UseEffect Infinite Loop",
+    "language": "React",
+    "difficulty": "Hard",
+    "description": "Component re-renders infinitely. Why?",
+    "buggyCode": "const [data, setData] = useState([]);\n\nuseEffect(() => {\n  setData([...data, newItem]);\n}, [data]);\n// Infinite loop!",
+    "options": [
+      "useEffect syntax wrong",
+      "Updating dependency causes re-run",
+      "useState is broken",
+      "Array spread is wrong"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Updating a dependency inside useEffect causes infinite loop. Use functional update: setData(prev => [...prev, newItem]); and remove data from dependencies.",
+    "xp": 10
+  },
+  {
+    "id": "bug-95",
+    "title": "Bitwise vs Logical OR",
+    "language": "JavaScript",
+    "difficulty": "Medium",
+    "description": "Boolean check gives unexpected result. Why?",
+    "buggyCode": "const hasAccess = isAdmin | isModerator;\nconsole.log(hasAccess); // 0 or 1, not true/false",
+    "options": [
+      "Variables are wrong",
+      "Single | is bitwise, use || for logical OR",
+      "Boolean syntax is wrong",
+      "Assignment is wrong"
+    ],
+    "correctAnswer": 1,
+    "explanation": "| is bitwise OR (works on bits), || is logical OR (works on boolean values). Use: const hasAccess = isAdmin || isModerator;",
+    "xp": 10
+  },
+  {
+    "id": "bug-96",
+    "title": "Wrong Array Method Chain",
+    "language": "JavaScript",
+    "difficulty": "Medium",
+    "description": "Method chaining fails. What's wrong?",
+    "buggyCode": "const result = [1, 2, 3]\n  .forEach(n => n * 2)\n  .filter(n => n > 2);\n// TypeError: Cannot read property 'filter' of undefined",
+    "options": [
+      "Chain syntax is wrong",
+      "forEach returns undefined, can't chain",
+      "Arrow functions are wrong",
+      "Array methods are wrong"
+    ],
+    "correctAnswer": 1,
+    "explanation": "forEach returns undefined. Use map for transformations: [1, 2, 3].map(n => n * 2).filter(n => n > 2);",
+    "xp": 10
+  },
+  {
+    "id": "bug-97",
+    "title": "JSON Circular Reference",
+    "language": "JavaScript",
+    "difficulty": "Hard",
+    "description": "JSON.stringify fails. Why?",
+    "buggyCode": "const obj = { name: 'John' };\nobj.self = obj;\nJSON.stringify(obj);\n// TypeError: Converting circular structure to JSON",
+    "options": [
+      "Object syntax is wrong",
+      "Circular reference prevents serialization",
+      "JSON.stringify is broken",
+      "Property name is reserved"
+    ],
+    "correctAnswer": 1,
+    "explanation": "JSON can't handle circular references. Remove circular references or use a library like flatted, or provide a replacer function to JSON.stringify.",
+    "xp": 10
+  },
+  {
+    "id": "bug-98",
+    "title": "Form Submit Refresh",
+    "language": "JavaScript",
+    "difficulty": "Easy",
+    "description": "Page refreshes on form submit. How to prevent?",
+    "buggyCode": "<form onSubmit={handleSubmit}>\n  <button type=\"submit\">Submit</button>\n</form>\n\nfunction handleSubmit() {\n  console.log('Submitted');\n}",
+    "options": [
+      "Form syntax is wrong",
+      "Missing e.preventDefault() in handler",
+      "Button type is wrong",
+      "onSubmit is wrong"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Forms trigger page reload by default. Prevent it: function handleSubmit(e) { e.preventDefault(); /* your code */ }",
+    "xp": 10
+  },
+  {
+    "id": "bug-99",
+    "title": "Async Function in useEffect",
+    "language": "React",
+    "difficulty": "Medium",
+    "description": "ESLint warning about async in useEffect. Why?",
+    "buggyCode": "useEffect(async () => {\n  const data = await fetchData();\n  setData(data);\n}, []);\n// Warning: useEffect function must not return anything",
+    "options": [
+      "async syntax is wrong",
+      "useEffect can't be async, create inner async function",
+      "await is wrong",
+      "fetchData is broken"
+    ],
+    "correctAnswer": 1,
+    "explanation": "useEffect expects sync function or cleanup function, not Promise. Create inner async function: useEffect(() => { async function load() { ... } load(); }, []);",
+    "xp": 10
+  },
+  {
+    "id": "bug-100",
+    "title": "Const Reassignment",
+    "language": "JavaScript",
+    "difficulty": "Easy",
+    "description": "Getting TypeError on reassignment. Why?",
+    "buggyCode": "const PI = 3.14;\nPI = 3.14159;\n// TypeError: Assignment to constant variable",
+    "options": [
+      "const syntax is wrong",
+      "const variables cannot be reassigned",
+      "Number format is wrong",
+      "Variable name is reserved"
+    ],
+    "correctAnswer": 1,
+    "explanation": "const prevents reassignment. Use let if you need to reassign: let PI = 3.14; PI = 3.14159; or use a different variable name.",
+    "xp": 10
+  },
+  {
+    "id": "bug-101",
+    "title": "Spread Operator Shallow Copy",
+    "language": "JavaScript",
+    "difficulty": "Hard",
+    "description": "Nested object still shared. Why?",
+    "buggyCode": "const original = { name: 'John', address: { city: 'NYC' } };\nconst copy = { ...original };\ncopy.address.city = 'LA';\nconsole.log(original.address.city); // 'LA' - Changed!",
+    "options": [
+      "Spread operator is broken",
+      "Spread creates shallow copy, nested objects shared",
+      "Object syntax is wrong",
+      "Copy should use different syntax"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Spread operator creates shallow copy. Nested objects are still referenced. Use deep clone: structuredClone(original) or JSON.parse(JSON.stringify(original)) (with caveats).",
+    "xp": 10
+  },
+  {
+    "id": "bug-102",
+    "title": "SetTimeout This Context",
+    "language": "JavaScript",
+    "difficulty": "Medium",
+    "description": "Method loses this inside timeout. Why?",
+    "buggyCode": "class Timer {\n  seconds = 0;\n  start() {\n    setTimeout(function() {\n      this.seconds++; // TypeError\n    }, 1000);\n  }\n}",
+    "options": [
+      "setTimeout syntax is wrong",
+      "Regular function loses this, use arrow function",
+      "seconds variable is wrong",
+      "Class syntax is wrong"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Regular functions have their own this. Use arrow function to preserve context: setTimeout(() => { this.seconds++; }, 1000);",
+    "xp": 10
+  },
+  {
+    "id": "bug-103",
+    "title": "Array Find Returns Undefined",
+    "language": "JavaScript",
+    "difficulty": "Easy",
+    "description": "Can't find item that exists. What's wrong?",
+    "buggyCode": "const users = [{id: 1}, {id: 2}, {id: 3}];\nconst user = users.find(u => u.id === '2');\nconsole.log(user); // undefined",
+    "options": [
+      "find method is broken",
+      "Type mismatch: comparing number to string",
+      "Array syntax is wrong",
+      "Arrow function is wrong"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Strict equality fails due to type mismatch (number !== string). Use correct type: u.id === 2 or convert: u.id === Number('2')",
+    "xp": 10
+  },
+  {
+    "id": "bug-104",
+    "title": "CSS Selector Specificity",
+    "language": "CSS",
+    "difficulty": "Medium",
+    "description": "Style not applying. Why?",
+    "buggyCode": "div p { color: blue; }\n.text { color: red; }\n\n<div><p class=\"text\">Hello</p></div>\n/* Text is blue, not red */",
+    "options": [
+      "CSS syntax is wrong",
+      "div p has higher specificity than single class",
+      "class name is wrong",
+      "Order matters more"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Specificity: element + element (0,0,2) beats single class (0,1,0)? No, class wins. Actually text should be red. If blue, check CSS order or increase specificity.",
+    "xp": 10
+  },
+  {
+    "id": "bug-105",
+    "title": "Promise Then Chain Break",
+    "language": "JavaScript",
+    "difficulty": "Hard",
+    "description": "Promise chain stops early. Why?",
+    "buggyCode": "fetch('/api/data')\n  .then(res => {\n    console.log(res);\n  })\n  .then(data => {\n    console.log(data); // undefined\n  });",
+    "options": [
+      "fetch is broken",
+      "First then doesn't return value",
+      "Chain syntax is wrong",
+      "Second then is wrong"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Each then must return a value for the next then: .then(res => { console.log(res); return res.json(); })",
+    "xp": 10
+  },
+  {
+    "id": "bug-106",
+    "title": "Object Destructuring Rename",
+    "language": "JavaScript",
+    "difficulty": "Medium",
+    "description": "Variable name conflict. How to rename?",
+    "buggyCode": "const user = { name: 'John' };\nconst { name } = user;\nconst name = 'Jane'; // SyntaxError: Identifier 'name' already declared",
+    "options": [
+      "Destructuring syntax wrong",
+      "Rename during destructuring: { name: userName }",
+      "Variable declaration wrong",
+      "Object is wrong"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Rename during destructuring: const { name: userName } = user; Now use userName instead of name.",
+    "xp": 10
+  },
+  {
+    "id": "bug-107",
+    "title": "Array Some vs Every",
+    "language": "JavaScript",
+    "difficulty": "Medium",
+    "description": "Getting wrong boolean result. Why?",
+    "buggyCode": "const numbers = [2, 4, 6, 8];\nconst hasOdd = numbers.every(n => n % 2 === 1);\nconsole.log(hasOdd); // false - Expected true?",
+    "options": [
+      "every method is wrong",
+      "every checks if ALL match, use some for ANY",
+      "Modulo operator is wrong",
+      "Array is wrong"
+    ],
+    "correctAnswer": 1,
+    "explanation": "every returns true if ALL elements match. Use some to check if ANY element matches: numbers.some(n => n % 2 === 1)",
+    "xp": 10
+  },
+  {
+    "id": "bug-108",
+    "title": "Variable Shadowing",
+    "language": "JavaScript",
+    "difficulty": "Hard",
+    "description": "Outer variable not updating. Why?",
+    "buggyCode": "let count = 0;\n\nfunction increment() {\n  let count = count + 1;\n  console.log(count); // NaN\n}\n\nincrement();",
+    "options": [
+      "Function syntax is wrong",
+      "Inner declaration shadows outer, causes RHS lookup before assignment",
+      "Addition operator is wrong",
+      "Variable should be const"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Inner let count tries to read count before it's initialized (TDZ). Either remove let to use outer: count = count + 1; or use different name: let newCount = count + 1;",
+    "xp": 10
+  },
 
+  {
+    "id":"bug-109",
+    "title":"HTML Semantics",
+    "language":"HTML",
+    "difficulty":"Easy",
+    "category":"frontend",
+    "question":"Which element is used for the main content of a document?",
+    "options":["<section>","<main>","<article>","<div>"],
+    "correctAnswer":1,
+    "explanation":"<main> represents the dominant content of the body."}
+
+]

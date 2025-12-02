@@ -292,22 +292,54 @@ const BugsKill: React.FC = () => {
 
         {/* pagination */}
         <div className="mt-8 flex flex-col items-center gap-4">
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 flex-wrap justify-center">
             <Button onClick={() => gotoPage(page - 1)} variant="outline" className="text-sm" disabled={page === 1}>Prev</Button>
 
-            {Array.from({ length: pageCount }).map((_, i) => {
-              const p = i + 1;
-              const isActive = p === page;
-              return (
-                <button
-                  key={p}
-                  onClick={() => gotoPage(p)}
-                  className={`px-3 py-1 rounded-md text-sm ${isActive ? "bg-primary text-primary-foreground" : "bg-card border border-border hover:bg-muted"}`}
-                >
-                  {p}
-                </button>
-              );
-            })}
+            {(() => {
+              const maxVisible = 7;
+              const pages: (number | string)[] = [];
+              
+              if (pageCount <= maxVisible) {
+                // Show all pages
+                for (let i = 1; i <= pageCount; i++) pages.push(i);
+              } else {
+                // Always show first page
+                pages.push(1);
+                
+                if (page <= 3) {
+                  // Near start
+                  for (let i = 2; i <= 4; i++) pages.push(i);
+                  pages.push('...');
+                  pages.push(pageCount);
+                } else if (page >= pageCount - 2) {
+                  // Near end
+                  pages.push('...');
+                  for (let i = pageCount - 3; i <= pageCount; i++) pages.push(i);
+                } else {
+                  // Middle
+                  pages.push('...');
+                  for (let i = page - 1; i <= page + 1; i++) pages.push(i);
+                  pages.push('...');
+                  pages.push(pageCount);
+                }
+              }
+              
+              return pages.map((p, idx) => {
+                if (typeof p === 'string') {
+                  return <span key={`ellipsis-${idx}`} className="px-2 text-muted-foreground">...</span>;
+                }
+                const isActive = p === page;
+                return (
+                  <button
+                    key={p}
+                    onClick={() => gotoPage(p)}
+                    className={`px-3 py-1 rounded-md text-sm ${isActive ? "bg-primary text-primary-foreground" : "bg-card border border-border hover:bg-muted"}`}
+                  >
+                    {p}
+                  </button>
+                );
+              });
+            })()}
 
             <Button onClick={() => gotoPage(page + 1)} variant="outline" className="text-sm" disabled={page === pageCount}>Next</Button>
           </div>
