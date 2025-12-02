@@ -78,8 +78,17 @@ const VideoZone = () => {
         { id: "concept8", youtubeId: "UUga4-z7b6s", title: "Folder Structures, Clean Code & Scalability", duration: "22:00", tags: ["Architecture"] },
       ],
     },
+    {
+      id: "backend",
+      title: "backend-databases",
+      description: "Learn about how the databases function and how to query",
+      subcategories: ["Database", "Querying", "Courses"],
+      videos: [
+        {}
+      ]
+    }
   ];
-
+/*
   const otherCategories = [
     {
       title: "Things I Built for Him",
@@ -108,7 +117,7 @@ const VideoZone = () => {
       ],
     },
   ];
-
+*/
   return (
     <div className="min-h-screen">
       <section className="container mx-auto px-4 pt-32 pb-20">
@@ -207,8 +216,7 @@ const VideoZone = () => {
               ))}
             </div>
           </div>
-
-          {/* Other Categories */}
+{/*
           {otherCategories.map((category, categoryIndex) => (
             <div key={categoryIndex} className="space-y-6">
               <div className="space-y-2">
@@ -258,6 +266,7 @@ const VideoZone = () => {
               </div>
             </div>
           ))}
+*/}
         </div>
 
         <div className="max-w-6xl mx-auto mt-16 text-center">

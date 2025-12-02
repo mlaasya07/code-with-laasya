@@ -131,7 +131,7 @@ const BugsKill: React.FC = () => {
           </div>
 
           <p className="text-muted-foreground max-w-xl mx-auto pt-2">
-            Debug challenges across different languages. Each bug you catch earns you XP!
+            Debug challenges across different coding languages. Each bug you catch earns you XP!
           </p>
         </div>
 
