@@ -10,7 +10,7 @@ const Navbar = () => {
       label: "ARCHIVE",
       path: null,
       submenu: [
-        { label: "VideoZone", path: "/archive/VideoZone" },
+        { label: "VideoZone", path: "/archive/VideoZone"},
         { label: "PDFs & PPTs", path: "/archive/pdfs" },
         { label: "Dev Library", path: "/archive/dev-library" },
       ],

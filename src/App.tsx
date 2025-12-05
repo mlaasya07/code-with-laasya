@@ -54,7 +54,7 @@ const AppContent = () => {
       <main className="flex-1">
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/archive/videos" element={<VideoZone />} />
+          <Route path="/archive/VideoZone" element={<VideoZone />} />
           <Route path="/archive/pdfs" element={<PDFs />} />
           <Route path="/archive/dev-library" element={<DevLibrary />} />
           <Route path="/playground/ryc" element={<RYC />} />
