@@ -80,11 +80,48 @@ const VideoZone = () => {
     },
     {
       id: "backend",
-      title: "backend-databases",
-      description: "Learn about how the databases function and how to query",
-      subcategories: ["Database", "Querying", "Courses"],
+      title: "Backend & Databases",
+      description: "Learn about how databases function, schemas, warehouses, and querying",
+      subcategories: ["SQL", "NoSQL", "Data Warehousing", "Database Design"],
       videos: [
-        {}
+        // SQL Fundamentals
+        { id: "db1", youtubeId: "HXV3zeQKqGY", title: "SQL Tutorial - Full Database Course for Beginners", duration: "4:20:00", tags: ["SQL", "Beginner"] },
+        { id: "db2", youtubeId: "7S_tz1z_5bA", title: "MySQL Tutorial for Beginners [Full Course]", duration: "3:10:00", tags: ["MySQL", "SQL"] },
+        { id: "db3", youtubeId: "qw--VYLpxG4", title: "PostgreSQL Tutorial Full Course 2022", duration: "4:19:00", tags: ["PostgreSQL", "SQL"] },
+        { id: "db4", youtubeId: "p3qvj9hO_Bo", title: "Learn SQL In 60 Minutes", duration: "1:00:00", tags: ["SQL", "Beginner"] },
+        { id: "db5", youtubeId: "5OdVJbNCSso", title: "SQL for Data Analysis - Full Course", duration: "4:00:00", tags: ["SQL", "Data Analysis"] },
+        // Database Design & Schema
+        { id: "db6", youtubeId: "ztHopE5Wnpc", title: "Database Design Course - Learn how to design and plan a database", duration: "8:00:00", tags: ["Database Design", "Schema"] },
+        { id: "db7", youtubeId: "QpdhBUYk7Kk", title: "Database Schema Design: Everything You Need to Know", duration: "45:00", tags: ["Schema", "Design"] },
+        { id: "db8", youtubeId: "GqVQvBZXcLY", title: "How to Design a Database Schema", duration: "25:00", tags: ["Schema", "Design"] },
+        { id: "db9", youtubeId: "I_rxqSJAj6U", title: "Entity Relationship Diagram (ERD) Tutorial", duration: "30:00", tags: ["ERD", "Database Design"] },
+        { id: "db10", youtubeId: "UrYLYV7WSHM", title: "Database Normalization Explained", duration: "20:00", tags: ["Normalization", "Design"] },
+        // NoSQL & MongoDB
+        { id: "db11", youtubeId: "ofme2o29ngU", title: "MongoDB Crash Course 2024", duration: "1:30:00", tags: ["MongoDB", "NoSQL"] },
+        { id: "db12", youtubeId: "c2M-rlkkT5o", title: "MongoDB Full Course - Learn MongoDB in 3 Hours", duration: "3:00:00", tags: ["MongoDB", "NoSQL"] },
+        { id: "db13", youtubeId: "ExcRbA7fy_A", title: "NoSQL Database Tutorial – Full Course for Beginners", duration: "3:00:00", tags: ["NoSQL", "Beginner"] },
+        { id: "db14", youtubeId: "BgQFJ_UNIgw", title: "SQL vs NoSQL - Which One to Choose?", duration: "15:00", tags: ["SQL", "NoSQL", "Comparison"] },
+        // Data Warehousing
+        { id: "db15", youtubeId: "AHR_7jFCMeY", title: "Data Warehouse Tutorial For Beginners", duration: "45:00", tags: ["Data Warehouse", "ETL"] },
+        { id: "db16", youtubeId: "J326LIUrZM8", title: "Data Warehousing Explained", duration: "30:00", tags: ["Data Warehouse", "Concepts"] },
+        { id: "db17", youtubeId: "lWPiSZf7-uQ", title: "Data Warehouse vs Data Lake vs Data Lakehouse", duration: "20:00", tags: ["Data Warehouse", "Data Lake"] },
+        { id: "db18", youtubeId: "0hxF2WYCRMI", title: "Star Schema vs Snowflake Schema Explained", duration: "15:00", tags: ["Schema", "Data Warehouse"] },
+        // Advanced Querying
+        { id: "db19", youtubeId: "2-1XQHAgDsM", title: "Advanced SQL Tutorial - Window Functions", duration: "1:00:00", tags: ["SQL", "Advanced"] },
+        { id: "db20", youtubeId: "M-55BmjOuXY", title: "SQL Joins Explained - Inner, Left, Right, Full", duration: "25:00", tags: ["SQL", "Joins"] },
+        { id: "db21", youtubeId: "9URM1_2S0ho", title: "SQL Query Optimization Tips", duration: "30:00", tags: ["SQL", "Optimization"] },
+        { id: "db22", youtubeId: "a-hFbr-4VQQ", title: "Subqueries and CTEs in SQL", duration: "40:00", tags: ["SQL", "Advanced"] },
+        // Database Administration
+        { id: "db23", youtubeId: "wjfeGxqAQOY", title: "Database Indexing Explained", duration: "20:00", tags: ["Indexing", "Performance"] },
+        { id: "db24", youtubeId: "cRHUxnUj4EA", title: "ACID Properties in Databases", duration: "15:00", tags: ["ACID", "Transactions"] },
+        { id: "db25", youtubeId: "sS4XPqw9xjI", title: "Database Transactions and Concurrency", duration: "35:00", tags: ["Transactions", "Concurrency"] },
+        // Firebase & Supabase
+        { id: "db26", youtubeId: "9kRgVxULbag", title: "Firebase Tutorial for Beginners", duration: "2:30:00", tags: ["Firebase", "NoSQL"] },
+        { id: "db27", youtubeId: "dU7GwCOgvNY", title: "Supabase Crash Course - Build a Full Stack App", duration: "1:30:00", tags: ["Supabase", "PostgreSQL"] },
+        { id: "db28", youtubeId: "zBZgdTb-dns", title: "Supabase Database Full Course", duration: "2:00:00", tags: ["Supabase", "PostgreSQL"] },
+        // Redis & Caching
+        { id: "db29", youtubeId: "jgpVdJB2sKQ", title: "Redis Crash Course", duration: "1:00:00", tags: ["Redis", "Caching"] },
+        { id: "db30", youtubeId: "G1rOthIU-uo", title: "Database Caching Strategies Explained", duration: "25:00", tags: ["Caching", "Performance"] },
       ]
     }
   ];
