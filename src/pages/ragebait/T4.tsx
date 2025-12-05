@@ -54,33 +54,34 @@ export default function EnhancedTips() {
           <p className="text-muted-foreground text-lg">Tips, tricks, and wisdom from the debugging trenches</p>
         </div>
 
-        <div className="mb-8 text-center">
-          <Button onClick={getRandomTip} size="lg" variant="outline">
-            <Shuffle className="w-4 h-4 mr-2" />Random Tip
+        <div className="mb-6 md:mb-8 text-center">
+          <Button onClick={getRandomTip} size="sm" variant="outline" className="md:px-4 md:py-2">
+            <Shuffle className="w-3 h-3 md:w-4 md:h-4 mr-1 md:mr-2" />
+            <span className="text-xs md:text-sm">Random Tip</span>
           </Button>
         </div>
 
         {displayedTip && (
-          <div className="mb-8 p-6 border-2 border-primary rounded-lg bg-card">
+          <div className="mb-6 md:mb-8 p-4 md:p-6 border-2 border-primary rounded-lg bg-card">
             <div className="flex items-start justify-between mb-2">
-              <Badge variant="secondary">{displayedTip.category}</Badge>
+              <Badge variant="secondary" className="text-xs">{displayedTip.category}</Badge>
               <button onClick={() => handleBookmark(displayedTip.id)} className="text-primary hover:scale-110 transition-transform">
-                {bookmarks.includes(displayedTip.id) ? <BookmarkCheck className="w-5 h-5" /> : <Bookmark className="w-5 h-5" />}
+                {bookmarks.includes(displayedTip.id) ? <BookmarkCheck className="w-4 h-4 md:w-5 md:h-5" /> : <Bookmark className="w-4 h-4 md:w-5 md:h-5" />}
               </button>
             </div>
-            <h3 className="text-2xl font-bold mb-2">{displayedTip.title}</h3>
-            <p className="text-muted-foreground">{displayedTip.content}</p>
+            <h3 className="text-lg md:text-2xl font-bold mb-2">{displayedTip.title}</h3>
+            <p className="text-muted-foreground text-sm md:text-base">{displayedTip.content}</p>
           </div>
         )}
 
-        <div className="flex gap-2 mb-6 flex-wrap justify-center">
+        <div className="flex gap-1.5 md:gap-2 mb-4 md:mb-6 flex-wrap justify-center">
           {categories.map(cat => (
             <Button 
               key={cat} 
               variant={selectedCategory === cat && !showBookmarked ? 'default' : 'outline'} 
               size="sm" 
               onClick={() => { setSelectedCategory(cat); setShowBookmarked(false); }}
-              className="touch-manipulation"
+              className="touch-manipulation text-xs md:text-sm px-2 py-1 md:px-3 md:py-2 h-7 md:h-9"
             >
               {cat}
             </Button>
@@ -89,9 +90,9 @@ export default function EnhancedTips() {
             variant={showBookmarked ? 'default' : 'outline'} 
             size="sm" 
             onClick={() => setShowBookmarked(!showBookmarked)}
-            className="touch-manipulation"
+            className="touch-manipulation text-xs md:text-sm px-2 py-1 md:px-3 md:py-2 h-7 md:h-9"
           >
-            <Bookmark className="w-4 h-4 mr-1" />
+            <Bookmark className="w-3 h-3 md:w-4 md:h-4 mr-1" />
             Bookmarked
           </Button>
         </div>
@@ -108,7 +109,6 @@ export default function EnhancedTips() {
                       {bookmarks.includes(tip.id) ? <BookmarkCheck className="w-4 h-4 text-primary" /> : <Bookmark className="w-4 h-4" />}
                     </button>
                   </div>
-                  <p className="text-muted-foreground text-xs md:text-sm pl-6 md:pl-8">{tip.preview}</p>
                   <Badge variant="outline" className="text-xs mt-2 ml-6 md:ml-8">{tip.category}</Badge>
                 </div>
                 {openTip === tip.id ? <ChevronUp className="w-4 h-4 md:w-5 md:h-5 flex-shrink-0" /> : <ChevronDown className="w-4 h-4 md:w-5 md:h-5 flex-shrink-0" />}

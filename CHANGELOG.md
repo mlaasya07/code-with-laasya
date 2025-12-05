@@ -1,5 +1,139 @@
 # Code.With.Laasya - Complete Changelog
 
+## [2.0.3] - 05-12-2025
+
+### Changed
+- **RYC Practice Playground** (`src/pages/playground/RYC.tsx`):
+  - Preview now opens in a separate browser tab named "code-with-laasya-html-preview"
+  - Live updates to the preview tab as you type (300ms debounce)
+  - Removed inline iframe preview panel for full-width editor
+  - Added `openPreview()` function using window.open()
+
+### Files Modified
+- src/pages/playground/RYC.tsx
+- CHANGELOG.md
+
+### Functions Changed
+- RYC.tsx: Added `previewWindowRef` for window reference
+- RYC.tsx: Added `openPreview()` to open/update preview in new tab
+- RYC.tsx: Updated live preview useEffect to write to external window
+- RYC.tsx: Removed `output` state (no longer using iframe)
+
+---
+
+## [2.0.2] - 05-12-2025
+
+### Changed
+- **RYC Practice Playground** (`src/pages/playground/RYC.tsx`):
+  - Complete refactor to multi-file editor with separate HTML, CSS, JS tabs
+  - Added Tabs component for file switching (index.html, style.css, script.js)
+  - Proper code injection: CSS injected into `<head>`, JS injected before `</body>`
+  - New localStorage key `ryc-code-files` stores all three file contents
+  - Functions like OneCompiler with real multi-file project structure
+  - Added file type icons (FileCode, FileType, Braces) for each tab
+
+- **ByteRush** (`src/pages/playground/ByteRush.tsx`):
+  - Made each quiz section collapsible and expandable
+  - Added Collapsible component wrapping each quiz card
+  - CardHeader as CollapsibleTrigger with ChevronDown rotation indicator
+  - Added `openQuizzes` state to track expanded/collapsed sections
+
+### Files Modified
+- src/pages/playground/RYC.tsx (complete rewrite)
+- src/pages/playground/ByteRush.tsx
+- CHANGELOG.md
+- README.md
+
+### Functions Changed
+- RYC.tsx: Removed single `code` state, added `files` state with html/css/js
+- RYC.tsx: Added `buildOutput()` to combine files with proper injection
+- RYC.tsx: Added `updateFile()` helper for tab-specific updates
+- RYC.tsx: Changed storage key from `savedCode` to `ryc-code-files`
+- ByteRush.tsx: Added `openQuizzes` state and `toggleQuiz()` function
+
+---
+
+## [2.0.1] - 04-12-2025
+
+### Changed
+- **T⁴ Section** (`src/pages/ragebait/T4.tsx`):
+  - Minimized buttons for mobile view with smaller text, padding, height, and icons
+  - Added responsive `md:` classes for proper scaling
+
+- **PDFs & PPTs** (`src/pages/archive/PDFs.tsx`):
+  - Buttons "Preview" and "Download" now always appear at bottom of card in all device views
+  - Added `flex flex-col h-full` to Card and `mt-auto pt-0` to CardContent
+  - Removed "Last opened" feature and related localStorage logic
+  - Added color indicators: yellow for PPTs, red for PDFs (icon and badge)
+  - Removed `useIsMobile` hook import and related mobile-specific display logic
+
+- **Mini Projects** (`src/pages/projects/MiniProjects.tsx`):
+  - Added difficulty filter system (All, Beginner, Intermediate, Advanced)
+  - Filter buttons with visual feedback for active state
+
+### Files Modified
+- src/pages/ragebait/T4.tsx
+- src/pages/archive/PDFs.tsx
+- src/pages/projects/MiniProjects.tsx
+- CHANGELOG.md
+
+### Functions Changed
+- Removed: `formatRelativeTime()`, `handleOpened()` from PDFs.tsx
+- Removed: `lastOpenedMap` state and `useEffect` for localStorage in PDFs.tsx
+
+---
+
+## [2.0.0] - 01-12-2025
+
+### Added
+- **Homepage Redesign**: Complete overhaul with beginner/comeback learning paths
+  - "Absolute Beginner" path with HTML, CSS, JS basics and first webpage project
+  - "Coming Back After a Break" path with syntax refresh and error-fixing exercises
+  - Daily Byte challenge preview on homepage
+  - "Why This Site Exists" emotional mission statement section
+  - Gamification preview showcasing XP rewards
+
+- **Enhanced Gamification System**:
+  - New level names: Seed, Sprout, Debugger, Logical Thinker, Junior Builder, Code Adventurer, UI Artisan, API Explorer, Real Programmer™, Code Wizard
+  - Three-tier badge system:
+    - ✨ Starter Badges: First Step, Tiny Victory, Unbroken Streak
+    - 🔥 Progress Badges: Syntax Summoner, Bug Tamer, Knowledge Seeker
+    - 💀 Boss Badges: DOM Whisperer, Level Master, Code Wizard
+  - Updated XP rewards: Lessons (+20), Daily Bytes (+10), Projects (+30), Boss Challenges (+50), Tips (+5), Bugs (+10), Quizzes (+25)
+
+### Changed
+- **Profile Page**: Completely redesigned with new level system and badge display
+- **localStorage**: Added comprehensive XP tracking and activity counters
+- Updated README.md with new gamification details and homepage features
+
+### Files Modified
+- src/pages/Home.tsx - Complete redesign
+- src/pages/Profile.tsx - New gamification display
+- src/utils/localStorage.ts - Added XP and achievement functions
+- README.md - Updated features and achievement system
+- CHANGELOG.md - This file
+
+---
+
+## [1.2.2] - 21-11-2025
+
+### Changed
+- **PDFViewer** (`src/components/PDFViewer.tsx`):
+  - Added swipe gestures for page navigation (mobile only)
+  - Made Previous/Next buttons icon-only and smaller on mobile devices
+  - Improved touch interaction with dedicated swipe handlers
+- **Navbar** (`src/components/Navbar.tsx`):
+  - Fixed mobile menu to close when clicking outside the navigation area
+  - Added click-outside detection for better mobile UX
+
+### Files Updated
+- src/components/PDFViewer.tsx
+- src/components/Navbar.tsx
+- README.md
+- CHANGELOG.md
+
+---
+
 ## [1.2.1] - 21-11-2025
 
 ### Changed

@@ -1,123 +1,196 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Textarea } from '@/components/ui/textarea';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { storage } from '@/utils/localStorage';
-import { Code2, Play, RotateCcw, Save } from 'lucide-react';
+import { Code2, Play, RotateCcw, Save, FileCode, FileType, Braces, ExternalLink } from 'lucide-react';
 import { toast } from '@/hooks/use-toast';
 
-const DEFAULT_CODE = `<!DOCTYPE html>
+const DEFAULT_HTML = `<!DOCTYPE html>
 <html>
 <head>
   <title>Practice</title>
-  <style>
-    body {
-      font-family: 'Roboto Mono', monospace;
-      background: #000;
-      color: #E4CC37;
-      padding: 20px;
-    }
-  </style>
 </head>
 <body>
   <h1>Hello, Coder!</h1>
   <p>Start coding here...</p>
-  
-  <script>
-    console.log('Practice playground ready! 🚀');
-  </script>
+  <button id="btn">Click Me</button>
+  <p id="output"></p>
 </body>
 </html>`;
 
-export default function Practice() {
-  const [code, setCode] = useState(DEFAULT_CODE);
-  const [output, setOutput] = useState('');
-  const [error, setError] = useState('');
+const DEFAULT_CSS = `body {
+  font-family: 'Roboto Mono', monospace;
+  background: #000;
+  color: #E4CC37;
+  padding: 20px;
+}
 
-  useEffect(() => {
-    const savedCode = storage.getSavedCode();
-    if (savedCode) {
-      setCode(savedCode);
-      runCode(savedCode);
+h1 {
+  color: #FFD700;
+}
+
+button {
+  background: #FFD700;
+  color: #000;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-family: inherit;
+  margin-top: 10px;
+}
+
+button:hover {
+  background: #E4CC37;
+}`;
+
+const DEFAULT_JS = `// Your JavaScript code here
+console.log('Practice playground ready! 🚀');
+
+document.getElementById('btn').addEventListener('click', function() {
+  document.getElementById('output').textContent = 'Button clicked!';
+});`;
+
+interface CodeFiles {
+  html: string;
+  css: string;
+  js: string;
+}
+
+const STORAGE_KEY = 'ryc-code-files';
+
+export default function Practice() {
+  const [files, setFiles] = useState<CodeFiles>({
+    html: DEFAULT_HTML,
+    css: DEFAULT_CSS,
+    js: DEFAULT_JS,
+  });
+  const [activeTab, setActiveTab] = useState('html');
+  const previewWindowRef = useRef<Window | null>(null);
+  const buildOutput = useCallback((codeFiles: CodeFiles) => {
+    let html = codeFiles.html;
+    const cssTag = `<style>${codeFiles.css}</style>`;
+    const jsTag = `<script>${codeFiles.js}<\/script>`;
+    
+    if (html.includes('</head>')) {
+      html = html.replace('</head>', `${cssTag}</head>`);
+    } else if (html.includes('<body')) {
+      html = html.replace('<body', `${cssTag}<body`);
     } else {
-      runCode(DEFAULT_CODE);
+      html = cssTag + html;
+    }
+    
+    if (html.includes('</body>')) {
+      html = html.replace('</body>', `${jsTag}</body>`);
+    } else {
+      html = html + jsTag;
+    }
+    
+    return html;
+  }, []);
+
+  // Load saved files on mount
+  useEffect(() => {
+    const savedFiles = localStorage.getItem(STORAGE_KEY);
+    if (savedFiles) {
+      try {
+        const parsed = JSON.parse(savedFiles);
+        setFiles(parsed);
+      } catch {
+        // Use default files
+      }
     }
   }, []);
 
-  const runCode = (codeToRun: string) => {
-    setError('');
+  // Live preview - update new tab on code changes with debounce (300ms)
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (previewWindowRef.current && !previewWindowRef.current.closed) {
+        const combined = buildOutput(files);
+        previewWindowRef.current.document.open();
+        previewWindowRef.current.document.write(combined);
+        previewWindowRef.current.document.close();
+      }
+    }, 300);
     
-    // Basic HTML syntax validation
-    const errors: string[] = [];
+    return () => clearTimeout(timer);
+  }, [files, buildOutput]);
+
+  const openPreview = () => {
+    const combined = buildOutput(files);
     
-    // Check for unclosed tags
-    const openTags = codeToRun.match(/<(\w+)(?![^>]*\/>)[^>]*>/g) || [];
-    const closeTags = codeToRun.match(/<\/(\w+)>/g) || [];
-    
-    if (openTags.length !== closeTags.length) {
-      errors.push("Warning: Possible unclosed HTML tags detected");
-    }
-    
-    // Check for basic script errors (very basic)
-    if (codeToRun.includes('<script>') || codeToRun.includes('<script ')) {
-      const scriptContent = codeToRun.match(/<script[^>]*>([\s\S]*?)<\/script>/gi);
-      if (scriptContent) {
-        scriptContent.forEach((script) => {
-          // Check for common JS errors
-          if (script.includes('consol.log') && !script.includes('console.log')) {
-            errors.push("Syntax Error: Did you mean 'console.log'?");
-          }
-        });
+    // Open or focus existing window
+    if (previewWindowRef.current && !previewWindowRef.current.closed) {
+      previewWindowRef.current.document.open();
+      previewWindowRef.current.document.write(combined);
+      previewWindowRef.current.document.close();
+      previewWindowRef.current.focus();
+    } else {
+      previewWindowRef.current = window.open('', 'code-with-laasya-html-preview');
+      if (previewWindowRef.current) {
+        previewWindowRef.current.document.open();
+        previewWindowRef.current.document.write(combined);
+        previewWindowRef.current.document.close();
       }
     }
     
-    if (errors.length > 0) {
-      setError(errors.join(' | '));
-    }
-    
-    setOutput(codeToRun);
-  };
-
-  const handleRun = () => {
-    runCode(code);
     toast({
-      title: "Code executed!",
-      description: "Check the preview below",
+      title: "Preview opened!",
+      description: "Check the new browser tab",
       duration: 2000,
     });
   };
 
+  const handleRun = () => {
+    openPreview();
+  };
+
   const handleSave = () => {
-    storage.setSavedCode(code);
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(files));
     toast({
       title: "Progress saved!",
-      description: "Your code is safely stored",
+      description: "Your code files are safely stored",
       duration: 2000,
     });
   };
 
   const handleReset = () => {
-    if (confirm('Are you sure you want to reset to default code?')) {
-      setCode(DEFAULT_CODE);
-      runCode(DEFAULT_CODE);
+    if (confirm('Are you sure you want to reset all files to default?')) {
+      const defaultFiles = {
+        html: DEFAULT_HTML,
+        css: DEFAULT_CSS,
+        js: DEFAULT_JS,
+      };
+      setFiles(defaultFiles);
+      localStorage.removeItem(STORAGE_KEY);
       toast({
         title: "Reset complete",
-        description: "Code restored to default",
+        description: "All files restored to default",
         duration: 2000,
       });
     }
   };
 
   const handleLoadLast = () => {
-    const savedCode = storage.getSavedCode();
-    if (savedCode) {
-      setCode(savedCode);
-      runCode(savedCode);
-      toast({
-        title: "Session loaded!",
-        description: "Your last saved code is restored",
-        duration: 2000,
-      });
+    const savedFiles = localStorage.getItem(STORAGE_KEY);
+    if (savedFiles) {
+      try {
+        const parsed = JSON.parse(savedFiles);
+        setFiles(parsed);
+        toast({
+          title: "Session loaded!",
+          description: "Your last saved code is restored",
+          duration: 2000,
+        });
+      } catch {
+        toast({
+          title: "Error loading session",
+          description: "Could not parse saved data",
+          duration: 2000,
+          variant: "destructive",
+        });
+      }
     } else {
       toast({
         title: "No saved session",
@@ -125,6 +198,19 @@ export default function Practice() {
         duration: 2000,
         variant: "destructive",
       });
+    }
+  };
+
+  const updateFile = (type: keyof CodeFiles, value: string) => {
+    setFiles(prev => ({ ...prev, [type]: value }));
+  };
+
+  const getTabIcon = (tab: string) => {
+    switch (tab) {
+      case 'html': return <FileCode className="w-4 h-4" />;
+      case 'css': return <FileType className="w-4 h-4" />;
+      case 'js': return <Braces className="w-4 h-4" />;
+      default: return null;
     }
   };
 
@@ -138,7 +224,7 @@ export default function Practice() {
             Practice Playground
           </h1>
           <p className="text-muted-foreground text-lg">
-            Write code, see results instantly. All progress saved locally!
+            Write HTML, CSS & JavaScript in separate files. All progress saved locally!
           </p>
         </div>
 
@@ -161,55 +247,67 @@ export default function Practice() {
           </Button>
         </div>
 
-        {/* Error Display */}
-        {error && (
-          <Card className="mb-6 bg-destructive/10 border-destructive">
-            <div className="p-4 flex items-start gap-3">
-              <div className="text-destructive font-bold text-lg">⚠️</div>
-              <div className="flex-1">
-                <p className="text-sm font-bold text-destructive mb-1">Syntax Warning</p>
-                <p className="text-sm text-destructive font-mono">{error}</p>
-              </div>
-            </div>
-          </Card>
-        )}
-
-        {/* Editor and Preview */}
-        <div className="grid lg:grid-cols-2 gap-6">
-          {/* Code Editor */}
-          <Card className="p-4 border-border">
-            <div className="mb-2 font-semibold text-sm">Code Editor</div>
-            <Textarea
-              value={code}
-              onChange={(e) => setCode(e.target.value)}
-              className="min-h-[600px] font-mono text-sm bg-muted"
-              placeholder="Write your HTML, CSS, and JavaScript here..."
-            />
-          </Card>
-
-          {/* Live Preview */}
-          <Card className="p-4 border-border">
-            <div className="mb-2 font-semibold text-sm">Live Preview</div>
-            <div className="border border-border rounded bg-white">
-              <iframe
-                srcDoc={output}
-                title="Preview"
-                className="w-full h-[600px]"
-                sandbox="allow-scripts"
+        {/* Editor - Full Width */}
+        <Card className="p-4 border-border">
+          <Tabs value={activeTab} onValueChange={setActiveTab}>
+            <TabsList className="mb-4 w-full justify-start">
+              <TabsTrigger value="html" className="gap-2">
+                {getTabIcon('html')}
+                index.html
+              </TabsTrigger>
+              <TabsTrigger value="css" className="gap-2">
+                {getTabIcon('css')}
+                style.css
+              </TabsTrigger>
+              <TabsTrigger value="js" className="gap-2">
+                {getTabIcon('js')}
+                script.js
+              </TabsTrigger>
+            </TabsList>
+            
+            <TabsContent value="html" className="mt-0">
+              <Textarea
+                value={files.html}
+                onChange={(e) => updateFile('html', e.target.value)}
+                className="min-h-[550px] font-mono text-sm bg-muted resize-none"
+                placeholder="Write your HTML here..."
+                spellCheck={false}
               />
-            </div>
-          </Card>
-        </div>
+            </TabsContent>
+            
+            <TabsContent value="css" className="mt-0">
+              <Textarea
+                value={files.css}
+                onChange={(e) => updateFile('css', e.target.value)}
+                className="min-h-[550px] font-mono text-sm bg-muted resize-none"
+                placeholder="Write your CSS here..."
+                spellCheck={false}
+              />
+            </TabsContent>
+            
+            <TabsContent value="js" className="mt-0">
+              <Textarea
+                value={files.js}
+                onChange={(e) => updateFile('js', e.target.value)}
+                className="min-h-[550px] font-mono text-sm bg-muted resize-none"
+                placeholder="Write your JavaScript here..."
+                spellCheck={false}
+              />
+            </TabsContent>
+          </Tabs>
+        </Card>
 
         {/* Tips */}
         <Card className="mt-6 p-6 bg-card/50 border-primary/30">
           <h3 className="font-bold mb-2">💡 Playground Tips:</h3>
           <ul className="list-disc list-inside space-y-1 text-sm text-muted-foreground">
-            <li>Write HTML, CSS, and JavaScript all in one editor</li>
-            <li>Changes preview automatically when you click "Run Code"</li>
+            <li>Write HTML, CSS, and JavaScript in separate tabs like a real project</li>
+            <li>Click "Run Code" to open preview in a new browser tab</li>
+            <li>Preview auto-updates as you type when the tab is open</li>
+            <li>CSS is automatically injected into the &lt;head&gt; tag</li>
+            <li>JavaScript runs at the end of the &lt;body&gt; tag</li>
+            <li>Use console.log() for debugging (check browser console with F12)</li>
             <li>Your code is saved in localStorage - safe even after closing browser</li>
-            <li>Use console.log() for debugging (check browser console F12)</li>
-            <li>Experiment freely - you can always reset!</li>
           </ul>
         </Card>
       </div>

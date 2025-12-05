@@ -1,9 +1,18 @@
 // src/pages/projects/MiniProjects.tsx
+import { useState } from "react";
 import { Video } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import miniProjectsData from "@/data/miniProjects.json";
 
+type DifficultyFilter = "All" | "Beginner" | "Intermediate" | "Advanced";
+
 export default function MiniProjects() {
+  const [filter, setFilter] = useState<DifficultyFilter>("All");
+
+  const filteredProjects = filter === "All" 
+    ? miniProjectsData 
+    : miniProjectsData.filter(p => p.difficulty === filter);
+
   return (
     <div className="min-h-screen">
       <section className="container mx-auto px-4 pt-28 pb-20">
@@ -12,10 +21,25 @@ export default function MiniProjects() {
           <p className="text-xl text-muted-foreground">
             Beginner → Advanced mini builds with tutorials.
           </p>
+
+          {/* Filter Buttons */}
+          <div className="flex flex-wrap justify-center gap-2 pt-4">
+            {(["All", "Beginner", "Intermediate", "Advanced"] as DifficultyFilter[]).map((level) => (
+              <Button
+                key={level}
+                variant={filter === level ? "default" : "outline"}
+                size="sm"
+                onClick={() => setFilter(level)}
+                className="text-xs md:text-sm"
+              >
+                {level}
+              </Button>
+            ))}
+          </div>
         </div>
 
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {miniProjectsData.map((project) => (
+          {filteredProjects.map((project) => (
             <div key={project.id} className="group bg-card border rounded p-6 hover:border-primary transition">
               <div className="flex items-start justify-between">
                 <h3 className="text-lg font-bold group-hover:text-primary transition">

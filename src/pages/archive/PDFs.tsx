@@ -1,10 +1,9 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { FileText, Download, Eye } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { PDFViewer } from "@/components/PDFViewer";
-import { useIsMobile } from "@/hooks/use-mobile";
 
 interface Resource {
   title: string;
@@ -12,29 +11,7 @@ interface Resource {
   pages: number;
   downloadUrl: string;
   previewUrl: string;
-  category: "Frontend" | "Programming";
-}
-
-const STORAGE_KEY = "cwl_pdfs_lastOpened";
-
-function formatRelativeTime(timestamp?: number): string {
-  if (!timestamp) return "Never opened";
-
-  const now = Date.now();
-  const diffMs = now - timestamp;
-  const oneDay = 1000 * 60 * 60 * 24;
-
-  if (diffMs < oneDay) {
-    return "Today";
-  }
-
-  const days = Math.floor(diffMs / oneDay);
-  if (days < 7) {
-    return `${days} day${days === 1 ? "" : "s"} ago`;
-  }
-
-  const weeks = Math.floor(days / 7);
-  return `${weeks} week${weeks === 1 ? "" : "s"} ago`;
+  category: "Frontend" | "Programming" | "Core Theory" | "DevOps" | "Backend";
 }
 
 const resources: Resource[] = [
@@ -53,6 +30,14 @@ const resources: Resource[] = [
     downloadUrl: "/pdfs/html-css-basics.pdf",
     previewUrl: "/pdfs/html-css-basics.pdf",
     category: "Frontend",
+  },
+  {
+    title: "Automata Theory and Computation Introduction by JOHN E. HOPCROFT",
+    type: "PDF",
+    pages: 551,
+    downloadUrl: "",
+    previewUrl: "/pdfs/",
+    category: "Core Theory",
   },
   {
     title: "Fundamentals of Web Programming",
@@ -119,37 +104,6 @@ const PDFs = () => {
     isPPT: boolean;
   } | null>(null);
 
-  const [lastOpenedMap, setLastOpenedMap] = useState<Record<string, number>>({});
-  const isMobile = useIsMobile();
-
-  useEffect(() => {
-    if (isMobile) return;
-
-    try {
-      const stored = localStorage.getItem(STORAGE_KEY);
-      if (stored) {
-        const parsed = JSON.parse(stored) as Record<string, number>;
-        setLastOpenedMap(parsed);
-      }
-    } catch {
-      // ignore parse errors
-    }
-  }, [isMobile]);
-
-  const handleOpened = (resource: Resource) => {
-    if (isMobile) return;
-
-    setLastOpenedMap((prev) => {
-      const updated = { ...prev, [resource.title]: Date.now() };
-      try {
-        localStorage.setItem(STORAGE_KEY, JSON.stringify(updated));
-      } catch {
-        // ignore storage errors
-      }
-      return updated;
-    });
-  };
-
   return (
     <>
       {viewingPDF && (
@@ -176,12 +130,25 @@ const PDFs = () => {
             {resources.map((resource) => (
               <Card
                 key={resource.title}
-                className="bg-card/50 border-border hover:border-primary transition-all"
+                className="bg-card/50 border-border hover:border-primary transition-all flex flex-col h-full"
               >
-                <CardHeader>
+                <CardHeader className="flex-1">
                   <div className="flex items-start justify-between mb-2">
-                    <FileText className="w-8 h-8 text-primary" />
-                    <Badge variant="outline" className="text-xs">
+                    <FileText 
+                      className={`w-8 h-8 ${
+                        resource.type === "PPT" 
+                          ? "text-yellow-500" 
+                          : "text-red-500"
+                      }`} 
+                    />
+                    <Badge 
+                      variant="outline" 
+                      className={`text-xs ${
+                        resource.type === "PPT"
+                          ? "border-yellow-500 text-yellow-500"
+                          : "border-red-500 text-red-500"
+                      }`}
+                    >
                       {resource.type}
                     </Badge>
                   </div>
@@ -193,15 +160,8 @@ const PDFs = () => {
                     <span>•</span>
                     <span>{resource.category}</span>
                   </div>
-                  <p className="text-xs text-muted-foreground pt-1">
-                    {isMobile
-                      ? "Last opened: —"
-                      : `Last opened: ${formatRelativeTime(
-                          lastOpenedMap[resource.title]
-                        )}`}
-                  </p>
                 </CardHeader>
-                <CardContent className="space-y-3">
+                <CardContent className="mt-auto pt-0">
                   {/* Action Buttons */}
                   <div className="flex flex-col sm:flex-row gap-2">
                     <Button
@@ -209,7 +169,6 @@ const PDFs = () => {
                       variant="outline"
                       className="flex-1 gap-2 w-full sm:w-auto"
                       onClick={() => {
-                        handleOpened(resource);
                         setViewingPDF({
                           url: resource.previewUrl,
                           title: resource.title,
@@ -224,7 +183,6 @@ const PDFs = () => {
                       size="sm"
                       className="flex-1 gap-2 w-full sm:w-auto"
                       onClick={() => {
-                        handleOpened(resource);
                         const link = document.createElement("a");
                         link.href = resource.downloadUrl;
                         link.download = resource.title;
