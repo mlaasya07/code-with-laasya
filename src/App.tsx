@@ -63,9 +63,9 @@ const AppContent = () => {
           <Route path="/playground/ryc" element={<RYC />} />
           <Route path="/playground/ryq" element={<RYQ />} />
           <Route path="/playground/buildwithme" element={<BuildWithMe />} />
-          <Route path="/learn/LearningPath" element={<LearningPath />} />
-          <Route path="/learn/Flashcards" element={<Flashcards />} />
-          <Route path="/learn/InterviewPrep" element={<InterviewQuestions />} />
+          <Route path="/learn/learningpath" element={<LearningPath />} />
+          <Route path="/learn/flashcards" element={<Flashcards />} />
+          <Route path="/learn/interviewprep" element={<InterviewQuestions />} />
           <Route path="/playground/tooltime" element={<ToolTime />} />
           <Route path="/playground/byterush" element={<ByteRush />} />
           <Route path="/playground/bugskill" element={<BugsKill />} />

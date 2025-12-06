@@ -19,9 +19,9 @@ const Navbar = () => {
       label: "LEARN",
       path: null,
       submenu: [
-        { label: "Learning Paths", path: "/learn/LearningPath" },
-        { label: "Flashcards", path: "/learn/Flashcards" },
-        { label: "Interview Questions", path: "/learn/InterviewPrep" },
+       { label: "Learning Paths", path: "/learn/learningpath" },
+       { label: "Flashcards", path: "/learn/flashcards" },
+       { label: "Interview Questions", path: "/learn/interviewprep" },
       ],
     },
     {
