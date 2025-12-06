@@ -25,6 +25,9 @@ import ByteRush from "./pages/playground/ByteRush";
 import BugsKill from "./pages/playground/BugsKill";
 import MiniProjects from "./pages/Projects/MiniProjects";
 import Profile from "./pages/Profile";
+import InterviewQuestions from "./pages/learn/InterviewPrep";
+import Flashcards from "./pages/learn/Flashcards";
+import LearningPath from "./pages/learn/LearningPath";
 
 const queryClient = new QueryClient();
 
@@ -60,6 +63,9 @@ const AppContent = () => {
           <Route path="/playground/ryc" element={<RYC />} />
           <Route path="/playground/ryq" element={<RYQ />} />
           <Route path="/playground/buildwithme" element={<BuildWithMe />} />
+          <Route path="/learn/LearningPath" element={<LearningPath />} />
+          <Route path="/learn/Flashcards" element={<Flashcards />} />
+          <Route path="/learn/InterviewPrep" element={<InterviewQuestions />} />
           <Route path="/playground/tooltime" element={<ToolTime />} />
           <Route path="/playground/byterush" element={<ByteRush />} />
           <Route path="/playground/bugskill" element={<BugsKill />} />

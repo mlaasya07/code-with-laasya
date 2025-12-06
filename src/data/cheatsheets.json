@@ -1,0 +1,159 @@
+[
+  {
+    "id": "js-basics",
+    "title": "JavaScript Basics",
+    "category": "JavaScript",
+    "snippets": [
+      {
+        "title": "Variables",
+        "code": "const name = 'John';     // Constant\nlet age = 25;            // Mutable variable\nvar old = 'avoid this';  // Legacy"
+      },
+      {
+        "title": "Arrow Functions",
+        "code": "const add = (a, b) => a + b;\nconst greet = name => `Hello, ${name}`;\nconst complex = (x) => {\n  return x * 2;\n};"
+      },
+      {
+        "title": "Array Methods",
+        "code": "arr.map(x => x * 2)       // Transform each element\narr.filter(x => x > 5)    // Keep matching elements\narr.reduce((a,b) => a+b)  // Reduce to single value\narr.find(x => x.id === 1) // Find first match"
+      },
+      {
+        "title": "Destructuring",
+        "code": "const { name, age } = person;  // Object\nconst [first, second] = arr;   // Array\nconst { x, ...rest } = obj;    // Rest operator"
+      },
+      {
+        "title": "Template Literals",
+        "code": "const message = `Hello ${name}!`;\nconst multiLine = `\n  Line 1\n  Line 2\n`;"
+      }
+    ]
+  },
+  {
+    "id": "css-flexbox",
+    "title": "CSS Flexbox",
+    "category": "CSS",
+    "snippets": [
+      {
+        "title": "Container Properties",
+        "code": ".container {\n  display: flex;\n  flex-direction: row | column;\n  justify-content: center | space-between;\n  align-items: center | flex-start;\n  flex-wrap: wrap;\n  gap: 1rem;\n}"
+      },
+      {
+        "title": "Item Properties",
+        "code": ".item {\n  flex: 1;           /* Grow equally */\n  flex-grow: 2;      /* Grow factor */\n  flex-shrink: 0;    /* Don't shrink */\n  align-self: center; /* Override align */\n}"
+      },
+      {
+        "title": "Common Patterns",
+        "code": "/* Center everything */\ndisplay: flex;\njustify-content: center;\nalign-items: center;\n\n/* Space between with wrap */\ndisplay: flex;\nflex-wrap: wrap;\njustify-content: space-between;"
+      }
+    ]
+  },
+  {
+    "id": "css-grid",
+    "title": "CSS Grid",
+    "category": "CSS",
+    "snippets": [
+      {
+        "title": "Grid Container",
+        "code": ".grid {\n  display: grid;\n  grid-template-columns: repeat(3, 1fr);\n  grid-template-rows: auto;\n  gap: 1rem;\n}"
+      },
+      {
+        "title": "Grid Item Placement",
+        "code": ".item {\n  grid-column: 1 / 3;  /* Span 2 columns */\n  grid-row: 1 / 2;     /* Row 1 */\n  grid-area: header;   /* Named area */\n}"
+      },
+      {
+        "title": "Responsive Grid",
+        "code": "grid-template-columns: \n  repeat(auto-fit, minmax(250px, 1fr));"
+      }
+    ]
+  },
+  {
+    "id": "react-hooks",
+    "title": "React Hooks",
+    "category": "React",
+    "snippets": [
+      {
+        "title": "useState",
+        "code": "const [count, setCount] = useState(0);\nsetCount(count + 1);      // Direct value\nsetCount(prev => prev + 1); // Functional update"
+      },
+      {
+        "title": "useEffect",
+        "code": "useEffect(() => {\n  // Runs on mount and when deps change\n  fetchData();\n  \n  return () => {\n    // Cleanup function\n  };\n}, [dependency]);"
+      },
+      {
+        "title": "useRef",
+        "code": "const inputRef = useRef(null);\n// Access: inputRef.current\n<input ref={inputRef} />"
+      },
+      {
+        "title": "useMemo & useCallback",
+        "code": "const memoized = useMemo(\n  () => expensiveCalc(a, b), [a, b]\n);\n\nconst callback = useCallback(\n  () => doSomething(id), [id]\n);"
+      }
+    ]
+  },
+  {
+    "id": "sql-basics",
+    "title": "SQL Basics",
+    "category": "SQL",
+    "snippets": [
+      {
+        "title": "SELECT Queries",
+        "code": "SELECT * FROM users WHERE age > 18;\nSELECT name, email FROM users LIMIT 10;\nSELECT COUNT(*) FROM orders;"
+      },
+      {
+        "title": "INSERT / UPDATE / DELETE",
+        "code": "INSERT INTO users (name, email) \nVALUES ('John', 'john@mail.com');\n\nUPDATE users SET name = 'Jane' WHERE id = 1;\n\nDELETE FROM users WHERE id = 1;"
+      },
+      {
+        "title": "JOINs",
+        "code": "SELECT u.name, o.total\nFROM users u\nINNER JOIN orders o ON u.id = o.user_id;\n\nLEFT JOIN  -- All from left table\nRIGHT JOIN -- All from right table"
+      },
+      {
+        "title": "GROUP BY & ORDER",
+        "code": "SELECT category, COUNT(*) as count\nFROM products\nGROUP BY category\nHAVING count > 5\nORDER BY count DESC;"
+      }
+    ]
+  },
+  {
+    "id": "git-commands",
+    "title": "Git Commands",
+    "category": "Git",
+    "snippets": [
+      {
+        "title": "Basic Commands",
+        "code": "git init                 # Initialize repo\ngit clone <url>          # Clone repo\ngit status               # Check status\ngit add .                # Stage all changes\ngit commit -m \"message\"  # Commit"
+      },
+      {
+        "title": "Branching",
+        "code": "git branch               # List branches\ngit branch feature       # Create branch\ngit checkout feature     # Switch branch\ngit checkout -b feature  # Create & switch\ngit merge feature        # Merge into current"
+      },
+      {
+        "title": "Remote Operations",
+        "code": "git remote add origin <url>\ngit push -u origin main\ngit pull origin main\ngit fetch                # Download without merge"
+      },
+      {
+        "title": "Undo Changes",
+        "code": "git checkout -- file     # Discard changes\ngit reset HEAD file      # Unstage file\ngit reset --soft HEAD~1  # Undo last commit\ngit stash                # Stash changes\ngit stash pop            # Apply stash"
+      }
+    ]
+  },
+  {
+    "id": "python-basics",
+    "title": "Python Basics",
+    "category": "Python",
+    "snippets": [
+      {
+        "title": "Variables & Types",
+        "code": "name = \"John\"        # String\nage = 25             # Integer\nprice = 19.99        # Float\nis_active = True     # Boolean\nitems = [1, 2, 3]    # List\nperson = {'name': 'John'}  # Dict"
+      },
+      {
+        "title": "Functions",
+        "code": "def greet(name, greeting=\"Hello\"):\n    return f\"{greeting}, {name}!\"\n\n# Lambda\nsquare = lambda x: x ** 2"
+      },
+      {
+        "title": "List Comprehensions",
+        "code": "squares = [x**2 for x in range(10)]\nevens = [x for x in nums if x % 2 == 0]\ndict_comp = {k: v for k, v in items}"
+      },
+      {
+        "title": "File Operations",
+        "code": "with open('file.txt', 'r') as f:\n    content = f.read()\n\nwith open('file.txt', 'w') as f:\n    f.write('Hello')"
+      }
+    ]
+  }
+]

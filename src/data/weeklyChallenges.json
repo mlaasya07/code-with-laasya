@@ -1,0 +1,24 @@
+{
+  "id": "weekly-2025-12-08",
+  "title": "Build a Todo App with Local Storage",
+  "description": "Create a functional todo list that saves data to localStorage. Include add, complete, and delete functionality.",
+  "category": "JavaScript",
+  "difficulty": "Intermediate",
+  "xpReward": 100,
+  "bonusXP": 50,
+  "bonusCondition": "Add a filter feature (All/Active/Completed)",
+  "requirements": [
+    "Add new todos with input field",
+    "Mark todos as complete/incomplete",
+    "Delete individual todos",
+    "Persist data in localStorage",
+    "Clear completed button"
+  ],
+  "hints": [
+    "Use an array of objects: { id, text, completed }",
+    "JSON.stringify() to save, JSON.parse() to load",
+    "Use event delegation for dynamic todo items"
+  ],
+  "starterCode": "<!-- HTML -->\n<div class=\"todo-app\">\n  <h1>My Todos</h1>\n  <input type=\"text\" id=\"todoInput\" placeholder=\"What needs to be done?\">\n  <button id=\"addBtn\">Add</button>\n  <ul id=\"todoList\"></ul>\n</div>",
+  "expiresAt": "2025-12-15"
+}

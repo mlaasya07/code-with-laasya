@@ -79,7 +79,8 @@ const Footer = () => {
             >
               <Linkedin className="w-5 h-5" />
             </a>
-            <a
+
+            {/* <a
               href="https://instagram.com/mlaasya_05"
               target="_blank"
               rel="noopener noreferrer"
@@ -87,7 +88,7 @@ const Footer = () => {
               aria-label="Instagram"
             >
               <Instagram className="w-5 h-5" />
-            </a>
+            </a> */}
             <a
               href="mailto:mlaasy16@gmail.com"
               className="text-muted-foreground hover:text-primary transition-colors"

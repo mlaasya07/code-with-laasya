@@ -1,0 +1,146 @@
+[
+  {
+    "id": "js-1",
+    "category": "JavaScript",
+    "front": "What is the difference between == and ===?",
+    "back": "== checks for equality with type coercion, while === checks for strict equality (both value and type must match)"
+  },
+  {
+    "id": "js-2",
+    "category": "JavaScript",
+    "front": "What does 'hoisting' mean in JavaScript?",
+    "back": "Hoisting is JavaScript's default behavior of moving declarations to the top of their scope before code execution"
+  },
+  {
+    "id": "js-3",
+    "category": "JavaScript",
+    "front": "What is a closure?",
+    "back": "A closure is a function that has access to its outer function's variables even after the outer function has returned"
+  },
+  {
+    "id": "js-4",
+    "category": "JavaScript",
+    "front": "What does Array.map() return?",
+    "back": "A new array with the results of calling a function on every element in the original array"
+  },
+  {
+    "id": "js-5",
+    "category": "JavaScript",
+    "front": "What is the purpose of 'use strict'?",
+    "back": "It enables strict mode, which catches common coding errors and prevents unsafe actions"
+  },
+  {
+    "id": "css-1",
+    "category": "CSS",
+    "front": "What is the CSS Box Model?",
+    "back": "Content → Padding → Border → Margin. Every HTML element is a box with these four layers"
+  },
+  {
+    "id": "css-2",
+    "category": "CSS",
+    "front": "What's the difference between display: none and visibility: hidden?",
+    "back": "display: none removes the element from the document flow. visibility: hidden hides it but keeps the space"
+  },
+  {
+    "id": "css-3",
+    "category": "CSS",
+    "front": "What is Flexbox used for?",
+    "back": "Creating one-dimensional layouts (row or column) with easy alignment and distribution of space"
+  },
+  {
+    "id": "css-4",
+    "category": "CSS",
+    "front": "What is CSS Grid?",
+    "back": "A two-dimensional layout system that handles both rows and columns simultaneously"
+  },
+  {
+    "id": "css-5",
+    "category": "CSS",
+    "front": "What does 'position: relative' do?",
+    "back": "The element is positioned relative to its normal position. top/right/bottom/left offset from normal position"
+  },
+  {
+    "id": "html-1",
+    "category": "HTML",
+    "front": "What is semantic HTML?",
+    "back": "Using meaningful tags like <header>, <nav>, <article>, <section> instead of generic <div> elements"
+  },
+  {
+    "id": "html-2",
+    "category": "HTML",
+    "front": "What is the purpose of the <meta> viewport tag?",
+    "back": "It controls the page's dimensions and scaling on mobile devices for responsive design"
+  },
+  {
+    "id": "html-3",
+    "category": "HTML",
+    "front": "What does 'defer' do in a script tag?",
+    "back": "Loads the script in the background and executes it after the HTML is fully parsed"
+  },
+  {
+    "id": "html-4",
+    "category": "HTML",
+    "front": "What's the difference between <section> and <div>?",
+    "back": "<section> is semantic and represents a standalone section of content. <div> is generic with no meaning"
+  },
+  {
+    "id": "react-1",
+    "category": "React",
+    "front": "What is a React Hook?",
+    "back": "Functions that let you use state and lifecycle features in functional components (useState, useEffect, etc.)"
+  },
+  {
+    "id": "react-2",
+    "category": "React",
+    "front": "What is the Virtual DOM?",
+    "back": "A lightweight copy of the actual DOM that React uses to optimize updates by comparing and patching differences"
+  },
+  {
+    "id": "react-3",
+    "category": "React",
+    "front": "What is the purpose of useEffect?",
+    "back": "To handle side effects like API calls, subscriptions, and DOM manipulation in functional components"
+  },
+  {
+    "id": "react-4",
+    "category": "React",
+    "front": "What is props drilling?",
+    "back": "Passing props through multiple levels of components to reach a deeply nested child component"
+  },
+  {
+    "id": "python-1",
+    "category": "Python",
+    "front": "What is a list comprehension?",
+    "back": "A concise way to create lists: [expression for item in iterable if condition]"
+  },
+  {
+    "id": "python-2",
+    "category": "Python",
+    "front": "What's the difference between a list and a tuple?",
+    "back": "Lists are mutable (can be changed), tuples are immutable (cannot be changed after creation)"
+  },
+  {
+    "id": "sql-1",
+    "category": "SQL",
+    "front": "What is a PRIMARY KEY?",
+    "back": "A column or set of columns that uniquely identifies each row in a table. Cannot be NULL"
+  },
+  {
+    "id": "sql-2",
+    "category": "SQL",
+    "front": "What is the difference between INNER JOIN and LEFT JOIN?",
+    "back": "INNER JOIN returns only matching rows. LEFT JOIN returns all rows from left table plus matching rows from right"
+  },
+  {
+    "id": "git-1",
+    "category": "Git",
+    "front": "What is the difference between git merge and git rebase?",
+    "back": "merge creates a merge commit preserving history. rebase rewrites history by moving commits to a new base"
+  },
+  {
+    "id": "git-2",
+    "category": "Git",
+    "front": "What does git stash do?",
+    "back": "Temporarily saves uncommitted changes so you can switch branches, then apply them later with git stash pop"
+  }
+]

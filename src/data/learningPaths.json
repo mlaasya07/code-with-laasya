@@ -1,0 +1,167 @@
+[
+  {
+    "id": "frontend-basics",
+    "title": "Frontend Fundamentals",
+    "description": "Master the core building blocks of the web",
+    "icon": "Layout",
+    "color": "primary",
+    "steps": [
+      {
+        "title": "HTML Basics",
+        "description": "Learn the structure of web pages",
+        "link": "/archive/videos",
+        "xp": 20
+      },
+      {
+        "title": "CSS Styling",
+        "description": "Add colors, layouts, and style",
+        "link": "/archive/videos",
+        "xp": 25
+      },
+      {
+        "title": "JavaScript Intro",
+        "description": "Make your pages interactive",
+        "link": "/archive/videos",
+        "xp": 30
+      },
+      {
+        "title": "Build Your First Page",
+        "description": "Create a personal landing page",
+        "link": "/playground/ryc",
+        "xp": 50
+      }
+    ]
+  },
+  {
+    "id": "javascript-deep",
+    "title": "JavaScript Deep Dive",
+    "description": "Go beyond the basics of JavaScript",
+    "icon": "Braces",
+    "color": "secondary",
+    "steps": [
+      {
+        "title": "Functions & Scope",
+        "description": "Understand how functions work",
+        "link": "/archive/videos",
+        "xp": 25
+      },
+      {
+        "title": "Arrays & Objects",
+        "description": "Master data structures",
+        "link": "/archive/videos",
+        "xp": 25
+      },
+      {
+        "title": "Async JavaScript",
+        "description": "Promises, async/await, fetch",
+        "link": "/archive/videos",
+        "xp": 35
+      },
+      {
+        "title": "DOM Manipulation",
+        "description": "Control the page with JS",
+        "link": "/playground/ryc",
+        "xp": 40
+      }
+    ]
+  },
+  {
+    "id": "react-path",
+    "title": "React Essentials",
+    "description": "Build modern web applications",
+    "icon": "Atom",
+    "color": "accent",
+    "steps": [
+      {
+        "title": "Components & Props",
+        "description": "Building blocks of React",
+        "link": "/archive/videos",
+        "xp": 30
+      },
+      {
+        "title": "State & Events",
+        "description": "Make components interactive",
+        "link": "/archive/videos",
+        "xp": 30
+      },
+      {
+        "title": "Hooks Deep Dive",
+        "description": "useState, useEffect, and more",
+        "link": "/archive/videos",
+        "xp": 40
+      },
+      {
+        "title": "Build a React App",
+        "description": "Create a complete application",
+        "link": "/playground/ryc",
+        "xp": 75
+      }
+    ]
+  },
+  {
+    "id": "debugging-path",
+    "title": "Debugging Mastery",
+    "description": "Become a bug-hunting expert",
+    "icon": "Bug",
+    "color": "destructive",
+    "steps": [
+      {
+        "title": "Console Basics",
+        "description": "Use console.log effectively",
+        "link": "/ragebait/tips",
+        "xp": 15
+      },
+      {
+        "title": "DevTools Mastery",
+        "description": "Browser developer tools",
+        "link": "/ragebait/tips",
+        "xp": 25
+      },
+      {
+        "title": "Common Error Types",
+        "description": "Understand error messages",
+        "link": "/ragebait/errors",
+        "xp": 30
+      },
+      {
+        "title": "Bug Hunting Practice",
+        "description": "Fix 10 real bugs",
+        "link": "/playground/bugskill",
+        "xp": 50
+      }
+    ]
+  },
+  {
+    "id": "database-basics",
+    "title": "Database Fundamentals",
+    "description": "Store and retrieve data like a pro",
+    "icon": "Database",
+    "color": "muted",
+    "steps": [
+      {
+        "title": "SQL Basics",
+        "description": "SELECT, INSERT, UPDATE, DELETE",
+        "link": "/playground/ryq",
+        "xp": 25
+      },
+      {
+        "title": "Joins & Relations",
+        "description": "Connect multiple tables",
+        "link": "/playground/ryq",
+        "xp": 30
+      },
+      {
+        "title": "Advanced Queries",
+        "description": "GROUP BY, HAVING, subqueries",
+        "link": "/playground/ryq",
+        "xp": 35
+      },
+      {
+        "title": "Database Design",
+        "description": "Schema and normalization",
+        "link": "/archive/videos",
+        "xp": 40
+      }
+    ]
+  }
+]

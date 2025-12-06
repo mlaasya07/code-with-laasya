@@ -1,0 +1,122 @@
+[
+  {
+    "id": "js-1",
+    "category": "JavaScript",
+    "difficulty": "Easy",
+    "question": "What is the difference between null and undefined?",
+    "answer": "undefined means a variable has been declared but not assigned a value. null is an intentional absence of value, explicitly assigned by the programmer.",
+    "followUp": "When would you use each? What does typeof null return?"
+  },
+  {
+    "id": "js-2",
+    "category": "JavaScript",
+    "difficulty": "Medium",
+    "question": "Explain event bubbling and event capturing",
+    "answer": "Event bubbling is when an event propagates from the target element up to the root. Event capturing is the opposite - from root down to target. Use addEventListener's third parameter (true) for capturing phase.",
+    "followUp": "How do you stop propagation? What is event delegation?"
+  },
+  {
+    "id": "js-3",
+    "category": "JavaScript",
+    "difficulty": "Medium",
+    "question": "What is the difference between call, apply, and bind?",
+    "answer": "call() invokes function with given 'this' and arguments separately. apply() is similar but arguments as array. bind() returns a new function with bound 'this' value.",
+    "followUp": "When would you use bind over an arrow function?"
+  },
+  {
+    "id": "js-4",
+    "category": "JavaScript",
+    "difficulty": "Hard",
+    "question": "Explain the JavaScript Event Loop",
+    "answer": "The event loop continuously checks if the call stack is empty, then moves callbacks from the callback queue to the stack. Microtasks (Promises) have priority over macrotasks (setTimeout).",
+    "followUp": "What's the difference between microtask and macrotask queue?"
+  },
+  {
+    "id": "react-1",
+    "category": "React",
+    "difficulty": "Easy",
+    "question": "What is the difference between props and state?",
+    "answer": "Props are passed from parent to child and are read-only. State is managed within a component and can be updated, causing re-renders.",
+    "followUp": "When should you lift state up?"
+  },
+  {
+    "id": "react-2",
+    "category": "React",
+    "difficulty": "Medium",
+    "question": "Why is the key prop important in lists?",
+    "answer": "Keys help React identify which items have changed, been added, or removed. Using unique, stable keys improves performance by minimizing DOM operations during reconciliation.",
+    "followUp": "Why shouldn't you use array index as a key?"
+  },
+  {
+    "id": "react-3",
+    "category": "React",
+    "difficulty": "Medium",
+    "question": "Explain the useEffect cleanup function",
+    "answer": "The cleanup function runs before the component unmounts or before the effect runs again. It's used to prevent memory leaks by cleaning up subscriptions, timers, or event listeners.",
+    "followUp": "When exactly does the cleanup function run?"
+  },
+  {
+    "id": "react-4",
+    "category": "React",
+    "difficulty": "Hard",
+    "question": "How does React's reconciliation algorithm work?",
+    "answer": "React uses a diffing algorithm to compare the new virtual DOM with the previous one. It assumes elements of different types produce different trees and uses keys to match children.",
+    "followUp": "What are React Fiber and concurrent rendering?"
+  },
+  {
+    "id": "css-1",
+    "category": "CSS",
+    "difficulty": "Easy",
+    "question": "What is the CSS Box Model?",
+    "answer": "Every element is a box with content, padding, border, and margin layers. box-sizing: border-box includes padding and border in the element's total width/height.",
+    "followUp": "How does box-sizing affect layout calculations?"
+  },
+  {
+    "id": "css-2",
+    "category": "CSS",
+    "difficulty": "Medium",
+    "question": "Explain CSS specificity",
+    "answer": "Specificity determines which CSS rule applies when multiple rules match. Order: inline styles > IDs > classes/attributes > elements. More specific selectors override less specific ones.",
+    "followUp": "How does !important affect specificity?"
+  },
+  {
+    "id": "html-1",
+    "category": "HTML",
+    "difficulty": "Easy",
+    "question": "What is semantic HTML and why is it important?",
+    "answer": "Semantic HTML uses meaningful tags like <header>, <nav>, <article> instead of generic <div>. It improves accessibility, SEO, and code readability.",
+    "followUp": "Give examples of semantic vs non-semantic elements."
+  },
+  {
+    "id": "html-2",
+    "category": "HTML",
+    "difficulty": "Medium",
+    "question": "Explain the difference between localStorage and sessionStorage",
+    "answer": "localStorage persists data indefinitely until cleared. sessionStorage data is cleared when the browser tab closes. Both store data as strings with ~5MB limit.",
+    "followUp": "What are the security considerations for each?"
+  },
+  {
+    "id": "general-1",
+    "category": "General",
+    "difficulty": "Medium",
+    "question": "What is REST and what are RESTful APIs?",
+    "answer": "REST is an architectural style using HTTP methods (GET, POST, PUT, DELETE) for stateless communication. RESTful APIs follow REST principles with resource-based URLs.",
+    "followUp": "What's the difference between REST and GraphQL?"
+  },
+  {
+    "id": "general-2",
+    "category": "General",
+    "difficulty": "Easy",
+    "question": "What is version control and why is it important?",
+    "answer": "Version control tracks changes to code over time, enabling collaboration, history tracking, branching, and reverting. Git is the most popular version control system.",
+    "followUp": "Explain the difference between Git and GitHub."
+  },
+  {
+    "id": "general-3",
+    "category": "General",
+    "difficulty": "Hard",
+    "question": "Explain the concept of CORS",
+    "answer": "Cross-Origin Resource Sharing is a security mechanism that restricts web pages from making requests to different domains. Servers must include proper headers to allow cross-origin requests.",
+    "followUp": "What headers are involved? How do preflight requests work?"
+  }
+]
