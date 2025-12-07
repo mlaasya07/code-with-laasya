@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible';
 import { ChevronDown } from 'lucide-react';
-import interviewData from '@/data/interviewQuestions.json';
+import interviewData from '@/data/InterviewQuestions.json';
 
 export default function InterviewPrep() {
   const [category, setCategory] = useState('All');
