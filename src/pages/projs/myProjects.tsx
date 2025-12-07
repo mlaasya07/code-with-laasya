@@ -2,14 +2,14 @@
 
 import { ExternalLink, Github, Tag } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import arcadexDesktop from "@/assets/projects/arcadex-desktop.png";
-import astroraidsDesktop from "@/assets/projects/astroraids-desktop.jpg";
-import battleshipDesktop from "@/assets/projects/battleship-desktop.jpg";
-import gibberishDesktop from "@/assets/projects/gibberish-desktop.jpg";
-import retrosnakeDesktop from "@/assets/projects/retrosnake-desktop.jpg";
-import sealyaDesktop from "@/assets/projects/sealya-desktop.png";
-import sophistDesktop from "@/assets/projects/sophist-desktop.jpg";
-import poetryDesktop from "@/assets/projects/poetry-desktop.png";
+import arcadexDesktop from "@/assets/arcadex-desktop.png";
+import astroraidsDesktop from "@/assets/astroraids-desktop.jpg";
+import battleshipDesktop from "@/assets/battleship-desktop.jpg";
+import gibberishDesktop from "@/assets/gibberish-desktop.jpg";
+import retrosnakeDesktop from "@/assets/retrosnake-desktop.jpg";
+import sealyaDesktop from "@/assets/sealya-desktop.png";
+import sophistDesktop from "@/assets/sophist-desktop.jpg";
+import poetryDesktop from "@/assets/poetry-desktop.png";
 
 const projectCategories = [
   {
@@ -19,7 +19,7 @@ const projectCategories = [
       {
         id: 1,
         title: "PAGE-R",
-        description: "A page study tool...",
+        description: "A study buddy for medical students...",
         tags: ["React", "AI assistant", "Data Analysis"],
         image: "/page-r.png",
         liveDemo: null,

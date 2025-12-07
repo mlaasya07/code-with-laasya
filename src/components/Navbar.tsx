@@ -43,8 +43,8 @@ const Navbar = ({ onSearchOpen }: NavbarProps) => {
       label: "PROJECTS",
       path: null,
       submenu: [
-        { label: "Projects", path: "/projects/myprojects" },
-        { label: "Mini Projects", path: "/projects/miniprojects" },
+        { label: "Projects", path: "/projs/myprojects" },
+        { label: "Mini Projects", path: "/projs/miniprojects" },
       ],
     },
     {

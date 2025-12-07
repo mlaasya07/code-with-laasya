@@ -1,4 +1,4 @@
-// src/pages/projects/MiniProjects.tsx
+// src/pages/projs/MiniProjects.tsx
 import { useState } from "react";
 import { Video } from "lucide-react";
 import { Button } from "@/components/ui/button";
