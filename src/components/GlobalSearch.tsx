@@ -24,7 +24,7 @@ const searchableItems = [
   { title: 'My Projects', path: '/projects/myprojects', category: 'Projects' },
   { title: 'Mini Projects', path: '/projects/miniprojects', category: 'Projects' },
   { title: 'Profile', path: '/profile', category: 'Profile' },
-  ...toolsData.map(t => ({ title: t.name, path: '/playground/tooltime', category: 'Tool' })),
+  ...toolsData.map(t => ({ title: t.title, path: '/playground/tooltime', category: 'Tool' })),
   ...flashcardsData.map(f => ({ title: f.front.slice(0, 50), path: '/learn/flashcards', category: f.category })),
 ];
 

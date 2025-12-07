@@ -3,10 +3,11 @@ import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Textarea } from '@/components/ui/textarea';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { storage } from '@/utils/localStorage';
-import { Code2, Play, RotateCcw, Save, FileCode, FileType, Braces, ExternalLink } from 'lucide-react';
+import { Code2, Play, RotateCcw, Save, FileCode, FileType, Braces, ExternalLink, Keyboard } from 'lucide-react';
 import { toast } from '@/hooks/use-toast';
-
+import codeTemplates from '@/data/codeTemplates.json';
 const DEFAULT_HTML = `<!DOCTYPE html>
 <html>
 <head>
@@ -205,6 +206,42 @@ export default function Practice() {
     setFiles(prev => ({ ...prev, [type]: value }));
   };
 
+  const loadTemplate = (templateId: string) => {
+    const template = codeTemplates.find(t => t.id === templateId);
+    if (template) {
+      setFiles({
+        html: template.html,
+        css: template.css,
+        js: template.js,
+      });
+      toast({
+        title: `Template loaded: ${template.name}`,
+        description: template.description,
+        duration: 2000,
+      });
+    }
+  };
+
+  // Keyboard shortcuts
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if ((e.metaKey || e.ctrlKey) && e.key === 's') {
+        e.preventDefault();
+        handleSave();
+      }
+      if ((e.metaKey || e.ctrlKey) && e.key === 'Enter') {
+        e.preventDefault();
+        handleRun();
+      }
+      if ((e.metaKey || e.ctrlKey) && e.shiftKey && e.key === 'R') {
+        e.preventDefault();
+        handleReset();
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [files]);
+
   const getTabIcon = (tab: string) => {
     switch (tab) {
       case 'html': return <FileCode className="w-4 h-4" />;
@@ -229,7 +266,7 @@ export default function Practice() {
         </div>
 
         {/* Action Buttons */}
-        <div className="flex gap-2 mb-6 flex-wrap">
+        <div className="flex gap-2 mb-6 flex-wrap items-center">
           <Button onClick={handleRun} size="lg">
             <Play className="w-4 h-4 mr-2" />
             Run Code
@@ -245,6 +282,20 @@ export default function Practice() {
             <RotateCcw className="w-4 h-4 mr-2" />
             Reset
           </Button>
+          <div className="ml-auto">
+            <Select onValueChange={loadTemplate}>
+              <SelectTrigger className="w-[180px]">
+                <SelectValue placeholder="Load Template" />
+              </SelectTrigger>
+              <SelectContent>
+                {codeTemplates.map(template => (
+                  <SelectItem key={template.id} value={template.id}>
+                    {template.name}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+          </div>
         </div>
 
         {/* Editor - Full Width */}
@@ -297,19 +348,45 @@ export default function Practice() {
           </Tabs>
         </Card>
 
-        {/* Tips */}
-        <Card className="mt-6 p-6 bg-card/50 border-primary/30">
-          <h3 className="font-bold mb-2">💡 Playground Tips:</h3>
-          <ul className="list-disc list-inside space-y-1 text-sm text-muted-foreground">
-            <li>Write HTML, CSS, and JavaScript in separate tabs like a real project</li>
-            <li>Click "Run Code" to open preview in a new browser tab</li>
-            <li>Preview auto-updates as you type when the tab is open</li>
-            <li>CSS is automatically injected into the &lt;head&gt; tag</li>
-            <li>JavaScript runs at the end of the &lt;body&gt; tag</li>
-            <li>Use console.log() for debugging (check browser console with F12)</li>
-            <li>Your code is saved in localStorage - safe even after closing browser</li>
-          </ul>
-        </Card>
+        {/* Tips & Keyboard Shortcuts */}
+        <div className="grid md:grid-cols-2 gap-6 mt-6">
+          <Card className="p-6 bg-card/50 border-primary/30">
+            <h3 className="font-bold mb-2">💡 Playground Tips:</h3>
+            <ul className="list-disc list-inside space-y-1 text-sm text-muted-foreground">
+              <li>Write HTML, CSS, and JavaScript in separate tabs like a real project</li>
+              <li>Click "Run Code" to open preview in a new browser tab</li>
+              <li>Preview auto-updates as you type when the tab is open</li>
+              <li>CSS is automatically injected into the &lt;head&gt; tag</li>
+              <li>JavaScript runs at the end of the &lt;body&gt; tag</li>
+              <li>Use console.log() for debugging (check browser console with F12)</li>
+              <li>Your code is saved in localStorage - safe even after closing browser</li>
+            </ul>
+          </Card>
+          <Card className="p-6 bg-card/50 border-primary/30">
+            <h3 className="font-bold mb-2 flex items-center gap-2">
+              <Keyboard className="w-4 h-4" />
+              Keyboard Shortcuts:
+            </h3>
+            <ul className="space-y-2 text-sm text-muted-foreground">
+              <li className="flex items-center gap-2">
+                <kbd className="px-2 py-1 bg-muted rounded text-xs font-mono">Ctrl/⌘ + S</kbd>
+                <span>Save Progress</span>
+              </li>
+              <li className="flex items-center gap-2">
+                <kbd className="px-2 py-1 bg-muted rounded text-xs font-mono">Ctrl/⌘ + Enter</kbd>
+                <span>Run Code</span>
+              </li>
+              <li className="flex items-center gap-2">
+                <kbd className="px-2 py-1 bg-muted rounded text-xs font-mono">Ctrl/⌘ + Shift + R</kbd>
+                <span>Reset All Files</span>
+              </li>
+              <li className="flex items-center gap-2">
+                <kbd className="px-2 py-1 bg-muted rounded text-xs font-mono">Ctrl/⌘ + K</kbd>
+                <span>Global Search (anywhere)</span>
+              </li>
+            </ul>
+          </Card>
+        </div>
       </div>
     </div>
   );

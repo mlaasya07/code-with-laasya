@@ -3,38 +3,43 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { toast } from "sonner";
 import { Lightbulb } from "lucide-react";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import GlobalSearch from "./components/GlobalSearch";
+import { useStreakCheck } from "./components/StreakToast";
 import Home from "./pages/Home";
-import Projects from "./pages/Projects/myProjects";
+import Projects from "./pages/projects/myProjects";
 import VideoZone from "./pages/archive/VideoZone";
 import PDFs from "./pages/archive/PDFs";
 import RYC from "./pages/playground/RYC";
 import RYQ from "./pages/playground/RYQ";
 import ErrorLogs from "./pages/ragebait/ErrorLogs";
 import DevLibrary from "./pages/archive/DevLibrary";
-import Tips from "./pages/ragebait/T4";
+import T4 from "./pages/ragebait/T4";
 import dailyBytesData from "./data/dailyBytes.json";
+import didYouKnowData from "./data/didYouKnow.json";
 import NotFound from "./pages/NotFound";
 import BuildWithMe from "./pages/playground/BuildWithMe";
 import ToolTime from "./pages/playground/ToolTime";
 import ByteRush from "./pages/playground/ByteRush";
 import BugsKill from "./pages/playground/BugsKill";
-import MiniProjects from "./pages/Projects/MiniProjects";
+import MiniProjects from "./pages/projects/MiniProjects";
 import Profile from "./pages/Profile";
-import InterviewQuestions from "./pages/learn/InterviewPrep";
 import Flashcards from "./pages/learn/Flashcards";
-import LearningPath from "./pages/learn/LearningPath";
+import CheatSheets from "./pages/learn/CheatSheets";
+import InterviewPrep from "./pages/learn/InterviewPrep";
+import LearningPaths from "./pages/learn/LearningPaths";
 
 const queryClient = new QueryClient();
 
-
 const AppContent = () => {
+  const [searchOpen, setSearchOpen] = useState(false);
+  useStreakCheck();
+
   useEffect(() => {
-    // Show Daily Byte on app load
     const randomByte = dailyBytesData[Math.floor(Math.random() * dailyBytesData.length)];
     toast(
       <div className="flex items-start gap-3">
@@ -44,36 +49,50 @@ const AppContent = () => {
           <div className="text-sm text-muted-foreground">{randomByte}</div>
         </div>
       </div>,
-      {
-        duration: 6000,
-        position: "top-center",
-      }
+      { duration: 6000, position: "top-center" }
     );
+
+    // Did You Know fact after delay
+    setTimeout(() => {
+      const fact = didYouKnowData[Math.floor(Math.random() * didYouKnowData.length)];
+      toast(
+        <div className="flex items-start gap-3">
+          <span className="text-lg">💡</span>
+          <div>
+            <div className="font-bold text-sm mb-1">Did You Know?</div>
+            <div className="text-sm text-muted-foreground">{fact}</div>
+          </div>
+        </div>,
+        { duration: 5000, position: "bottom-right" }
+      );
+    }, 10000);
   }, []);
 
   return (
     <div className="flex flex-col min-h-screen">
-      <Navbar />
+      <Navbar onSearchOpen={() => setSearchOpen(true)} />
+      <GlobalSearch open={searchOpen} onOpenChange={setSearchOpen} />
       <main className="flex-1">
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/archive/VideoZone" element={<VideoZone />} />
+          <Route path="/archive/videos" element={<VideoZone />} />
           <Route path="/archive/pdfs" element={<PDFs />} />
           <Route path="/archive/dev-library" element={<DevLibrary />} />
           <Route path="/playground/ryc" element={<RYC />} />
           <Route path="/playground/ryq" element={<RYQ />} />
           <Route path="/playground/buildwithme" element={<BuildWithMe />} />
-          <Route path="/learn/learningpath" element={<LearningPath />} />
-          <Route path="/learn/flashcards" element={<Flashcards />} />
-          <Route path="/learn/interviewprep" element={<InterviewQuestions />} />
           <Route path="/playground/tooltime" element={<ToolTime />} />
           <Route path="/playground/byterush" element={<ByteRush />} />
           <Route path="/playground/bugskill" element={<BugsKill />} />
           <Route path="/projects/myprojects" element={<Projects />} />
           <Route path="/projects/miniprojects" element={<MiniProjects />} />
           <Route path="/ragebait/errors" element={<ErrorLogs />} />
-          <Route path="/ragebait/t4" element={<Tips />} />
+          <Route path="/ragebait/tips" element={<T4 />} />
           <Route path="/profile" element={<Profile />} />
+          <Route path="/learn/flashcards" element={<Flashcards />} />
+          <Route path="/learn/cheatsheets" element={<CheatSheets />} />
+          <Route path="/learn/interview" element={<InterviewPrep />} />
+          <Route path="/learn/paths" element={<LearningPaths />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </main>

@@ -1,4 +1,60 @@
 # Code.With.Laasya - Complete Changelog
+## All notable changes to this project will be documented in this file.
+
+--- 
+
+## [2.1.0] - 07-12-2025
+
+### Added
+- **Gamification & Engagement**:
+  - Daily Streak System with visual counter and bonus XP milestones
+  - Achievement notifications with confetti animation (`StreakToast.tsx`)
+  - Weekly Challenge feature with special XP rewards
+  - "Did You Know?" random coding facts throughout the site
+
+- **Learning Experience**:
+  - **Flashcards Section** (`/learn/flashcards`) - Quick syntax/concept flashcards for spaced repetition
+  - **Cheat Sheets** (`/learn/cheatsheets`) - Interactive cheat sheets with copy-paste ready snippets
+  - **Interview Prep** (`/learn/interview`) - Common coding interview questions with explanations
+  - **Learning Paths** (`/learn/paths`) - Structured pathways (HTML → CSS → JS → React) with progress tracking
+  - **Code Templates in RYC** - Pre-built starter templates (Blank, Bootstrap, React, Tailwind, Animation)
+  - **Bookmark System** - Bookmark videos, PDFs, tools, and quizzes for quick access
+
+- **UI/UX Enhancements**:
+  - **Global Search** (Ctrl+K) - Search across videos, PDFs, tools, quizzes, and projects
+  - **Keyboard Shortcuts in RYC** - Ctrl+S to save, Ctrl+Enter to run, Ctrl+Shift+R to reset
+  - **LEARN section in Navbar** - New navigation category for learning resources
+
+- **Analytics & Stats**:
+  - **Activity Heatmap** - GitHub-style contribution calendar on Profile showing daily coding activity
+  - **Skill Radar Chart** - Visual breakdown of skills (Frontend, Backend, Debugging, Logic, Database, Tools)
+  - Streak tracking with 3-day, 7-day, 30-day milestones
+
+### New Files Created
+- src/components/GlobalSearch.tsx
+- src/components/StreakToast.tsx
+- src/components/ActivityHeatmap.tsx
+- src/components/SkillRadar.tsx
+- src/pages/learn/Flashcards.tsx
+- src/pages/learn/CheatSheets.tsx
+- src/pages/learn/InterviewPrep.tsx
+- src/pages/learn/LearningPaths.tsx
+- src/data/flashcards.json (50+ flashcards across categories)
+- src/data/cheatsheets.json (6 language cheat sheets)
+- src/data/interviewQuestions.json (30+ interview questions)
+- src/data/didYouKnow.json (20 coding facts)
+- src/data/learningPaths.json (4 structured paths)
+- src/data/weeklyChallenge.json
+- src/data/codeTemplates.json (5 starter templates)
+
+### Modified Files
+- src/utils/localStorage.ts - Added streak, bookmarks, skills, activity log functions
+- src/components/Navbar.tsx - Added LEARN section with dropdown
+- src/pages/Profile.tsx - Added Activity Heatmap and Skill Radar
+- src/pages/playground/RYC.tsx - Added keyboard shortcuts and template loader
+- src/App.tsx - Added new routes and global components
+
+---
 
 ## [2.0.3] - 05-12-2025
 

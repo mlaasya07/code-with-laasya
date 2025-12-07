@@ -1,8 +1,12 @@
 import { Link, useLocation } from "react-router-dom";
-import { Terminal, ChevronDown, User } from "lucide-react";
-import { useState } from "react";
+import { Terminal, ChevronDown, User, Search } from "lucide-react";
+import { useState, useEffect, useRef } from "react";
 
-const Navbar = () => {
+interface NavbarProps {
+  onSearchOpen?: () => void;
+}
+
+const Navbar = ({ onSearchOpen }: NavbarProps) => {
   const location = useLocation();
 
   const navItems = [
@@ -10,18 +14,9 @@ const Navbar = () => {
       label: "ARCHIVE",
       path: null,
       submenu: [
-        { label: "VideoZone", path: "/archive/VideoZone"},
+        { label: "VideoZone", path: "/archive/videos" },
         { label: "PDFs & PPTs", path: "/archive/pdfs" },
         { label: "Dev Library", path: "/archive/dev-library" },
-      ],
-    },
-    {
-      label: "LEARN",
-      path: null,
-      submenu: [
-       { label: "Learning Paths", path: "/learn/learningpath" },
-       { label: "Flashcards", path: "/learn/flashcards" },
-       { label: "Interview Questions", path: "/learn/interviewprep" },
       ],
     },
     {
@@ -32,6 +27,16 @@ const Navbar = () => {
         { label: "ToolTime", path: "/playground/tooltime" },
         { label: "ByteRush", path: "/playground/byterush" },
         { label: "BugsKill", path: "/playground/bugskill" },
+      ],
+    },
+    {
+      label: "LEARN",
+      path: null,
+      submenu: [
+        { label: "Flashcards", path: "/learn/flashcards" },
+        { label: "Cheat Sheets", path: "/learn/cheatsheets" },
+        { label: "Interview Prep", path: "/learn/interview" },
+        { label: "Learning Paths", path: "/learn/paths" },
       ],
     },
     {
@@ -47,13 +52,31 @@ const Navbar = () => {
       path: null,
       submenu: [
         { label: "Error Log", path: "/ragebait/errors" },
-        { label: "T⁴: Tips, Tricks, Tech & Tools", path: "/ragebait/t4" },
+        { label: "T⁴: Tips, Tricks, Tech & Tools", path: "/ragebait/tips" },
       ],
     },
   ];
 
   const [openMenu, setOpenMenu] = useState<string | null>(null);
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
+  const mobileNavRef = useRef<HTMLDivElement>(null);
+
+  // Close mobile nav when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        mobileNavOpen &&
+        mobileNavRef.current &&
+        !mobileNavRef.current.contains(event.target as Node)
+      ) {
+        setMobileNavOpen(false);
+        setOpenMenu(null);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, [mobileNavOpen]);
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border">
@@ -125,7 +148,7 @@ const Navbar = () => {
         </div>
 
         {/* Mobile & Small Tablet Layout (below md) */}
-        <div className="md:hidden bg-background">
+        <div ref={mobileNavRef} className="md:hidden bg-background">
           {/* Header Row: Logo + Profile */}
           <div className="flex items-center justify-between">
             {/* Logo Button */}
