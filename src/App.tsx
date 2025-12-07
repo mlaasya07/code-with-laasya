@@ -11,7 +11,7 @@ import Footer from "./components/Footer";
 import GlobalSearch from "./components/GlobalSearch";
 import { useStreakCheck } from "./components/StreakToast";
 import Home from "./pages/Home";
-import Projects from "./pages/projects/myProjects";
+import Projects from "./pages/projs/myProjects";
 import VideoZone from "./pages/archive/VideoZone";
 import PDFs from "./pages/archive/PDFs";
 import RYC from "./pages/playground/RYC";
@@ -26,12 +26,12 @@ import BuildWithMe from "./pages/playground/BuildWithMe";
 import ToolTime from "./pages/playground/ToolTime";
 import ByteRush from "./pages/playground/ByteRush";
 import BugsKill from "./pages/playground/BugsKill";
-import MiniProjects from "./pages/projects/MiniProjects";
+import MiniProjects from "./pages/projs/MiniProjects";
 import Profile from "./pages/Profile";
 import Flashcards from "./pages/learn/Flashcards";
 import CheatSheets from "./pages/learn/CheatSheets";
 import InterviewPrep from "./pages/learn/InterviewPrep";
-import LearningPaths from "./pages/learn/LearningPaths";
+import LearningPath from "./pages/learn/LearningPath";
 
 const queryClient = new QueryClient();
 
@@ -84,15 +84,15 @@ const AppContent = () => {
           <Route path="/playground/tooltime" element={<ToolTime />} />
           <Route path="/playground/byterush" element={<ByteRush />} />
           <Route path="/playground/bugskill" element={<BugsKill />} />
-          <Route path="/projects/myprojects" element={<Projects />} />
-          <Route path="/projects/miniprojects" element={<MiniProjects />} />
+          <Route path="/projs/myprojects" element={<Projects />} />
+          <Route path="/projs/miniprojects" element={<MiniProjects />} />
           <Route path="/ragebait/errors" element={<ErrorLogs />} />
           <Route path="/ragebait/tips" element={<T4 />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/learn/flashcards" element={<Flashcards />} />
           <Route path="/learn/cheatsheets" element={<CheatSheets />} />
           <Route path="/learn/interview" element={<InterviewPrep />} />
-          <Route path="/learn/paths" element={<LearningPaths />} />
+          <Route path="/learn/paths" element={<LearningPath />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </main>
